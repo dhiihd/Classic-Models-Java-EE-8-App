@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1440.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.classicmodels.javafx.controller.CustomersController">
+    <stylesheets>
+        <URL value="@/styles/customersfxml.css" />
+    </stylesheets>
+   <children>
+      <Label fx:id="customerNumberLabel" layoutX="67.0" layoutY="63.0" text="Customer Number" />
+      <MFXTextField fx:id="customerNumberTextField" layoutX="218.0" layoutY="47.0" prefHeight="25.0" prefWidth="469.0" promptText="Customer Number" />
+      <Label fx:id="customerNameLabel" layoutX="65.0" layoutY="114.0" text="Customer Name" />
+      <MFXTextField fx:id="customerNameTextField" layoutX="218.0" layoutY="98.0" prefHeight="25.0" prefWidth="469.0" promptText="Customer Name" />
+      <Label fx:id="contactFirstNameLabel" layoutX="69.0" layoutY="163.0" text="Contact First Name" />
+      <MFXTextField fx:id="contactFirstNameTextField" layoutX="218.0" layoutY="147.0" prefHeight="25.0" prefWidth="469.0" promptText="Contact First Name" />
+      <Label fx:id="contactLastNameLabel" layoutX="70.0" layoutY="215.0" text="Contact Last Name" />
+      <MFXTextField fx:id="contactLastNameTextField" layoutX="218.0" layoutY="199.0" prefHeight="25.0" prefWidth="469.0" promptText="Contact Last Name" />
+      <Label fx:id="phoneLabel" layoutX="73.0" layoutY="270.0" text="Phone" />
+      <MFXTextField fx:id="phoneTextField" layoutX="218.0" layoutY="254.0" prefHeight="25.0" prefWidth="469.0" promptText="Phone" />
+      <Label fx:id="addressLine1Label" layoutX="69.0" layoutY="330.0" text="Address Line 1" />
+      <MFXTextField fx:id="addressLine1TextField" layoutX="218.0" layoutY="314.0" prefHeight="25.0" prefWidth="469.0" promptText="Address Line 1" />
+      <Label fx:id="addressLine2Label" layoutX="69.0" layoutY="385.0" text="Address Line 2" />
+      <MFXTextField fx:id="addressLine2TextField" layoutX="218.0" layoutY="369.0" prefHeight="25.0" prefWidth="469.0" promptText="Address Line 2" />
+      <Label fx:id="cityLabel" layoutX="69.0" layoutY="449.0" text="City" />
+      <MFXTextField fx:id="cityTextField" layoutX="218.0" layoutY="424.0" prefHeight="25.0" prefWidth="469.0" promptText="City" />
+      <Label fx:id="stateLabel" layoutX="65.0" layoutY="496.0" prefHeight="17.0" prefWidth="51.0" text="State" />
+      <MFXTextField fx:id="stateTextField" layoutX="218.0" layoutY="480.0" prefHeight="25.0" prefWidth="469.0" promptText="State" />
+      <Label fx:id="postalCodeLabel" layoutX="64.0" layoutY="547.0" prefHeight="25.0" prefWidth="78.0" text="Postal Code" />
+      <MFXTextField fx:id="postalCodeTextField" layoutX="218.0" layoutY="535.0" prefHeight="25.0" prefWidth="469.0" promptText="Postal Code" />
+      <Label fx:id="countryLabel" layoutX="64.0" layoutY="603.0" prefHeight="25.0" prefWidth="78.0" text="Country" />
+      <MFXTextField fx:id="countryTextField" layoutX="218.0" layoutY="591.0" prefHeight="25.0" prefWidth="469.0" promptText="Country" />
+      <Label fx:id="countryLabel1" layoutX="64.0" layoutY="660.0" prefHeight="25.0" prefWidth="78.0" text="Credit Limit" />
+      <MFXTextField fx:id="creditLimitTextField" layoutX="218.0" layoutY="648.0" prefHeight="25.0" prefWidth="469.0" promptText="Credit Limit" />
+     <!--    <Button fx:id="editCustomers" layoutX="545.0" layoutY="735.0" mnemonicParsing="false" onAction="#editCustomers" text="Edit Customers" />
+        <Button fx:id="deleteCustomers" layoutX="645.0" layoutY="735.0" mnemonicParsing="false" onAction="#deleteCustomers" text="Delete Customers" />
+                
+                        -->
+        <GridPane alignment="CENTER" hgap="10.0" layoutX="838.0" layoutY="260.0" prefHeight="267.0" prefWidth="462.0" vgap="10.0" AnchorPane.leftAnchor="838.0" AnchorPane.rightAnchor="140.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnAddCustomers" contentDisplay="TOP" mnemonicParsing="false" onAction="#addCustomers" prefHeight="145.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css" text="Add Customers">
+               <graphic>
+                  <FontAwesomeIconView fill="#0A3161" glyphName="USERS" size="50" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="135.0" prefWidth="267.0" stylesheets="@../css/fullpackstyling.css" text="Offices" GridPane.columnIndex="1">
+               <graphic>
+                  <FontAwesomeIconView fill="#0A3161" glyphName="AMBULANCE" size="50" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnUpdate" contentDisplay="TOP" mnemonicParsing="false" prefHeight="136.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css" text="Payments" GridPane.rowIndex="1">
+               <graphic>
+                  <FontAwesomeIconView fill="#0A3161" glyphName="EXCHANGE" size="50" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnFindCustomers" contentDisplay="TOP" mnemonicParsing="false" onAction="#findCustomers" prefHeight="135.0" prefWidth="263.0" stylesheets="@../css/fullpackstyling.css" text="Find Customers" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <graphic>
+                  <FontAwesomeIconView fill="#0A3161" glyphName="USER_TIMES" size="50" />
+               </graphic>
+            </Button>
+         </children>
+      </GridPane>
+      
+   </children>
+</AnchorPane>

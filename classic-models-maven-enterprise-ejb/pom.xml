@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>classic.models.maven.enterprise</groupId>
+    <artifactId>classic-models-maven-enterprise-ejb</artifactId>
+    <version>1.0-RELEASE</version>
+    <packaging>ejb</packaging>
+    <parent>
+        <groupId>classic.models.maven.enterprise</groupId>
+        <artifactId>classic-models-maven-enterprise</artifactId>
+        <version>1.0-RELEASE</version>
+      
+    </parent>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <mapstruct.vesion>1.5.3.Final</mapstruct.vesion>
+        <version.javaee-api>8.0.2</version.javaee-api>
+    </properties>
+
+    <name>Classic Models Java EE 8 EJB</name>
+     <description>Classic Models Java EE 8 EJB</description>
+    <url>http://rhuanrocha.net/</url>
+    <dependencies>
+         
+        <dependency>
+            <groupId>classic-models-maven-enterprise</groupId>
+            <artifactId>classic-models-maven-enterprise-lib</artifactId>
+            <version>1.0-RELEASE</version>
+            <type>jar</type>
+        </dependency>
+       
+   
+        
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.3.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.5.3.Final</version>
+            <!-- <scope>provided</scope> -->
+        </dependency>      
+       
+    </dependencies>
+    
+    <build>
+        <plugins>
+            
+         
+          
+           <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <ejbVersion>3.2</ejbVersion>
+                    <generateClient>true</generateClient>
+                    <clientIncludes>
+                        <!-- this will exclude all files under com/example -->
+                        <clientInclude>com/classicmodels/statelessejb/remote/*</clientInclude>
+                     <!--   <clientInclude>com/classicmodels/statelessejb/*</clientInclude> -->
+                     
+                        <!-- this will exclude all files and directories with the name
+                        sparrow under com/jack -->
+                    </clientIncludes>
+                    <clientExcludes>
+                        <!-- this will exclude all files under com/example -->
+                        <clientExclude>com/classicmodels/entity/*</clientExclude>
+                        <clientExclude>com/classicmodels/mapstruct/dto/mapper/*</clientExclude>
+                        <clientExclude>**/*Facade</clientExclude>
+                     
+                        <!-- this will exclude all files and directories with the name
+                        sparrow under com/jack -->
+                    </clientExcludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

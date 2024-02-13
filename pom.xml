@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>classic.models.maven.enterprise</groupId>
+    <artifactId>classic-models-maven-enterprise</artifactId>
+    <version>1.0-RELEASE</version>
+    <packaging>pom</packaging>
+    <name>Classic Models Java EE 8 Enterprise App</name>
+    <description>Classic Models Java EE 8 Enterprise App</description>
+    <url>http://rhuanrocha.net/</url>
+    <properties>
+      <java.compiler.source>11</java.compiler.source>
+      <java.compiler.target>11</java.compiler.target>
+      <junit>3.8.1</junit>
+      <log4j-core>2.11.1</log4j-core>
+      <classic-models-maven-enterprise.version>1.0-RELEASE</classic-models-maven-enterprise.version>
+    </properties>
+    <modules>
+        <module>classic-models-maven-enterprise-lib</module>
+        <module>classic-models-maven-enterprise-javafx-app-client</module>
+        <module>classic-models-maven-enterprise-ejb</module>       
+        <module>classic-models-maven-enterprise-war</module>
+        <module>classic-models-maven-enterprise-ear</module>
+   </modules>
+
+    <dependencyManagement>      
+        <dependencies>
+           <dependency>
+                <groupId>classic-models-maven-enterprise</groupId>
+                <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
+                 <version>1.0-RELEASE</version>
+                <type>app-client</type>
+            </dependency>
+            <dependency>
+                <groupId>classic.models.maven.enterprise</groupId>
+                <artifactId>classic-models-maven-enterprise-ejb</artifactId>
+                <version>1.0-RELEASE</version>  
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+               <groupId>classic.models.maven.enterprise</groupId>
+               <artifactId>classic-models-maven-enterprise-lib</artifactId>
+               <version>1.0-RELEASE</version>
+               <type>jar</type>
+            </dependency>
+         
+                <dependency>
+                <groupId>classic.models.maven.enterprise</groupId>
+                <artifactId>classic-models-maven-enterprise-war</artifactId>
+                <version>1.0-RELEASE</version>
+                <type>war</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core}</version>
+        </dependency>
+    </dependencies>
+    <build>
+<plugins>
+    
+       <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>${java.compiler.source}</source>
+                    <target>${java.compiler.target}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.5.3.Final</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>0.2.0</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <!--      <compilerArgs>
+                        <compilerArg>-Amapstruct.defaultComponentModel=spring</compilerArg>
+                    </compilerArgs> -->
+                </configuration>
+            </plugin>
+</plugins>
+    </build>
+</project>

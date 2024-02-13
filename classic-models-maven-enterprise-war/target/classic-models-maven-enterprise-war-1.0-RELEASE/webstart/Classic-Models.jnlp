@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!-- was: <?xml version="1.0" encoding="utf-8"?> -->
+<jnlp
+    spec="1.0+"
+    codebase="http://localhost:8080/classic-models-maven-enterprise-war/webstart"
+    href="Classic-Models.jnlp">
+  <information>
+    <title>Classic Models Java EE 8 Web App</title>
+    <homepage href="http://localhost:8080/classic-models-maven-enterprise-war/"/>
+    <description>Classic Models Java EE 8 Web App</description>
+   
+   <icon href="../images/meatball1-browse.jpg" kind="default" width="800" height="498"/> 
+   <icon href="../images/meatball1-browse.jpg" kind="splash" width="800" height="498"/> 
+   <icon href="../images/meatball1-browse.jpg" width="800" height="498"/>
+   <icon kind="shortcut" href="../images/meatball1-browse.jpg" width="800" height="498"/>
+    
+    
+   <shortcut online="true">
+      <desktop/>
+   </shortcut>
+
+  </information>
+  <security>
+     <all-permissions/>
+  </security>
+  <resources>
+       <j2se version="19+" 
+          initial-heap-size="512m" 
+          max-heap-size="2048m" 
+          java-vm-args="-Xms512m -Xmx4096m -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=25 --add-modules javafx.base,javafx.controls,javafx.graphics,javafx.fxml --add-opens javafx.graphics/javafx.css=ALL-UNNAMED"/>
+    <!--
+          <j2se version="1.5+"/>
+                  -->
+    <!--  # $extensions -->
+   
+<jar href="classic-models-maven-enterprise-javafx-app-client.jar" version="1.0-RELEASE" main="true"/>
+<jar href="classic-models-maven-enterprise-lib.jar" version="1.0-RELEASE"/>
+<jar href="lombok.jar" version="1.18.30"/>
+<jar href="jaxb-api.jar" version="2.2.5"/>
+<jar href="logback-core.jar" version="1.3.5"/>
+<jar href="slf4j-api.jar" version="2.0.4"/>
+<jar href="logback-classic.jar" version="1.3.5"/>
+<jar href="log4j-core.jar" version="2.11.1"/>
+<jar href="log4j-api.jar" version="2.11.1"/>
+<jar href="resteasy-jaxb-provider.jar" version="3.0.2.Final"/>
+<jar href="jaxb-impl.jar" version="2.2.5-2"/>
+<jar href="jaxrs-api.jar" version="3.0.2.Final"/>
+<jar href="resteasy-client.jar" version="3.9.3.Final"/>
+<jar href="jboss-jaxrs-api_2.1_spec.jar" version="1.0.3.Final"/>
+<jar href="resteasy-jaxrs.jar" version="3.9.3.Final"/>
+<jar href="jboss-jaxb-api_2.3_spec.jar" version="1.0.1.Final"/>
+<jar href="reactive-streams.jar" version="1.0.2"/>
+<jar href="validation-api.jar" version="2.0.1.Final"/>
+<jar href="jboss-annotations-api_1.3_spec.jar" version="1.0.1.Final"/>
+<jar href="activation.jar" version="1.1.1"/>
+<jar href="httpclient.jar" version="4.5.4"/>
+<jar href="httpcore.jar" version="4.4.7"/>
+<jar href="commons-logging.jar" version="1.2"/>
+<jar href="commons-codec.jar" version="1.10"/>
+<jar href="commons-io.jar" version="2.5"/>
+<jar href="jcip-annotations.jar" version="1.0-1"/>
+<jar href="jboss-logging.jar" version="3.3.2.Final"/>
+<jar href="scannotation.jar" version="1.0.3"/>
+<jar href="javassist.jar" version="3.12.1.GA"/>
+<jar href="commons-lang3.jar" version="3.8.1"/>
+<jar href="materialfx.jar" version="11.14.0"/>
+<jar href="virtualizedfx.jar" version="11.2.6"/>
+<jar href="validatorfx.jar" version="0.4.0"/>
+<jar href="fontawesomefx-materialdesignfont.jar" version="2.0.26-9.1.2"/>
+<jar href="fontawesomefx-commons.jar" version="9.1.2"/>
+<jar href="fontawesomefx-fontawesome.jar" version="4.7.0-9.1.2"/>
+<jar href="fontawesomefx.jar" version="8.0.13"/>
+<jar href="javafx-base.jar" version="21.0.2"/>
+<jar href="javafx-controls.jar" version="21.0.2"/>
+<jar href="javafx-graphics.jar" version="21.0.2"/>
+<jar href="javafx-fxml.jar" version="21.0.2"/>
+ 
+  <!--  # $extensions -->
+  <!--        
+<jar href="classic-models-maven-enterprise-javafx-app-client-1.0-RELEASE.jar"  main="true"/>
+<jar href="classic-models-maven-enterprise-lib-1.0-RELEASE.jar" />
+<jar href="lombok-1.18.30.jar"  />
+<jar href="jaxb-api-2.2.5.jar"  />
+<jar href="logback-core-1.3.5.jar"  />
+<jar href="slf4j-api-2.0.4.jar"  />
+<jar href="logback-classic-1.3.5.jar"  />
+<jar href="log4j-core-2.11.1.jar"  />
+<jar href="log4j-api-2.11.1.jar"  />
+<jar href="resteasy-jaxb-provider-3.0.2.Final.jar"  />
+<jar href="jaxb-impl-2.2.5-2.jar"  />
+<jar href="jaxrs-api-3.0.2.Final.jar"  />
+<jar href="resteasy-client-3.9.3.Final.jar"  />
+<jar href="jboss-jaxrs-api_2.1_spec-1.0.3.Final.jar"  />
+<jar href="resteasy-jaxrs-3.9.3.Final.jar"  />
+<jar href="jboss-jaxb-api_2.3_spec-1.0.1.Final.jar"  />
+<jar href="reactive-streams-1.0.2.jar"  />
+<jar href="validation-api-2.0.1.Final.jar"  />
+<jar href="jboss-annotations-api_1.3_spec-1.0.1.Final.jar"  />
+<jar href="activation-1.1.1.jar"  />
+<jar href="httpclient-4.5.4.jar"  />
+<jar href="httpcore-4.4.7.jar"  />
+<jar href="commons-logging-1.2.jar"  />
+<jar href="commons-codec-1.10.jar"  />
+<jar href="commons-io-2.5.jar"  />
+<jar href="jcip-annotations-1.0-1.jar"  />
+<jar href="jboss-logging-3.3.2.Final.jar"  />
+<jar href="scannotation-1.0.3.jar"  />
+<jar href="javassist-3.12.1.GA.jar"  />
+<jar href="commons-lang3-3.8.1.jar"  />
+<jar href="jansi-2.4.0.jar"  />
+<jar href="materialfx-11.14.0.jar"  />
+<jar href="virtualizedfx-11.2.6.jar"  />
+<jar href="validatorfx-0.4.0.jar"  />
+<jar href="fontawesomefx-materialdesignfont-2.0.26-9.1.2.jar"  />
+<jar href="fontawesomefx-commons-9.1.2.jar"  />
+<jar href="fontawesomefx-fontawesome-4.7.0-9.1.2.jar"  />
+<jar href="javafx-base-21.0.2-win.jar"  />
+<jar href="javafx-controls-21.0.2-win.jar"  />
+<jar href="javafx-graphics-21.0.2-win.jar"/>
+<jar href="javafx-fxml-21.0.2-win.jar"  />
+
+<jar href="fontawesomefx-8.0.13.jar"  />
+-->
+  </resources>
+  <application-desc main-class="com.classicmodels.javafx.controller.App">
+  <!--  #  $arguments -->
+  </application-desc>
+</jnlp>
+
