@@ -18,8 +18,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   -fx-exceeded:      blue;
 }
 
-.s2.chart-bar { -fx-bar-fill: -fx-not-achieved; }
-.S3.chart-bar { -fx-bar-fill: -fx-achieved; }
+.data0.chart-bar { -fx-bar-fill: -fx-not-achieved; }
+.data1.chart-bar { -fx-bar-fill: -fx-achieved; }
 .default-color2.chart-bar { -fx-bar-fill: -fx-exceeded; }
 
 .level-legend {
