@@ -167,6 +167,11 @@ barChartData = FXCollections.observableArrayList();
         S3.getData().add(new XYChart.Data(B,25));
         S3.getData().add(new XYChart.Data(C,5));
       
+        Node n = worldPopulationChart.lookup(".data0.chart-bar");
+    n.setStyle("-fx-bar-fill: red");
+    n = worldPopulationChart.lookup(".data1.chart-bar");
+    n.setStyle("-fx-bar-fill: blue");
+    
         worldPopulationChart.getData().addAll( s2, S3);
                
 //create scene

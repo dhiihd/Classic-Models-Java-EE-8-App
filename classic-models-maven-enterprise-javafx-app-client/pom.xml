@@ -50,7 +50,7 @@
     </profile>
 </profiles>
     <properties>
-        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <endorsed.dir>${project.build.directory}\endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javafx.version>21.0.2</javafx.version>
         <resteasy.version>3.9.3.Final</resteasy.version>
@@ -248,9 +248,11 @@
                 <configuration>
                     <source>21</source>
                     <target>21</target>
-                    <compilerArguments>
+                    <!--
+                    <compilerArgs>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
-                    </compilerArguments>
+                    </compilerArgs>
+                      -->
                 </configuration>
             </plugin>
             <plugin>
