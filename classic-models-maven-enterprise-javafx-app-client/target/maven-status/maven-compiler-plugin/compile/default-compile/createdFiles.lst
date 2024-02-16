@@ -1,0 +1,8 @@
+com\classicmodels\javafx\concurrent\CustomersTask.class
+com\classicmodels\javafx\controller\DataItem.class
+com\classicmodels\javafx\controller\CustomersChartsFXMLController.class
+com\classicmodels\javafx\controller\CustomersController.class
+com\classicmodels\javafx\controller\DataConvertor.class
+com\classicmodels\javafx\controller\HomeController.class
+com\classicmodels\javafx\concurrent\CustomersService.class
+com\classicmodels\javafx\controller\App.class

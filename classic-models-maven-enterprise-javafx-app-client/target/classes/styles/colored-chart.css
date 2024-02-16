@@ -1,0 +1,30 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 04-Feb-2024, 10:46:55 am
+    Author     : dhiihd
+*/
+
+/** 
+ * file: colored-chart.css 
+ *   Place in same directory as DynamicallyColoredBarChartWithLabel.java
+ *   Ensure that the build system copies this file to the build output directory. 
+ */
+.root {
+  -fx-not-achieved: red;
+  -fx-achieved:     green;
+  -fx-exceeded:      blue;
+}
+
+.data0.chart-bar { -fx-bar-fill: -fx-not-achieved; }
+.data1.chart-bar { -fx-bar-fill: -fx-achieved; }
+.default-color2.chart-bar { -fx-bar-fill: -fx-exceeded; }
+
+.level-legend {
+  -fx-padding: 10; 
+  -fx-border-width: 2; 
+  -fx-background-color: rgba(211, 211, 211, 0.5); 
+  -fx-border-color: derive(rgba(211, 211, 211, 0.7), 10%);
+}

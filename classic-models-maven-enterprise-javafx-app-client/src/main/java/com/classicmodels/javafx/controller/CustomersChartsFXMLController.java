@@ -128,7 +128,7 @@ public class CustomersChartsFXMLController implements Initializable {
        
 //dataset on 1999
 
-barChartData = FXCollections.observableArrayList();
+        barChartData = FXCollections.observableArrayList();
   /*      
         ObservableList<Data<String, Number>> seriesData = new DataConvertor(items).getData();
         BarChart.Series<String, Number> series1 = new BarChart.Series<>();
@@ -166,12 +166,12 @@ barChartData = FXCollections.observableArrayList();
         S3.getData().add(new XYChart.Data(A,70));
         S3.getData().add(new XYChart.Data(B,25));
         S3.getData().add(new XYChart.Data(C,5));
-      
+/*      
         Node n = worldPopulationChart.lookup(".data0.chart-bar");
     n.setStyle("-fx-bar-fill: red");
-    n = worldPopulationChart.lookup(".data1.chart-bar");
+    n = worldPopulationChart.lookup("S3.chart-bar");
     n.setStyle("-fx-bar-fill: blue");
-    
+   */  
         worldPopulationChart.getData().addAll( s2, S3);
                
 //create scene

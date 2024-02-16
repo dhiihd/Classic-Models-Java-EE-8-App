@@ -22,7 +22,7 @@ public class App extends Application {
       //  String fxml = "CustomersFXML";
         String fxml = "Home";
         scene = new Scene(loadFXML(fxml), 1440, 900 );
-        scene.getStylesheets().add("styles/colored-chart.css");
+        scene.getStylesheets().add("/styles/colored-chart.css");
         //    scene = new Scene(loadFXML(fxml), 1280, 800 );
         MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
         System.out.print("scene --> "+scene);
