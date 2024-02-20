@@ -5,7 +5,6 @@ package com.classicmodels.javafx.controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 
-
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -25,8 +24,6 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.chart.XYChart;
@@ -62,7 +59,7 @@ public class CustomersChartsFXMLController implements Initializable {
     private AnchorPane anchorPane = new AnchorPane();
     
     
- private  Random rnd = new Random();
+    private  Random rnd = new Random();
     private final static String A = "Happy";
     private final static String B = "Sad";
     private final static String C = "Mixed emotions";
@@ -149,7 +146,15 @@ public class CustomersChartsFXMLController implements Initializable {
 //dataset on 2009
  //BarChart.Series<String, Number> series1 = new BarChart.Series<>();
         XYChart.Series s2 = new XYChart.Series();
-        s2.setName("2009");
+        String yearName = "2009";
+        s2.setName(yearName);
+       for(Node n:worldPopulationChart.lookupAll(".default-color0.chart-bar")) {
+            n.setStyle("-fx-bar-fill: red;");
+        }
+   //second bar color
+       for(Node n:worldPopulationChart.lookupAll(".default-color1.chart-bar")) {
+            n.setStyle("-fx-bar-fill: green;");
+        }
         
      /*   Node n = worldPopulationChart.lookup(".s2.chart-bar");
     n.setStyle("-fx-bar-fill: red");
@@ -160,18 +165,21 @@ public class CustomersChartsFXMLController implements Initializable {
         s2.getData().add(new XYChart.Data(A,50));
         s2.getData().add(new XYChart.Data(C,30));
         s2.getData().add(new XYChart.Data(B,20));
+        
+     //   Node fill = s2.getNode().lookup(".chart-series-bar-fill");; 
+     //   fill.setStyle("-fx-bar-fill: red");
 //dataset on 2019
         XYChart.Series S3 = new XYChart.Series();
         S3.setName("2019");
         S3.getData().add(new XYChart.Data(A,70));
         S3.getData().add(new XYChart.Data(B,25));
         S3.getData().add(new XYChart.Data(C,5));
-/*      
-        Node n = worldPopulationChart.lookup(".data0.chart-bar");
+     /* 
+        Node n = worldPopulationChart.lookup("default-color0");
     n.setStyle("-fx-bar-fill: red");
-    n = worldPopulationChart.lookup("S3.chart-bar");
+    n = worldPopulationChart.lookup("default-color1");
     n.setStyle("-fx-bar-fill: blue");
-   */  
+    */
         worldPopulationChart.getData().addAll( s2, S3);
                
 //create scene

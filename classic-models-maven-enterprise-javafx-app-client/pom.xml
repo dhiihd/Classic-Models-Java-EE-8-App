@@ -5,7 +5,6 @@
         <artifactId>classic-models-maven-enterprise</artifactId>
         <groupId>classic.models.maven.enterprise</groupId>
         <version>1.0-RELEASE</version>
-       
     </parent>
 
     <groupId>classic-models-maven-enterprise</groupId>

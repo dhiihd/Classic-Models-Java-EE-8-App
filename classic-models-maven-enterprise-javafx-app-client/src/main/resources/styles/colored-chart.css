@@ -28,3 +28,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   -fx-background-color: rgba(211, 211, 211, 0.5); 
   -fx-border-color: derive(rgba(211, 211, 211, 0.7), 10%);
 }
+
+.series-2009 *.chart-series-bar-fill{
+    -fx-fill: #aab597; 
+}
+
+.default-color0.chart-bar { -fx-bar-fill: #09790e }
+.default-color1.chart-bar { -fx-bar-fill: #fdbb2d }
