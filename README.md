@@ -6,4 +6,6 @@ For packaging the Java EE 8 enterprise archive EAR
 
 $ mvn clean compile install -Pwindows/-Plinux/-Pmac
 
+Classic-Models-Java-EE-8-App has features like lombok,mapstruct
 
+Run the "Database Scripts\classic-models.sql" database script against your RDBMS

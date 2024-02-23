@@ -193,7 +193,7 @@ public class CustomersChartsFXMLController implements Initializable {
     }
 
     public CustomersChartsFXMLController() {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("com/classicmodels/javafx/controller/CustomersChartsFXML.fxml"));
+       FXMLLoader fxml = new FXMLLoader(getClass().getResource("com/classicmodels/javafx/controller/CustomersChartsFXML.fxml"));
        fxml.setRoot(this);
        fxml.setController(this);
        initUI();
