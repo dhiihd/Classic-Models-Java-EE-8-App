@@ -9,7 +9,7 @@
  <description>Classic Models Java EE 8 EJB</description>
     <parent>
         <groupId>classic.models.maven.enterprise</groupId>
-        <artifactId>classic-models-maven-enterprise</artifactId>
+        <artifactId>Classic-Models-Java-EE-8-App</artifactId>
         <version>1.0-RELEASE</version>
        
     </parent>

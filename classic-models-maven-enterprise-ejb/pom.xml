@@ -6,8 +6,8 @@
     <version>1.0-RELEASE</version>
     <packaging>ejb</packaging>
     <parent>
+        <artifactId>Classic-Models-Java-EE-8-App</artifactId>
         <groupId>classic.models.maven.enterprise</groupId>
-        <artifactId>classic-models-maven-enterprise</artifactId>
         <version>1.0-RELEASE</version>
       
     </parent>
