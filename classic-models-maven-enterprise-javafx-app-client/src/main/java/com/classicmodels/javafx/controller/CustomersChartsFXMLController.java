@@ -115,11 +115,9 @@ public class CustomersChartsFXMLController implements Initializable {
         xAxis.setTickLabelRotation(90);
 //set title for y axis
         yAxis.setLabel("Emotion");
-        
+     
         worldPopulationChart.setTitle("Emotions of people");
 
-   
-        
         logger.info("fasfasfs fasfasfsa--> " );
 //set title for x axis
        
@@ -155,6 +153,11 @@ public class CustomersChartsFXMLController implements Initializable {
        for(Node n:worldPopulationChart.lookupAll(".default-color1.chart-bar")) {
             n.setStyle("-fx-bar-fill: green;");
         }
+       
+       //third bar color
+       for(Node n:worldPopulationChart.lookupAll(".default-color2.chart-bar")) {
+            n.setStyle("-fx-bar-fill: blue;");
+        }
         
      /*   Node n = worldPopulationChart.lookup(".s2.chart-bar");
     n.setStyle("-fx-bar-fill: red");
@@ -174,13 +177,20 @@ public class CustomersChartsFXMLController implements Initializable {
         S3.getData().add(new XYChart.Data(A,70));
         S3.getData().add(new XYChart.Data(B,25));
         S3.getData().add(new XYChart.Data(C,5));
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("1999");
+        series1.getData().add(new XYChart.Data(A,10));
+        series1.getData().add(new XYChart.Data(B,60));
+        series1.getData().add(new XYChart.Data(C,30));
+        
+      
      /* 
         Node n = worldPopulationChart.lookup("default-color0");
     n.setStyle("-fx-bar-fill: red");
     n = worldPopulationChart.lookup("default-color1");
     n.setStyle("-fx-bar-fill: blue");
     */
-        worldPopulationChart.getData().addAll( s2, S3);
+        worldPopulationChart.getData().addAll( series1,s2, S3);
                
 //create scene
 //Scene sc  = new Scene(b,700,500);

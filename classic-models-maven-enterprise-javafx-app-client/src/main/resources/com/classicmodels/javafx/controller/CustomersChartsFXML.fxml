@@ -38,12 +38,12 @@
        
         </VBox>
    
-          <BarChart fx:id="worldPopulationChart" layoutX="230.0" layoutY="226.0" prefHeight="443.0" prefWidth="727.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css">
+          <BarChart fx:id="worldPopulationChart" layoutX="70.0" layoutY="232.0" prefHeight="538.0" prefWidth="727.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Emotions of people">
         <xAxis>
-        <CategoryAxis side="BOTTOM" />
+        <CategoryAxis label="Percentage" side="BOTTOM" />
       </xAxis>
       <yAxis>
-        <NumberAxis side="LEFT" />
+        <NumberAxis label="Emotion" side="LEFT" />
       </yAxis>
       
     </BarChart>
