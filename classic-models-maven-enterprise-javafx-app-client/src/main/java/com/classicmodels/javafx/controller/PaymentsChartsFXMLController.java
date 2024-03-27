@@ -12,8 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.control.Button;
@@ -60,21 +59,18 @@ public class PaymentsChartsFXMLController implements Initializable {
     
     
     private  Random rnd = new Random();
-    private final static String A = "Happy";
-    private final static String B = "Sad";
-    private final static String C = "Mixed emotions";
     
     @FXML
     private NumberAxis yAxis = new NumberAxis();
     
     @FXML
-    private CategoryAxis xAxis = new CategoryAxis();
+    private NumberAxis xAxis = new NumberAxis();
 //create bar chart
       
     @FXML
-    private BarChart classicModelsPaymentsChart =  new BarChart(xAxis, yAxis);;
+    private LineChart classicModelsPaymentsChart =  new LineChart(xAxis, yAxis);
 
-    private ObservableList<BarChart.Series<String, Double>> barChartData;
+    private ObservableList<LineChart.Series<String, Double>> lineChartData;
 
    // @FXML
     public void initUI() {
@@ -109,70 +105,22 @@ public class PaymentsChartsFXMLController implements Initializable {
 //s.setTitle("Bar Chart Sample");
 //x and y axis
         xAxis.setLabel("Year of Payments");
-        xAxis.setTickLabelRotation(90);
+      //  xAxis.setTickLabelRotation(90);
 //set title for y axis
         yAxis.setLabel("Amount");
-        yAxis.setAutoRanging(false);
-        yAxis.setLowerBound(70000);
-        yAxis.setUpperBound(700000);
-        yAxis.setTickUnit(70000);
+        /*yAxis.setAutoRanging(false);
+        yAxis.setLowerBound(20000);
+        yAxis.setUpperBound(200000);
+        yAxis.setTickUnit(20000);
         yAxis.setMinorTickVisible(false);
-     
+     */
         classicModelsPaymentsChart.setTitle("Classic Models Payments");
 
         logger.info("fasfasfs fasfasfsa--> " );
 //set title for x axis
        
 //dataset on 1999
-
-        barChartData = FXCollections.observableArrayList();
-  /*      
-        ObservableList<Data<String, Number>> seriesData = new DataConvertor(items).getData();
-        BarChart.Series<String, Number> series1 = new BarChart.Series<>();
-        series1.setName("1999");
-        series1.getData().add(new BarChart.Data(Integer.toString(10), A));
-        series1.getData().add(new BarChart.Data(Integer.toString(60), B));
-        series1.getData().add(new BarChart.Data(Integer.toString(30), C));
-        
-        series1.setData(seriesData);
-        barChartData.add(series1);
-        worldPopulationChart.setData(barChartData);
-       // gridPane.reclear();
-   //     gridPane.getChildren().add(worldPopulationChart);
-   //     anchorPane.getChildren().add(gridPane);
-   //     root.getChildren().add(anchorPane);
- */
-
-//dataset on 2009
- //BarChart.Series<String, Number> series1 = new BarChart.Series<>();
-              
-     /*   Node n = worldPopulationChart.lookup(".s2.chart-bar");
-    n.setStyle("-fx-bar-fill: red");
-    n = worldPopulationChart.lookup(".S3.chart-bar");
-    n.setStyle("-fx-bar-fill: blue");
-        */
-        XYChart.Series s2 = new XYChart.Series();
-        String yearName = "2009";
-        s2.setName(yearName);
-        
-        s2.getData().add(new XYChart.Data(A,50));
-        s2.getData().add(new XYChart.Data(C,30));
-        s2.getData().add(new XYChart.Data(B,20));
-        
-     //   Node fill = s2.getNode().lookup(".chart-series-bar-fill");; 
-     //   fill.setStyle("-fx-bar-fill: red");
-//dataset on 2019
-        XYChart.Series S3 = new XYChart.Series();
-        S3.setName("2019");
-        S3.getData().add(new XYChart.Data(A,70));
-        S3.getData().add(new XYChart.Data(B,25));
-        S3.getData().add(new XYChart.Data(C,5));
-        XYChart.Series series1 = new XYChart.Series();
-        series1.setName("1999");
-        series1.getData().add(new XYChart.Data(A,10));
-        series1.getData().add(new XYChart.Data(B,60));
-        series1.getData().add(new XYChart.Data(C,30));
-        
+    
         for(Node n:classicModelsPaymentsChart.lookupAll(".default-color0.chart-bar")) {
             n.setStyle("-fx-bar-fill: red;");
         }
@@ -186,26 +134,28 @@ public class PaymentsChartsFXMLController implements Initializable {
             n.setStyle("-fx-bar-fill: blue;");
         }
        
-     /* 
-        Node n = worldPopulationChart.lookup("default-color0");
-    n.setStyle("-fx-bar-fill: red");
-    n = worldPopulationChart.lookup("default-color1");
-    n.setStyle("-fx-bar-fill: blue");
-    */
-        classicModelsPaymentsChart.getData().addAll( series1,s2, S3);
-               
-//create scene
-//Scene sc  = new Scene(b,700,500);
- //       worldPopulationChart.getData().addAll(s1, s2, S3);
-//set scene
-//s.setScene(sc);
-//display result
-//s.show();
+       for(Node n:classicModelsPaymentsChart.lookupAll(".default-color3.chart-bar")) {
+            n.setStyle("-fx-bar-fill: yellow;");
+        }
+       
+     
+        //Configuring data for XY chart
+        XYChart.Series<String,Float> data = new XYChart.Series<>();
+        data.getData().add(new XYChart.Data(1,138000));
+        data.getData().add(new XYChart.Data(2,142000));
+         data.getData().add(new XYChart.Data(3,178000));
+        data.getData().add(new XYChart.Data(4,192000));
+      
+
+        //Adding data to the barchart
+        classicModelsPaymentsChart.getData().add(data);
+    
+  
 
     }
 
     public PaymentsChartsFXMLController() {
-       FXMLLoader fxml = new FXMLLoader(getClass().getResource("com/classicmodels/javafx/controller/CustomersChartsFXML.fxml"));
+       FXMLLoader fxml = new FXMLLoader(getClass().getResource("com/classicmodels/javafx/controller/PaymentsChartsFXML.fxml"));
        fxml.setRoot(this);
        fxml.setController(this);
        initUI();

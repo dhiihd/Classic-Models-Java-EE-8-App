@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import org.slf4j.LoggerFactory;
 
 /**
  * JavaFX App
@@ -15,6 +16,9 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    
+    private static final org.slf4j.Logger logger
+            = LoggerFactory.getLogger(App.class);
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -25,7 +29,7 @@ public class App extends Application {
         scene.getStylesheets().add("styles/colored-chart.css");
         //    scene = new Scene(loadFXML(fxml), 1280, 800 );
         MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
-        System.out.print("scene --> "+scene);
+        logger.info("scene --> "+scene);
         stage.setScene(scene);
         stage.show();
     
@@ -41,7 +45,7 @@ public class App extends Application {
         
         FXMLLoader fxmlLoader = new FXMLLoader();
       //  Parent root = FXMLLoader.load(getClass().getResource("gui/SplashScreen.fxml"));
-        System.out.println("efasf -> "+ fxml+ App.class.getResource(fxml + ".fxml"));
+        logger.info("efasf -> "+ fxml+ App.class.getResource(fxml + ".fxml"));
         fxmlLoader.setLocation(App.class.getResource(fxml + ".fxml"));
         //  FXMLLoader fxmlLoader = new FXMLLoader();
         //  fxmlLoader.setLocation(getClass().getClassLoader().getResource(getResource(fxml + ".fxml"));

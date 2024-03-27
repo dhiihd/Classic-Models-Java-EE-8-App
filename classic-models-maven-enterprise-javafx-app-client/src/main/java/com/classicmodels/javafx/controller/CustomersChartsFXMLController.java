@@ -125,7 +125,7 @@ public class CustomersChartsFXMLController implements Initializable {
        
 //dataset on 1999
 
-        barChartData = FXCollections.observableArrayList();
+  //      barChartData = FXCollections.observableArrayList();
   /*      
         ObservableList<Data<String, Number>> seriesData = new DataConvertor(items).getData();
         BarChart.Series<String, Number> series1 = new BarChart.Series<>();
@@ -151,6 +151,21 @@ public class CustomersChartsFXMLController implements Initializable {
     n = worldPopulationChart.lookup(".S3.chart-bar");
     n.setStyle("-fx-bar-fill: blue");
         */
+        
+        for(Node n:worldPopulationChart.lookupAll(".default-color0.chart-bar")) {
+            n.setStyle("-fx-bar-fill: red;");
+        }
+   //second bar color
+       for(Node n:worldPopulationChart.lookupAll(".default-color1.chart-bar")) {
+            n.setStyle("-fx-bar-fill: green;");
+        }
+       
+       //third bar color
+       for(Node n:worldPopulationChart.lookupAll(".default-color2.chart-bar")) {
+            n.setStyle("-fx-bar-fill: blue;");
+        }
+       
+     
         XYChart.Series s2 = new XYChart.Series();
         String yearName = "2009";
         s2.setName(yearName);
@@ -173,19 +188,7 @@ public class CustomersChartsFXMLController implements Initializable {
         series1.getData().add(new XYChart.Data(B,60));
         series1.getData().add(new XYChart.Data(C,30));
         
-        for(Node n:worldPopulationChart.lookupAll(".default-color0.chart-bar")) {
-            n.setStyle("-fx-bar-fill: red;");
-        }
-   //second bar color
-       for(Node n:worldPopulationChart.lookupAll(".default-color1.chart-bar")) {
-            n.setStyle("-fx-bar-fill: green;");
-        }
-       
-       //third bar color
-       for(Node n:worldPopulationChart.lookupAll(".default-color2.chart-bar")) {
-            n.setStyle("-fx-bar-fill: blue;");
-        }
-       
+      
      /* 
         Node n = worldPopulationChart.lookup("default-color0");
     n.setStyle("-fx-bar-fill: red");
@@ -246,58 +249,3 @@ sr.getData().add(new XYChart.Data( 3, 547));
 }
 
 
-class DataItem {
-
-    private StringProperty name = new SimpleStringProperty(this, "name");
-    private IntegerProperty value = new SimpleIntegerProperty(this, "value");
-
-    public DataItem( String name,  int value) {
-        setName(name);
-        setValue(value);
-    }
-    public StringProperty nameProperty() {
-        return name;
-    }
-    public String getName() {
-        return this.nameProperty().get();
-    }
-    public void setName( String name) {
-        this.nameProperty().set(name);
-    }
-    public  IntegerProperty valueProperty() {
-        return value;
-    }
-    public int getValue() {
-        return this.valueProperty().get();
-    }
-    public void setValue( int value) {
-        this.valueProperty().set(value);
-    }
-}
-
-//simple coupling between items and graph data 
-class DataConvertor{
-
-    ObservableList<DataItem> items;
-    ObservableList<Data<String, Number>>data;
-     DataConvertor( ObservableList<DataItem> items) {
-        super();
-        this.items = items;
-        data =  FXCollections.observableArrayList();
-        items.forEach(item -> data.add(new Data<>(item.getName(), item.getValue())));
-        items.addListener( ( Change<? extends DataItem> arg0 ) ->   update());
-    }
-
-    void update() {
-        for(int i =0; i < data.size(); i++){
-             Data<String, Number> d = data.get(i);
-            d.setYValue(items.get(i).getValue());
-        }
-        data.clear();
-        items.forEach(item -> data.add(new Data<>(item.getName(), item.getValue())));
-    }
-
-    ObservableList<Data<String, Number>>getData(){
-        return data;
-    }
-}

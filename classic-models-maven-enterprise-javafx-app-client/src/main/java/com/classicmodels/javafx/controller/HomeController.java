@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import org.slf4j.LoggerFactory;
 
 /**
  * FXML Controller class
@@ -33,6 +34,9 @@ public class HomeController implements Initializable {
     private Button btnUpdate;
     @FXML
     private Button btnClasses;
+    
+    private static final org.slf4j.Logger logger
+            = LoggerFactory.getLogger(HomeController.class);
 
     /**
      * Initializes the controller class.
@@ -46,6 +50,7 @@ public class HomeController implements Initializable {
     private void handleButtonClicks(ActionEvent event) {
         
         try {
+            logger.info("Inside CustomersFXML --> ");
             App.setRoot("CustomersFXML");
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,7 +61,22 @@ public class HomeController implements Initializable {
     private void handleButtonClicks1(ActionEvent event) {
         
         try {
+            logger.info("Inside CustomersChartsFXML --> ");
             App.setRoot("CustomersChartsFXML");
+            
+           // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
+           // customersChartsFXMLController.initUI();
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void handleButtonClicks2(ActionEvent event) {
+        
+        try {
+            logger.info("Inside PaymentsChartsFXML --> ");
+            App.setRoot("PaymentsChartsFXML");
             
            // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
            // customersChartsFXMLController.initUI();

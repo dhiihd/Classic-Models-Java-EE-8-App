@@ -1,4 +1,5 @@
 /classic-models-maven-enterprise-javafx-app-client/target/
 /classic-models-maven-enterprise-lib/target/
 /classic-models-maven-enterprise-ejb/target/
-/classic-models-maven-enterprise-war/target/
+/classic-models-maven-enterprise-webapp/target/
+/classic-models-maven-enterprise-ear/target/

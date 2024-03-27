@@ -38,7 +38,7 @@
        
         </VBox>
    
-          <BarChart fx:id="worldPopulationChart" layoutX="70.0" layoutY="232.0" prefHeight="538.0" prefWidth="727.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Emotions of people">
+          <BarChart fx:id="worldPopulationChart" layoutX="57.0" layoutY="207.0" prefHeight="511.0" prefWidth="737.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Emotions of people">
         <xAxis>
         <CategoryAxis label="Percentage" side="BOTTOM" />
       </xAxis>
@@ -48,7 +48,7 @@
       
     </BarChart>
    
-     <Pane layoutX="-12.0" layoutY="-13.0" prefHeight="200.0" prefWidth="1031.0" style="-fx-background-color:#0A3161" stylesheets="@../../../../styles/colored-chart.css" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-13.0">
+     <Pane layoutX="-12.0" layoutY="-13.0" prefHeight="208.0" prefWidth="1031.0" style="-fx-background-color:#0A3161" stylesheets="@../../../../styles/colored-chart.css" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-13.0">
       
             <Label layoutX="127.0" layoutY="59.0" text="Classic Models" textFill="WHITE">
             <font>

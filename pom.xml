@@ -19,7 +19,7 @@
         <module>classic-models-maven-enterprise-lib</module>
         <module>classic-models-maven-enterprise-javafx-app-client</module>
         <module>classic-models-maven-enterprise-ejb</module>       
-        <module>classic-models-maven-enterprise-war</module>
+        <module>classic-models-maven-enterprise-webapp</module>
         <module>classic-models-maven-enterprise-ear</module>
    </modules>
 
@@ -46,7 +46,7 @@
          
                 <dependency>
                 <groupId>classic.models.maven.enterprise</groupId>
-                <artifactId>classic-models-maven-enterprise-war</artifactId>
+                <artifactId>classic-models-maven-enterprise-webapp</artifactId>
                 <version>1.0-RELEASE</version>
                 <type>war</type>
             </dependency>

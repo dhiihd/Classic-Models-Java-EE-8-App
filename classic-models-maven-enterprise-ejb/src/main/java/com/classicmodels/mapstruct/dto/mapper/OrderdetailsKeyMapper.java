@@ -14,7 +14,7 @@ import org.mapstruct.factory.Mappers;
 public interface OrderdetailsKeyMapper extends EntityMapper<OrderdetailsKeyDTO, OrderdetailsPK> {
    
     
-    OrderdetailsKeyMapper INSTANCE = Mappers.getMapper(OrderdetailsKeyMapper.class );  
+    OrderdetailsKeyMapper INSTANCE = Mappers.getMapper(OrderdetailsKeyMapper.class);
    // @Mapping(source = "library.id", target = "libraryId")
     
     

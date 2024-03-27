@@ -6,7 +6,6 @@ package com.classicmodels.javafx.controller;
 
 import com.classicmodels.dto.CustomersDTO;
 import com.classicmodels.javafx.concurrent.CustomersService;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,10 +25,10 @@ import javax.ws.rs.core.Response;
 import net.synedra.validatorfx.Check;
 import net.synedra.validatorfx.Validator;
 import org.apache.commons.lang3.StringUtils;
-import org.jboss.resteasy.client.jaxrs.ResteasyClient;
-import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.slf4j.LoggerFactory;
 import javafx.scene.control.Button;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.WebTarget;
 
 /**
  * FXML Controller class
@@ -129,7 +128,7 @@ public class CustomersController implements Initializable {
 
     private Dialog<String> dialog = new Dialog<String>();
 
-    private static final String BASE_URL = "http://localhost:8080/classic-models-maven-enterprise-war/webresources/com.classicmodels.customers";
+    private static final String BASE_URL = "http://localhost:8080/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
 
     @Override
     @FXML
@@ -433,11 +432,12 @@ public class CustomersController implements Initializable {
         String id = customerNumberTextField.getText();
         logger.info("fasfasfs --> " + customerNumberTextField.getText());
 
-       
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target(BASE_URL + "/single");
 
         // String findCustomersPath = FULL_PATH ;
-        ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
-        ResteasyWebTarget target = client.target(BASE_URL + "/single");
+      //  ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
+    //    ResteasyWebTarget target = client.target(BASE_URL + "/single");
         Invocation.Builder request = (Invocation.Builder) target.queryParam("id", id).request();
         Response response = null;
 
@@ -688,8 +688,11 @@ public class CustomersController implements Initializable {
         // String findCustomersPath = FULL_PATH ;
         String id = customerNumberTextField.getText();
 
-        ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
-        ResteasyWebTarget target = client.target(BASE_URL);
+       // ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
+       // ResteasyWebTarget target = client.target(BASE_URL);
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target(BASE_URL);
+        
         Invocation.Builder request = target.request();
         Response response = null;
 

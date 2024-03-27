@@ -21,7 +21,7 @@
 
         <dependency>
             <groupId>classic.models.maven.enterprise</groupId>
-            <artifactId>classic-models-maven-enterprise-war</artifactId>
+            <artifactId>classic-models-maven-enterprise-webapp</artifactId>
             <type>war</type>
             <version>1.0-RELEASE</version>
         </dependency>
