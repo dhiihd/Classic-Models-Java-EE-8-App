@@ -19,18 +19,20 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.classicmodels.service.exception.PathParamNotFoundException;
+import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author dhiihd
  */
-
 @Path("com.classicmodels.products")
-public class ProductsFacadeREST  {
+public class ProductsFacadeREST {
 
-   
-   @EJB(lookup = "ejb:classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/ProductsFacade!com.classicmodels.statelessejb.remote.ProductsRemote")
-   private ProductsRemote productsRemote;
+    @EJB(lookup = "ejb:classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/ProductsFacade!com.classicmodels.statelessejb.remote.ProductsRemote")
+    private ProductsRemote productsRemote;
+
+    private static final org.slf4j.Logger logger
+            = LoggerFactory.getLogger(ProductsFacadeREST.class);
 
     public ProductsRemote getProductsRemote() {
         return productsRemote;
@@ -39,66 +41,111 @@ public class ProductsFacadeREST  {
     public void setProductsRemote(ProductsRemote productsRemote) {
         this.productsRemote = productsRemote;
     }
-    
 
     public ProductsFacadeREST() {
-        
+
     }
 
     @POST
     @Consumes({MediaType.APPLICATION_XML})
-    public void create(ProductsDTO productsDTO) {
-        productsRemote.create(productsDTO);
+    public Response create(ProductsDTO productsDTO) {
+
+        if (productsDTO != null) {
+            productsRemote.create(productsDTO);
+            return Response.ok().entity("Employee row is created successfuly").build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
     }
 
     @PUT
-    
     @Consumes({MediaType.APPLICATION_XML})
-    public void edit(@QueryParam("id") Integer id, ProductsDTO productsDTO) {
-        
-        if (id == null) throw new PathParamNotFoundException("You need to pass an Id!");
-        productsRemote.edit(productsDTO);
+    public Response edit(@QueryParam("id") Integer id, ProductsDTO productsDTO) {
+
+        if (id == null) {
+            throw new PathParamNotFoundException("You need to pass an Id!");
+        }
+        if ((id != null) && (productsDTO != null)) {
+            productsRemote.edit(id, productsDTO);
+            return Response.ok().entity("Products row is edited successfuly").build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @DELETE
-    public void remove(@QueryParam("id") Integer id) {
-        
-        if (id == null) throw new PathParamNotFoundException("You need to pass an Id!");
-        productsRemote.remove(id);
+    public Response remove(@QueryParam("id") Integer id) {
+
+        if (id == null) {
+            throw new PathParamNotFoundException("You need to pass an Id!");
+        }
+
+        if ((id != null)) {
+            productsRemote.remove(id);
+            return Response.ok().entity("Products row is removed successfuly").build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
     }
 
     @GET
     @Produces({MediaType.APPLICATION_XML})
     public Response find(@QueryParam("id") Integer id) {
-        
-        if (id == null) throw new PathParamNotFoundException("You need to pass an Id!");
-        return Response.ok().entity(productsRemote.find(id)).build();
+
+        logger.info("Inside find @QueryParam --> " + id);
+
+        if (id == null) {
+            throw new PathParamNotFoundException("You need to pass an Id!");
+        }
+        ProductsDTO productsDTO = productsRemote.find(id);
+        if (productsDTO != null) {
+            return Response.ok(productsDTO).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @GET
     @Produces({MediaType.APPLICATION_XML})
     public Response findAllDTOs() {
-        
+
         Collection<ProductsDTO> productsCollection = productsRemote.findAll();
-        return Response.ok().entity(productsCollection).build();
-        
+        if (productsCollection != null) {
+            return Response.ok(productsCollection).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
     }
 
     @GET
-    @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML})
     public Response findRangeDTOs(@QueryParam("from") Integer from, @QueryParam("to") Integer to) {
-        
-        if (from == null || to == null ) throw new PathParamNotFoundException("You need to pass an from and to !");
+
+        if (from == null || to == null) {
+            throw new PathParamNotFoundException("You need to pass an from and to !");
+        }
         Collection<ProductsDTO> productsCollection = productsRemote.findRange(from, to);
-        return Response.ok().entity(productsCollection).build();
+        if (productsCollection != null) {
+            return Response.ok(productsCollection).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public Response countREST() {
-        return Response.ok().entity(String.valueOf(productsRemote.countREST())).build();
+        System.out.println("Inside find countREST()");
+        String count = productsRemote.countREST();
+        if (Integer.parseInt(count) >= 0) {
+            return Response.ok().entity(count).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
-  }
+}

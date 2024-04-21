@@ -15,12 +15,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 
 
 /**
@@ -53,7 +55,11 @@ import lombok.Setter;
     @NamedQuery(name = "Customers.findByState", query = "SELECT c FROM Customers c WHERE c.state = :state"),
     @NamedQuery(name = "Customers.findByPostalCode", query = "SELECT c FROM Customers c WHERE c.postalCode = :postalCode"),
     @NamedQuery(name = "Customers.findByCountry", query = "SELECT c FROM Customers c WHERE c.country = :country"),
-    @NamedQuery(name = "Customers.findByCreditLimit", query = "SELECT c FROM Customers c WHERE c.creditLimit = :creditLimit")})
+    @NamedQuery(name = "Customers.findByCreditLimit", query = "SELECT c FROM Customers c WHERE c.creditLimit = :creditLimit"),
+    @NamedQuery(name = "Customers.findCustomerCreditLimits", query = "SELECT DISTINCT(c.creditLimit) FROM Customers c WHERE c.country = :country"),
+    @NamedQuery(name = "Customers.findCountries", query = "SELECT DISTINCT(c.country) FROM Customers c")
+})
+
     public class Customers implements Serializable {
 
     @Id
@@ -113,6 +119,7 @@ import lombok.Setter;
     @JoinColumn(name = "salesRepEmployeeNumber", referencedColumnName = "employeeNumber")
     @ManyToOne
     private Employees salesRepEmployeeNumber;
+    
 /**
     public Customers(Integer customerNumber) {
         this.customerNumber = customerNumber;

@@ -85,4 +85,20 @@ public class HomeController implements Initializable {
         }
     }
     
+    @FXML
+    private void handleButtonClicks3(ActionEvent event) {
+        
+        try {
+            logger.info("Inside CustomersCreditLimitsChartsFXML --> ");
+            App.setRoot("CustomersCreditLimitsChartsFXML");
+            
+           // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
+           // customersChartsFXMLController.initUI();
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    
 }

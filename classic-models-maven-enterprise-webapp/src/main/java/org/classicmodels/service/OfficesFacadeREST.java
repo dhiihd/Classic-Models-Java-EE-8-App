@@ -14,93 +14,138 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.classicmodels.service.exception.PathParamNotFoundException;
+import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author dhiihd
  */
+@Path("com.classicmodels.employees")
+public class OfficesFacadeREST {
 
-@Path("com.classicmodels.offices")
-public class OfficesFacadeREST  {
+    @EJB(lookup = "ejb:classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/OfficesFacade!com.classicmodels.statelessejb.remote.OfficesRemote")
+    private OfficesRemote employeesRemote;
 
-   
-   @EJB(lookup = "ejb:classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/OfficesFacade!com.classicmodels.statelessejb.remote.OfficesRemote")
-   private OfficesRemote officesRemote;
+    private static final org.slf4j.Logger logger
+            = LoggerFactory.getLogger(OfficesFacadeREST.class);
 
     public OfficesRemote getOfficesRemote() {
-        return officesRemote;
+        return employeesRemote;
     }
 
-    public void setOfficesRemote(OfficesRemote officesRemote) {
-        this.officesRemote = officesRemote;
+    public void setOfficesRemote(OfficesRemote employeesRemote) {
+        this.employeesRemote = employeesRemote;
     }
-    
 
     public OfficesFacadeREST() {
-        
+
     }
 
     @POST
     @Consumes({MediaType.APPLICATION_XML})
-    public void create(OfficesDTO officesDTO) {
-        officesRemote.create(officesDTO);
+    public Response create(OfficesDTO employeesDTO) {
+
+        if (employeesDTO != null) {
+            employeesRemote.create(employeesDTO);
+            return Response.ok().entity("Employee row is created successfuly").build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
     }
 
     @PUT
     @Consumes({MediaType.APPLICATION_XML})
-    public void edit(@QueryParam("id") String id, OfficesDTO officesDTO) {
-        
-        if (id == null) throw new PathParamNotFoundException("You need to pass an Id!");
-        officesRemote.edit(id,officesDTO);
+    public Response edit(@QueryParam("id") String id, OfficesDTO employeesDTO) {
+
+        if (id == null) {
+            throw new PathParamNotFoundException("You need to pass an Id!");
+        }
+        if ((id != null) && (employeesDTO != null)) {
+            employeesRemote.edit(id, employeesDTO);
+            return Response.ok().entity("Offices row is edited successfuly").build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @DELETE
-    public void remove(@QueryParam("id") String id) {
-        
-        if (id == null) throw new PathParamNotFoundException("You need to pass an Id!");
-        officesRemote.remove(id);
+    public Response remove(@QueryParam("id") String id) {
+
+        if (id == null) {
+            throw new PathParamNotFoundException("You need to pass an Id!");
+        }
+
+        if ((id != null)) {
+            employeesRemote.remove(id);
+            return Response.ok().entity("Offices row is removed successfuly").build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
     }
- 
+
     @GET
     @Produces({MediaType.APPLICATION_XML})
     public Response find(@QueryParam("id") String id) {
-        System.out.println("Inside find @QueryParam --> OfficesFacadeREST "+id);
-        if (id == null) throw new PathParamNotFoundException("You need to pass an Id!");
-        OfficesDTO officesDTO = officesRemote.find(id);
-        System.out.println("officesDTO --> "+officesDTO);
-        return Response.ok().entity(officesDTO).build();
+
+        logger.info("Inside find @QueryParam --> " + id);
+
+        if (id == null) {
+            throw new PathParamNotFoundException("You need to pass an Id!");
+        }
+        OfficesDTO officesDTO = employeesRemote.find(id);
+        if (officesDTO != null) {
+            return Response.ok(officesDTO).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @GET
     @Produces({MediaType.APPLICATION_XML})
     public Response findAllDTOs() {
-        
-        Collection<OfficesDTO> officesCollection = officesRemote.findAll();
-        return Response.ok().entity(officesCollection).build();
-        
+
+        Collection<OfficesDTO> employeesCollection = employeesRemote.findAll();
+        if (employeesCollection != null) {
+            return Response.ok(employeesCollection).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
     }
 
     @GET
-    @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML})
     public Response findRangeDTOs(@QueryParam("from") Integer from, @QueryParam("to") Integer to) {
-        
-        if (from == null || to == null ) throw new PathParamNotFoundException("You need to pass an from and to !");
-        Collection<OfficesDTO> officesCollection = officesRemote.findRange(from, to);
-        return Response.ok().entity(officesCollection).build();
+
+        if (from == null || to == null) {
+            throw new PathParamNotFoundException("You need to pass an from and to !");
+        }
+        Collection<OfficesDTO> employeesCollection = employeesRemote.findRange(from, to);
+        if (employeesCollection != null) {
+            return Response.ok(employeesCollection).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public Response countREST() {
-        return Response.ok().entity(String.valueOf(officesRemote.countREST())).build();
+        System.out.println("Inside find countREST()");
+        String count = employeesRemote.countREST();
+        if (Integer.parseInt(count) >= 0) {
+            return Response.ok().entity(count).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
-  }
+}

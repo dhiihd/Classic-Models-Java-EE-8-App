@@ -10,7 +10,7 @@
     <groupId>classic-models-maven-enterprise</groupId>
     <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
     <version>1.0-RELEASE</version>
-    <packaging>app-client</packaging> 
+   <packaging>app-client</packaging> 
     <name>Classic Models JavaFX App Client</name>
     <description>Classic Models JavaFX App Client</description>
    <profiles>
@@ -52,11 +52,14 @@
         <endorsed.dir>${project.build.directory}\endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javafx.version>21.0.2</javafx.version>
-        <resteasy.version>3.9.3.Final</resteasy.version>
+          <!-- <resteasy.version>6.2.8.Final</resteasy.version>  -->
+         <resteasy.version>3.9.3.Final</resteasy.version>
+        
+      <!-- <resteasy.version>3.0.14.Final</resteasy.version> --> 
     </properties>
-   
+   <!--
     <repositories>
-        <!-- 
+         
         <repository>
             <id>acme-nexus-releases</id>
           
@@ -65,15 +68,23 @@
             <url>https://jcenter.bintray.com/</url>
               
         </repository>
-     -->
+
     </repositories>
+         -->
+         
+         <repositories>
+          
+         <repository>
+             <id>acme-nexus-releases</id>
+           
+             <name>acme nexus</name>
+                   
+             <url>https://repo1.maven.org/maven2/</url>
+               
+         </repository>
+      
+     </repositories>
     <dependencies>
-        <dependency>
-            <groupId>classic-models-maven-enterprise</groupId>
-            <artifactId>classic-models-maven-enterprise-lib</artifactId>
-            <version>1.0-RELEASE</version>
-            <type>jar</type>
-        </dependency>
         <!-- <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
@@ -90,22 +101,45 @@
         </dependency>
         -->
         <!-- JAXB support -->
-        <dependency>
+          <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxb-provider</artifactId>
-            <version>3.0.2.Final</version>
+            <version>${resteasy.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>jaxrs-api</artifactId>
-            <version>3.0.2.Final</version>
-        </dependency>
+       
+    <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-client   
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
-            <version>3.9.3.Final</version>
-            <type>jar</type>
+            <version>${resteasy.version}</version>
         </dependency>
+          -->
+      <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-client -->
+<dependency>
+    <groupId>org.jboss.resteasy</groupId>
+    <artifactId>resteasy-client</artifactId>
+    <version>${resteasy.version}</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
+<dependency>
+    <groupId>org.jboss.resteasy</groupId>
+    <artifactId>resteasy-jaxrs</artifactId>
+    <version>3.15.6.Final</version>
+</dependency>
+
+<dependency>
+ <groupId>org.jboss.resteasy</groupId>
+ <artifactId>resteasy-cdi</artifactId>
+ <version>${resteasy.version}</version>
+</dependency>
+<!--
+<dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+-->
         <dependency>
             <groupId>org.scannotation</groupId>
             <artifactId>scannotation</artifactId>
@@ -228,6 +262,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl 
+<dependency>
+    <groupId>com.sun.xml.bind</groupId>
+    <artifactId>jaxb-impl</artifactId>
+    <version>2.0.1</version>
+</dependency>
+-->
 
         <!--
         <dependency>
@@ -236,6 +278,11 @@
             <version>11.3.2</version>
         </dependency>
         -->
+        <dependency>
+            <groupId>classic.models.maven.enterprise</groupId>
+            <artifactId>classic-models-maven-enterprise-lib</artifactId>
+            <version>1.0-RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -262,7 +309,7 @@
                     <mainClass>com.classicmodels.javafx.controller.App</mainClass>
                     <configuration>
                         <jvmArgs>
-                            <argument>--add-opens javafx.graphics/javafx.css=ALL-UNNAMED</argument>
+                            <argument>--illegal-access=warn --add-opens java.base/java.lang=ALL-UNNAMED --add-opens javafx.graphics/javafx.css=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED</argument>
                         </jvmArgs>
                     </configuration>
                 </configuration>

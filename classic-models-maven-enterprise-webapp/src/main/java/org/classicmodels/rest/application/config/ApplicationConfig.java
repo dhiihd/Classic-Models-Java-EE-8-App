@@ -37,7 +37,6 @@ public class ApplicationConfig extends Application {
         resources.add(org.classicmodels.service.PaymentsFacadeREST.class);
         resources.add(org.classicmodels.service.ProductlinesFacadeREST.class);
         resources.add(org.classicmodels.service.ProductsFacadeREST.class);
-        resources.add(org.classicmodels.service.exception.PathParamNotFoundMapper.class);
     }
     
 }

@@ -10,8 +10,6 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.Response;
-import org.jboss.resteasy.client.jaxrs.ResteasyClient;
-import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 
 
 /**
@@ -54,9 +52,9 @@ public class CustomersTask extends Task<CustomersDTO> {
             throw ex;
             //   return null; //something bad happened so you have to do something instead of returning null
         }
-       */ 
-        ResteasyClient client = (ResteasyClient)ClientBuilder.newClient();
-        ResteasyWebTarget target = client.target(FULL_PATH);
+       
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target(FULL_PATH);
         Invocation.Builder request = (Invocation.Builder) target.request();
         Response response = null;
         try
@@ -70,7 +68,7 @@ public class CustomersTask extends Task<CustomersDTO> {
             response.close();
             client.close();
         }
-
+*/ 
         return customersDTO;
     }
 

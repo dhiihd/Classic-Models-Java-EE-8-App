@@ -6,7 +6,7 @@
     href="$outputFile">
   <information>
 #if($project.Name)
-    <title>$project.Name</title>
+    <title>Classic Models Java EE 8 Enterprise App</title>
 #end
 #if($project.Organization.Name)
     <vendor>$project.Organization.Name</vendor>
@@ -15,7 +15,7 @@
     <homepage href="$project.Url"/>
 #end
 #if($project.Description)
-    <description>$project.Description</description>
+    <description>Classic Models Java EE 8 Enterprise App</description>
 #end
    
    <icon href="../images/meatball1-browse.jpg" kind="default" width="800" height="498"/> 
@@ -38,10 +38,17 @@
   </security>
 #end
   <resources>
-       <j2se version="19+" 
+     <j2se version="19+" 
           initial-heap-size="512m" 
           max-heap-size="2048m" 
-          java-vm-args="-Xms512m -Xmx4096m -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=25 --add-modules javafx.base,javafx.controls,javafx.graphics,javafx.fxml --add-opens javafx.graphics/javafx.css=ALL-UNNAMED"/>
+          java-vm-args="-Xms512m -Xmx4096m -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=25 --add-modules javafx.base,javafx.controls,javafx.graphics,javafx.fxml"/>
+   
+
+      <!--    
+      <j2se version="19+" 
+          initial-heap-size="512m" 
+          max-heap-size="2048m" 
+          java-vm-args="-Xms512m -Xmx4096m -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=25 --add-modules javafx.base,javafx.controls,javafx.graphics,javafx.fxml --illegal-access=warn --add-opens java.base/java.lang=ALL-UNNAMED --add-opens javafx.graphics/javafx.css=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED"/>
     <!--
           <j2se version="$j2seVersion"/>
                   -->

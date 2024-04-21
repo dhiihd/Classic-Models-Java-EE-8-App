@@ -48,7 +48,7 @@
                   <FontAwesomeIconView fill="#0A3161" glyphName="AMBULANCE" size="50" />
                </graphic>
             </Button>
-            <Button fx:id="btn_Timetable" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks2" prefHeight="172.0" prefWidth="302.0" stylesheets="@../css/fullpackstyling.css" text="Employees" GridPane.columnIndex="2">
+            <Button fx:id="btn_Timetable" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks3" prefHeight="172.0" prefWidth="302.0" stylesheets="@../css/fullpackstyling.css" text="Employees" GridPane.columnIndex="2">
                <graphic>
                   <FontAwesomeIconView fill="#0A3161" glyphName="VIDEO_CAMERA" size="50" />
                </graphic>

@@ -12,12 +12,15 @@
     <packaging>war</packaging>
     <name>Classic Models Java EE 8 Web App</name>
     <description>Classic Models Java EE 8 Web App</description>
-    <url>http://localhost:8080/classic-models-maven-enterprise-webapp/</url>
+    <url>http://localhost:8080/classic-models-maven-enterprise-webapp</url>
    
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <resteasy.version>3.0.14.Final</resteasy.version>
-        <jnlpCodebase>http://localhost:8080/classic-models-maven-enterprise-webapp/</jnlpCodebase>
+       <!-- <resteasy.version>6.2.1.Final</resteasy.version>  -->
+         <resteasy.version>3.9.3.Final</resteasy.version>
+       
+       <!-- <resteasy.version>3.0.14.Final</resteasy.version>   -->
+        <jnlpCodebase>http://localhost:8080/classic-models-maven-enterprise-webapp</jnlpCodebase>
     </properties>
     
  
@@ -29,12 +32,13 @@
            
              <name>acme nexus</name>
                    
-             <url>http://repo.anahata.uno/artifactory/anahata-public/</url>
+             <url>https://repo1.maven.org/maven2/</url>
                
          </repository>
       
      </repositories>
     -->
+    
 
   
                       
@@ -86,22 +90,19 @@
             <artifactId>webstart-jnlp-servlet</artifactId>
             <version>1.0-beta-7</version>
         </dependency>
-
         <dependency>
             <groupId>classic.models.maven.enterprise</groupId>
             <artifactId>classic-models-maven-enterprise-ejb</artifactId>
             <version>1.0-RELEASE</version>
             <type>ejb-client</type>
         </dependency>
-           
-        <dependency>
-            <groupId>classic-models-maven-enterprise</groupId>
-            <artifactId>classic-models-maven-enterprise-lib</artifactId>
-            <version>1.0-RELEASE</version>
-            <type>jar</type>
-        </dependency>
-   
-        
+        <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl 
+<dependency>
+    <groupId>com.sun.xml.bind</groupId>
+    <artifactId>jaxb-impl</artifactId>
+    <version>2.0.1</version>
+</dependency>
+-->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-servlet-initializer</artifactId>
@@ -117,6 +118,12 @@
             <artifactId>resteasy-jaxb-provider</artifactId>
             <version>6.2.1.Final</version>
         </dependency>
+<!-- https://mvnrepository.com/artifact/org.jboss.spec.javax.ws.rs/jboss-jaxrs-api_2.0_spec -->
+<dependency>
+    <groupId>org.jboss.spec.javax.ws.rs</groupId>
+    <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
+    <version>1.0.0.Final</version>
+</dependency>
 
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -128,13 +135,15 @@
             <artifactId>resteasy-client</artifactId>
             <version>6.2.1.Final</version>
         </dependency>
-  
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>classic-models-maven-enterprise-lib</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
-
-            <plugin>
-               
+            <plugin>          
                 <groupId>com.jalalkiswani</groupId>
                 <artifactId>jk-webstart-maven-plugin</artifactId>
                 <version>1.0.7</version>
@@ -212,7 +221,7 @@
                 </executions>
                 <configuration>
 		
-                    <keystore>src/main/resources/webstart/classicModelsKeyStore</keystore>
+	            <keystore>src/main/resources/webstart/classicModelsKeyStore</keystore>
                     <alias>ulctest</alias>
                     <storepass>ulctest</storepass>
                     <keypass>ulctest</keypass>

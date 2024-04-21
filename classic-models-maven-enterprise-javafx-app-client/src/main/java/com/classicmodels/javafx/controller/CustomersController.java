@@ -128,7 +128,7 @@ public class CustomersController implements Initializable {
 
     private Dialog<String> dialog = new Dialog<String>();
 
-    private static final String BASE_URL = "http://localhost:8080/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
+    private static final String BASE_URL = "http://127.0.0.1:8080/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
 
     @Override
     @FXML

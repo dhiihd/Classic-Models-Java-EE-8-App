@@ -22,13 +22,6 @@
      <description>Classic Models Java EE 8 EJB</description>
     <url>http://rhuanrocha.net/</url>
     <dependencies>
-         
-        <dependency>
-            <groupId>classic-models-maven-enterprise</groupId>
-            <artifactId>classic-models-maven-enterprise-lib</artifactId>
-            <version>1.0-RELEASE</version>
-            <type>jar</type>
-        </dependency>
        
    
         
@@ -42,8 +35,12 @@
             <artifactId>mapstruct-processor</artifactId>
             <version>1.5.3.Final</version>
             <!-- <scope>provided</scope> -->
-        </dependency>      
-       
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>classic-models-maven-enterprise-lib</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
     
     <build>

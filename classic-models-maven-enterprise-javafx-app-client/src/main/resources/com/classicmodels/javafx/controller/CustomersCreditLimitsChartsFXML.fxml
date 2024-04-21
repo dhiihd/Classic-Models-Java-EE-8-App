@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="anchorPane" prefHeight="837.0" prefWidth="1087.0" styleClass=".data0.chart-bar" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.classicmodels.javafx.controller.CustomersCreditLimitsChartsFXMLController">
+    
+    
+    <stylesheets>
+        <URL value="@/styles/colored-chart.css" />
+    </stylesheets>
+    
+   
+    <VBox fx:id="vbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+        <GridPane id="gridPane" alignment="CENTER" hgap="10.0" layoutX="107.0" layoutY="226.0" prefHeight="133.0" prefWidth="100.0" vgap="10.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="128.0">
+            <columnConstraints>
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+      
+    
+        </GridPane>
+       
+    </VBox>
+   
+    <LineChart fx:id="customerCreditLimitsChart" layoutX="57.0" layoutY="207.0" prefHeight="586.0" prefWidth="932.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Classic Models Credit Limits">
+        <xAxis>
+            <NumberAxis autoRanging="false" lowerBound="0" side="BOTTOM" tickUnit="10" upperBound="150" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis autoRanging="false" label="Credit Limits" lowerBound="-75000" side="LEFT" tickUnit="15000" upperBound="150000" />
+        </yAxis>
+    </LineChart>
+   
+    <Pane layoutX="-12.0" layoutY="-13.0" prefHeight="200.0" prefWidth="1031.0" style="-fx-background-color:#0A3161" stylesheets="@../../../../styles/colored-chart.css" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-13.0">
+      
+        <Label layoutX="127.0" layoutY="59.0" text="Classic Models" textFill="WHITE">
+            <font>
+                <Font size="48.0" />
+            </font>
+        </Label>
+        <Label layoutX="134.0" layoutY="120.0" text="Classic Models Management " textFill="WHITE">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+        <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="40.0" layoutY="121.0" size="60" wrappingWidth="64.57142639160156" />
+      <AnchorPane layoutX="490.0" layoutY="47.0" prefHeight="106.0" prefWidth="425.0">
+         <children>
+            <Label layoutX="39.0" layoutY="37.0" text="Country : " textFill="#f2eded">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ListView fx:id="countriesListView" layoutX="110.0" layoutY="37.0" prefHeight="20.0" prefWidth="176.0" />
+            <Button layoutX="292.0" layoutY="35.0" mnemonicParsing="false" onAction="#getCountriesList" text="Countries List" />
+            <Button layoutX="110.0" layoutY="67.0" mnemonicParsing="false" onAction="#generateCreditLimitsChart" text="Credit Limits Charts" />
+         </children>
+      </AnchorPane>
+      
+    </Pane>
+    <!--
+              <Button fx:id="btnInitUI" contentDisplay="TOP" layoutX="39.0" layoutY="226.0" mnemonicParsing="false" onAction="#initUI" prefHeight="87.0" prefWidth="179.0" stylesheets="@../css/fullpackstyling.css" text="Load Chart">
+           <graphic>
+              <FontAwesomeIconView fill="#0A3161" glyphName="USERS" size="50" />
+           </graphic>
+        </Button>
+    -->
+    <!-- 
+        <VBox fx:id="vbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+        <BarChart id="worldPopulationChart">
+         <xAxis>
+        <NumberAxis id="yearAxis" label="Year"/>
+      </xAxis>
+      <yAxis> 
+        <NumberAxis id="populationAxis" label="Population (billion)" lowerBound="-1e9" upperBound="7e9" autoRanging="false" tickUnit="1e9"/>
+      </yAxis>
+    </BarChart>
+      </VBox>
+    -->
+</AnchorPane>

@@ -104,6 +104,8 @@ public class PaymentsChartsFXMLController implements Initializable {
 */
 //s.setTitle("Bar Chart Sample");
 //x and y axis
+       //   classicModelsPaymentsChart.setTitle("Emotions of people");
+
         xAxis.setLabel("Year of Payments");
       //  xAxis.setTickLabelRotation(90);
 //set title for y axis

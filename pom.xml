@@ -24,41 +24,44 @@
    </modules>
 
     <dependencyManagement>      
-        <dependencies>
-           <dependency>
+    <dependencies>
+        <dependency>
+               <groupId>classic.models.maven.enterprise</groupId>
+               <artifactId>classic-models-maven-enterprise-lib</artifactId>
+               <version>${project.version}</version> 
+               <type>jar</type>
+            </dependency>
+         <dependency>
                 <groupId>classic-models-maven-enterprise</groupId>
                 <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
-                 <version>1.0-RELEASE</version>
+                 <version>${project.version}</version>
                 <type>app-client</type>
             </dependency>
             <dependency>
                 <groupId>classic.models.maven.enterprise</groupId>
                 <artifactId>classic-models-maven-enterprise-ejb</artifactId>
-                <version>1.0-RELEASE</version>  
+                <version>${project.version}</version> 
                 <type>ejb</type>
             </dependency>
-            <dependency>
-               <groupId>classic.models.maven.enterprise</groupId>
-               <artifactId>classic-models-maven-enterprise-lib</artifactId>
-               <version>1.0-RELEASE</version>
-               <type>jar</type>
-            </dependency>
-         
+            
+              
                 <dependency>
                 <groupId>classic.models.maven.enterprise</groupId>
                 <artifactId>classic-models-maven-enterprise-webapp</artifactId>
-                <version>1.0-RELEASE</version>
+                <version>${project.version}</version> 
                 <type>war</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
+      
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit}</version>
             <scope>test</scope>
         </dependency>
+       
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>

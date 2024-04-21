@@ -5,7 +5,9 @@
 package com.classicmodels.statelessejb.remote;
 
 import com.classicmodels.dto.CustomersDTO;
+import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -30,8 +32,14 @@ public interface CustomersRemote {
 
     public Collection<CustomersDTO> findAll();
     
+    public List<String> findCountries();
+    
     public CustomersDTO findByCustomerNumber(Integer id);
     
     public String countREST();
+
+    public List<BigDecimal> findCustomerCreditLimits(String country);
+
+    //public Collection<String> findCountries();
 
 }
