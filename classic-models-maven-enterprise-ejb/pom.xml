@@ -19,7 +19,7 @@
     </properties>
 
     <name>Classic Models Java EE 8 EJB</name>
-     <description>Classic Models Java EE 8 EJB</description>
+    <description>Classic Models Java EE 8 EJB</description>
     <url>http://rhuanrocha.net/</url>
     <dependencies>
        
@@ -48,7 +48,7 @@
             
          
           
-           <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ejb-plugin</artifactId>
                 <version>3.2.1</version>
@@ -58,7 +58,7 @@
                     <clientIncludes>
                         <!-- this will exclude all files under com/example -->
                         <clientInclude>com/classicmodels/statelessejb/remote/*</clientInclude>
-                     <!--   <clientInclude>com/classicmodels/statelessejb/*</clientInclude> -->
+                        <!--   <clientInclude>com/classicmodels/statelessejb/*</clientInclude> -->
                      
                         <!-- this will exclude all files and directories with the name
                         sparrow under com/jack -->

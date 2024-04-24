@@ -16,13 +16,12 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface CustomersRemote {
-    
 
-    public void create(CustomersDTO customersDTO) ;
+    public void create(CustomersDTO customersDTO);
 
     public void edit(Integer id, CustomersDTO customersDTO);
 
-    public void edit(CustomersDTO customersDTO) ;
+    public void edit(CustomersDTO customersDTO);
 
     public void remove(Integer id);
 
@@ -31,15 +30,14 @@ public interface CustomersRemote {
     public Collection<CustomersDTO> findRange(Integer from, Integer to);
 
     public Collection<CustomersDTO> findAll();
-    
+
     public List<String> findCountries();
-    
+
     public CustomersDTO findByCustomerNumber(Integer id);
-    
+
     public String countREST();
 
     public List<BigDecimal> findCustomerCreditLimits(String country);
 
     //public Collection<String> findCountries();
-
 }

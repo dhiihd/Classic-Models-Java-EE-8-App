@@ -12,21 +12,20 @@ import javafx.concurrent.Task;
  *
  * @author dhiihd
  */
-public class CustomersService extends Service<CustomersDTO>{
-    
+public class CustomersService extends Service<CustomersDTO> {
+
     private CustomersTask customersTask = null;
     private CustomersDTO customersDTO = null;
-    
-      public void setCustomersDTO(CustomersDTO customersDTO){
-      this.customersDTO = customersDTO;   
+
+    public void setCustomersDTO(CustomersDTO customersDTO) {
+        this.customersDTO = customersDTO;
     }
-    
+
     /**
      * Constructor
      */
-    public CustomersService () {
+    public CustomersService() {
 
-        
         // if succeeded
         setOnSucceeded(s -> {
             //code if Service succeeds
@@ -39,29 +38,29 @@ public class CustomersService extends Service<CustomersDTO>{
         });
 
         //if cancelled
-        setOnCancelled(cancelled->{
+        setOnCancelled(cancelled -> {
             //code if Service get's cancelled
         });
     }
 
     /**
-    * This method starts the Service
-    */
-    public void startTheService(){
-        if(!isRunning()){
-           //...
-           reset();
-           start();
-           
-           
+     * This method starts the Service
+     */
+    public void startTheService() {
+        if (!isRunning()) {
+            //...
+            reset();
+            start();
+
         }
 
     }
- @Override
+
+    @Override
     public Task<CustomersDTO> createTask() {
-        
+
         customersTask = new CustomersTask();
         return customersTask;
-    
+
     }
 }

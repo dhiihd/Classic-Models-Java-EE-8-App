@@ -4,7 +4,6 @@
  */
 package com.classicmodels.dto;
 
-
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -17,7 +16,6 @@ import lombok.NonNull;
  *
  * @author dhiihd
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,11 +34,8 @@ public class OrdersDTO implements Serializable {
     private Collection<OrderdetailsDTO> orderdetailsDTOCollection;
     private CustomersDTO customerNumber;
 
-   
     public OrdersDTO(Integer orderNumber) {
         this.orderNumber = orderNumber;
     }
 
-
-    
 }

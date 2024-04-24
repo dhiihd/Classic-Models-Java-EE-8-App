@@ -4,7 +4,6 @@ package com.classicmodels.javafx.controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-
 import com.classicmodels.dto.CountriesDTO;
 import com.classicmodels.dto.CreditLimitsDTO;
 import java.net.URL;
@@ -54,48 +53,45 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
             = LoggerFactory.getLogger(CustomersCreditLimitsChartsFXMLController.class);
 
     private ObservableList<DataItem> items;
-    
-    
+
     @FXML
     private VBox root = new VBox();
     @FXML
     private Button btnInitUI;
-    private static  int SIZE = 10;
-    
+    private static int SIZE = 10;
+
     @FXML
     private GridPane gridPane = new GridPane();
     @FXML
     private final AnchorPane anchorPane = new AnchorPane();
-    
+
     @FXML
     private ListView countriesListView = new ListView();
-    
+
     private static final String BASE_URL = "http://127.0.0.1:8080/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
-    
-   private String statusInfo = null;
-   // private Dialog<String> dialog = new Dialog<String>();
-    
-   // private  Random rnd = new Random();
-    
+
+    private String statusInfo = null;
+    // private Dialog<String> dialog = new Dialog<String>();
+
+    // private  Random rnd = new Random();
     @FXML
     private final NumberAxis yAxis = new NumberAxis();
-    
+
     @FXML
     private final NumberAxis xAxis = new NumberAxis();
 //create bar chart
-      
-    @FXML
-    private LineChart customerCreditLimitsChart =  new LineChart(xAxis, yAxis);
-
 
     @FXML
-    public void getCountriesList(){
-        
+    private LineChart customerCreditLimitsChart = new LineChart(xAxis, yAxis);
+
+    @FXML
+    public void getCountriesList() {
+
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(BASE_URL+"/countries");
-        
+        WebTarget target = client.target(BASE_URL + "/countries");
+
         Invocation.Builder request = target.request();
-  
+
         Response response = null;
 
         statusInfo = null;
@@ -103,22 +99,21 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
         try {
             // request.
             response = request.accept(MediaType.APPLICATION_XML).get();
-           //  response.
-           //response = target.request().post(Entity.xml(customersDTO));
-            CountriesDTO message  =  response.readEntity(CountriesDTO.class);
+            //  response.
+            //response = target.request().post(Entity.xml(customersDTO));
+            CountriesDTO message = response.readEntity(CountriesDTO.class);
             logger.info("Inside getCountriesList()");
-            ObservableList<String> observableArrayList = 
-            (ObservableList<String>) FXCollections.observableArrayList(message.getCountries());
+            ObservableList<String> observableArrayList
+                    = (ObservableList<String>) FXCollections.observableArrayList(message.getCountries());
             countriesListView.setItems(observableArrayList);
             statusInfo = response.getStatusInfo().toString().trim();
             logger.info("message --> " + message.getCountries());
-           
+
             /**
              * btnAddCustomers.setOnAction(e -> {
              * dialog.setContentText(statusInfo); dialog.showAndWait(); });
              */
             //Creating a dialog
-
             //    customersDTO = target.queryParam("id", id).request().get(CustomersDTO.class);
         } finally {
             if (response != null) {
@@ -129,18 +124,18 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
             }
         }
     }
-    
-     @FXML
-    public void generateCreditLimitsChart() {
-        
-        String country = (String) countriesListView.getSelectionModel().getSelectedItem();
-        
-        logger.info("country --> "+country );
-     //   xAxis.setLabel("Time");
-     
-     // yAxis.setLabel("Thousand bbl/d");
 
-         /*
+    @FXML
+    public void generateCreditLimitsChart() {
+
+        String country = (String) countriesListView.getSelectionModel().getSelectedItem();
+
+        logger.info("country --> " + country);
+        //   xAxis.setLabel("Time");
+
+        // yAxis.setLabel("Thousand bbl/d");
+
+        /*
         
         AreaChart areaChart = new AreaChart(xAxis, yAxis);
         areaChart.setTitle("Oil consumption");
@@ -162,63 +157,57 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
         areaChart.setLegendVisible(false);
 
         root.getChildren().add(areaChart);
-*/
+         */
 //s.setTitle("Bar Chart Sample");
 //x and y axis
-     //   xAxis.setLabel("Country");
-      //  xAxis.setTickLabelRotation(90);
+        //   xAxis.setLabel("Country");
+        //  xAxis.setTickLabelRotation(90);
         // xAxis.setLabel("Credit Limits");
-        
-        
-     
-        
-   //     customerCreditLimitsChart.setTitle("Customer Credit Limits");
-
-        logger.info("fasfasfs fasfasfsa--> " );
+        //     customerCreditLimitsChart.setTitle("Customer Credit Limits");
+        logger.info("fasfasfs fasfasfsa--> ");
 //set title for x axis
-       
+
 //dataset on 1999
-    
-        for(Node n:customerCreditLimitsChart.lookupAll(".default-color0.chart-bar")) {
+        for (Node n : customerCreditLimitsChart.lookupAll(".default-color0.chart-bar")) {
             n.setStyle("-fx-bar-fill: red;");
         }
-   //second bar color
-       for(Node n:customerCreditLimitsChart.lookupAll(".default-color1.chart-bar")) {
+        //second bar color
+        for (Node n : customerCreditLimitsChart.lookupAll(".default-color1.chart-bar")) {
             n.setStyle("-fx-bar-fill: green;");
         }
-       
-       //third bar color
-       for(Node n:customerCreditLimitsChart.lookupAll(".default-color2.chart-bar")) {
+
+        //third bar color
+        for (Node n : customerCreditLimitsChart.lookupAll(".default-color2.chart-bar")) {
             n.setStyle("-fx-bar-fill: blue;");
         }
-       
-       for(Node n:customerCreditLimitsChart.lookupAll(".default-color3.chart-bar")) {
+
+        for (Node n : customerCreditLimitsChart.lookupAll(".default-color3.chart-bar")) {
             n.setStyle("-fx-bar-fill: yellow;");
         }
-       
+
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(BASE_URL+"/creditlimits");
-        
+        WebTarget target = client.target(BASE_URL + "/creditlimits");
+
         Invocation.Builder request = (Invocation.Builder) target.queryParam("country", country).request();
-  
+
         Response response = null;
 
         statusInfo = null;
-        
-        CreditLimitsDTO message  =  null;
-        
+
+        CreditLimitsDTO message = null;
+
         List<BigDecimal> creditLimits = null;
-    
+
         // GenericType<List<Integer>> message1  = null;
         try {
             // request.
             response = request.accept(MediaType.APPLICATION_XML).get();
-           //  response.
-           //response = target.request().post(Entity.xml(customersDTO));
-          //  message  = response.getEntity();
-            message  = (CreditLimitsDTO) response.readEntity(CreditLimitsDTO.class);
+            //  response.
+            //response = target.request().post(Entity.xml(customersDTO));
+            //  message  = response.getEntity();
+            message = (CreditLimitsDTO) response.readEntity(CreditLimitsDTO.class);
             creditLimits = message.getCreditLimits();
-      //   message1  =  (GenericType<List<Integer>>) response.readEntity(new GenericType<List<Integer>>(){});
+            //   message1  =  (GenericType<List<Integer>>) response.readEntity(new GenericType<List<Integer>>(){});
             logger.info("message --> " + creditLimits);
             Collections.sort(creditLimits);
             logger.info("message sorted --> " + creditLimits);
@@ -230,57 +219,49 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
                 client.close();
             }
         }
-           
-        //    ObservableList<Integer> observableArrayList = 
-          //  (ObservableList<Integer>) FXCollections.observableArrayList(message1);
-          //  customerCreditLimitsChart.setData(observableArrayList);
-            //message  =  response.readEntity(new GenericType<CreditLimitsDTO>(){});
-            logger.info("Inside generateCreditLimitsChart()");
-            
-            statusInfo = response.getStatusInfo().toString().trim();
-           
-           
-            /**
-             * btnAddCustomers.setOnAction(e -> {
-             * dialog.setContentText(statusInfo); dialog.showAndWait(); });
-             */
-            //Creating a dialog
 
-            //    customersDTO = target.queryParam("id", id).request().get(CustomersDTO.class);
-       
-        
-        
+        //    ObservableList<Integer> observableArrayList = 
+        //  (ObservableList<Integer>) FXCollections.observableArrayList(message1);
+        //  customerCreditLimitsChart.setData(observableArrayList);
+        //message  =  response.readEntity(new GenericType<CreditLimitsDTO>(){});
+        logger.info("Inside generateCreditLimitsChart()");
+
+        statusInfo = response.getStatusInfo().toString().trim();
+
+        /**
+         * btnAddCustomers.setOnAction(e -> { dialog.setContentText(statusInfo);
+         * dialog.showAndWait(); });
+         */
+        //Creating a dialog
+        //    customersDTO = target.queryParam("id", id).request().get(CustomersDTO.class);
         //Configuring data for XY chart 
         XYChart.Series data = new XYChart.Series();
         data.setName(country);
-        int j=10;
-        for (int i=0;i < creditLimits.size();i++ ) {
-            data.getData().add(new XYChart.Data(j,creditLimits.get(i)));
-           logger.info("Inside XYChartData "+i+" --> "+creditLimits.get(i));
-           j+=10;
+        int j = 10;
+        for (int i = 0; i < creditLimits.size(); i++) {
+            data.getData().add(new XYChart.Data(j, creditLimits.get(i)));
+            logger.info("Inside XYChartData " + i + " --> " + creditLimits.get(i));
+            j += 10;
         }
-     
-        
-             /*
+
+        /*
         data.getData().add(new XYChart.Data(2,142000));
          data.getData().add(new XYChart.Data(3,178000));
         data.getData().add(new XYChart.Data(4,192000));
       
-        */
+         */
         //Adding data to the barchart
-      customerCreditLimitsChart.getData().add(data);
-    
-  
+        customerCreditLimitsChart.getData().add(data);
 
     }
 
     public CustomersCreditLimitsChartsFXMLController() {
-       FXMLLoader fxml = new FXMLLoader(getClass().getResource("com/classicmodels/javafx/controller/CustomersCreditLimitsChartsFXML.fxml"));
-       fxml.setRoot(this);
-       fxml.setController(this);
-      // getCountriesList();
-    //   generateCreditLimitsChart();
-        
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("com/classicmodels/javafx/controller/CustomersCreditLimitsChartsFXML.fxml"));
+        fxml.setRoot(this);
+        fxml.setController(this);
+        // getCountriesList();
+        //   generateCreditLimitsChart();
+
     }
 
     @Override
@@ -297,8 +278,10 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
         yAxis.setUpperBound(150000);
         yAxis.setTickUnit(15000);
         yAxis.setMinorTickVisible(false);
-     //  getCountriesList();
-      // generateCreditLimitsChart();
+
+
+        //  getCountriesList();
+        // generateCreditLimitsChart();
         /*     
         
 // NumberAxis
@@ -318,13 +301,7 @@ sr.getData().add(new XYChart.Data( 3, 547));
         for (int i = 0; i < SIZE; i++) {
             items.add(new DataItem(String.valueOf(i), rnd.nextInt(100)));
         }
- */    }
-    
-     //an observable collection of DataItem objects, each representing data of one bar 
-   
-        
-        
+         */    }
 
+    //an observable collection of DataItem objects, each representing data of one bar 
 }
-
-

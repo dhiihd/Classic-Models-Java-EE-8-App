@@ -12,29 +12,27 @@ import org.mapstruct.factory.Mappers;
 //@Mapper(uses = {LibraryMapper.class})
 @Mapper
 public interface PaymentsKeyMapper extends EntityMapper<PaymentsKeyDTO, PaymentsPK> {
-    
-   PaymentsKeyMapper INSTANCE = Mappers.getMapper(PaymentsKeyMapper.class );  
 
-   // @Mapping(source = "library.id", target = "libraryId")
-    
-   
-  //  @Mapping(source = "libraryId", target = "library")
-   @Override
-            @Mapping(source = "customerNumber", target = "customerNumber")
-    @Mapping(source = "checkNumber", target = "checkNumber")
-    PaymentsPK toEntity(final PaymentsKeyDTO paymentsKeyDTO,@Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
-    
-   @Override
-    Collection<PaymentsPK> toEntity(final Collection<PaymentsKeyDTO> paymentsKeyDTO,@Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
-    
+    PaymentsKeyMapper INSTANCE = Mappers.getMapper(PaymentsKeyMapper.class);
+
+    // @Mapping(source = "library.id", target = "libraryId")
+    //  @Mapping(source = "libraryId", target = "library")
     @Override
-            @InheritInverseConfiguration
-    PaymentsKeyDTO toDataObject(final PaymentsPK paymentsPK,@Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
-    
-   @Override
-            @InheritInverseConfiguration
-    Collection<PaymentsKeyDTO> toDataObject(final Collection<PaymentsPK> paymentsPK,@Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
-    
+    @Mapping(source = "customerNumber", target = "customerNumber")
+    @Mapping(source = "checkNumber", target = "checkNumber")
+    PaymentsPK toEntity(final PaymentsKeyDTO paymentsKeyDTO, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
+
+    @Override
+    Collection<PaymentsPK> toEntity(final Collection<PaymentsKeyDTO> paymentsKeyDTO, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
+
+    @Override
+    @InheritInverseConfiguration
+    PaymentsKeyDTO toDataObject(final PaymentsPK paymentsPK, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
+
+    @Override
+    @InheritInverseConfiguration
+    Collection<PaymentsKeyDTO> toDataObject(final Collection<PaymentsPK> paymentsPK, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
+
     /*
     
     default PaymentsPK fromCustomerNumber(final Integer customerNumber) {
@@ -45,6 +43,5 @@ public interface PaymentsKeyMapper extends EntityMapper<PaymentsKeyDTO, Payments
         paymentsPK.setCustomerNumber(customerNumber);
         return paymentsPK;
     }
-*/
-
+     */
 }

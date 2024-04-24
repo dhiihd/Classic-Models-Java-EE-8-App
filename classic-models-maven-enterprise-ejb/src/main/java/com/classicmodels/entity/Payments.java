@@ -4,7 +4,6 @@
  */
 package com.classicmodels.entity;
 
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -28,7 +27,6 @@ import lombok.NoArgsConstructor;
  *
  * @author dhiihd
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -62,8 +60,8 @@ public class Payments implements Serializable {
         this.paymentsPK = paymentsPK;
     }
 
-     public Payments(int customerNumber, String checkNumber) {
+    public Payments(int customerNumber, String checkNumber) {
         this.paymentsPK = new PaymentsPK(customerNumber, checkNumber);
     }
-    
+
 }

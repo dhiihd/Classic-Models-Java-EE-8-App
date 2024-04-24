@@ -4,7 +4,6 @@
  */
 package com.classicmodels.entity;
 
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Basic;
@@ -26,7 +25,6 @@ import lombok.NoArgsConstructor;
  *
  * @author dhiihd
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -64,15 +62,12 @@ public class Orderdetails implements Serializable {
     @ManyToOne(optional = false)
     private Products products;
 
- 
     public Orderdetails(OrderdetailsPK orderdetailsPK) {
         this.orderdetailsPK = orderdetailsPK;
     }
-
 
     public Orderdetails(int orderNumber, String productCode) {
         this.orderdetailsPK = new OrderdetailsPK(orderNumber, productCode);
     }
 
-    
 }

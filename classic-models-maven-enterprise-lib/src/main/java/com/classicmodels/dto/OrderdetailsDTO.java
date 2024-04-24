@@ -4,7 +4,6 @@
  */
 package com.classicmodels.dto;
 
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
@@ -16,7 +15,6 @@ import lombok.NonNull;
  *
  * @author dhiihd
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,15 +28,12 @@ public class OrderdetailsDTO implements Serializable {
     private OrdersDTO orders;
     private ProductsDTO products;
 
- 
     public OrderdetailsDTO(OrderdetailsKeyDTO orderdetailsKeyDTO) {
         this.orderdetailsKeyDTO = orderdetailsKeyDTO;
     }
-
 
     public OrderdetailsDTO(int orderNumber, String productCode) {
         this.orderdetailsKeyDTO = new OrderdetailsKeyDTO(orderNumber, productCode);
     }
 
-    
 }

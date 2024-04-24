@@ -16,7 +16,7 @@ public interface ProductsMapper extends EntityMapper<ProductsDTO, Products> {
     ProductsMapper INSTANCE = Mappers.getMapper(ProductsMapper.class);
 
     // @Mapping(source = "library.id", target = "libraryId")
-       //  @Mapping(source = "libraryId", target = "library")
+    //  @Mapping(source = "libraryId", target = "library")
     @Mapping(source = "orderdetailsDTOCollection", target = "orderdetailsCollection")
     @Override
     Products toEntity(final ProductsDTO productsDTO, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
@@ -24,16 +24,14 @@ public interface ProductsMapper extends EntityMapper<ProductsDTO, Products> {
     @Override
     Collection<Products> toEntity(final Collection<ProductsDTO> productsDTOs, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 
-     @Override
+    @Override
     @InheritInverseConfiguration
-    ProductsDTO toDataObject(final Products products, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext); 
+    ProductsDTO toDataObject(final Products products, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 
     @Override
     @InheritInverseConfiguration
     Collection<ProductsDTO> toDataObject(final Collection<Products> products, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 
-
-    
     /*
     default Products fromProductCode(final String productCode) {
         if (productCode == null) {
@@ -43,5 +41,5 @@ public interface ProductsMapper extends EntityMapper<ProductsDTO, Products> {
         products.setProductCode(productCode);
         return products;
     }
-*/
+     */
 }

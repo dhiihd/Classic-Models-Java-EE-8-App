@@ -4,7 +4,6 @@
  */
 package com.classicmodels.entity;
 
-
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -27,7 +26,6 @@ import lombok.NoArgsConstructor;
  *
  * @author dhiihd
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -61,5 +59,5 @@ public class Productlines implements Serializable {
     public Productlines(String productLine) {
         this.productLine = productLine;
     }
-    
+
 }

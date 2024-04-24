@@ -34,18 +34,15 @@ public class CustomersDTO implements Serializable {
 
     @NonNull
     private Integer customerNumber;
-    
-    /**
-    @XmlTransient
-    public EmployeesDTO getSalesRepEmployeeNumber() {
-        return salesRepEmployeeNumber;
-    }
 
-    public void setSalesRepEmployeeNumber(EmployeesDTO salesRepEmployeeNumber) {
-        this.salesRepEmployeeNumber = salesRepEmployeeNumber;
-    }
-    */
-    
+    /**
+     * @XmlTransient public EmployeesDTO getSalesRepEmployeeNumber() { return
+     * salesRepEmployeeNumber; }
+     *
+     * public void setSalesRepEmployeeNumber(EmployeesDTO
+     * salesRepEmployeeNumber) { this.salesRepEmployeeNumber =
+     * salesRepEmployeeNumber; }
+     */
     @NonNull
     private String customerName;
     @NonNull
@@ -64,13 +61,11 @@ public class CustomersDTO implements Serializable {
     @NonNull
     private String country;
     private BigDecimal creditLimit;
- //   private Collection<PaymentsDTO> paymentsCollection;
-  //  private Collection<OrdersDTO> ordersCollection;
-   
-    
+    //   private Collection<PaymentsDTO> paymentsCollection;
+    //  private Collection<OrdersDTO> ordersCollection;
+
     private EmployeesDTO salesRepEmployeeNumber;
 
-   
     @XmlTransient
     public EmployeesDTO getSalesRepEmployeeNumber() {
         return salesRepEmployeeNumber;
@@ -79,9 +74,8 @@ public class CustomersDTO implements Serializable {
     public void setSalesRepEmployeeNumber(EmployeesDTO salesRepEmployeeNumber) {
         this.salesRepEmployeeNumber = salesRepEmployeeNumber;
     }
- /**
-    public CustomersDTO(Integer customerNumber) {
-        this.customerNumber = customerNumber;
-    }
-*/
+    /**
+     * public CustomersDTO(Integer customerNumber) { this.customerNumber =
+     * customerNumber; }
+     */
 }

@@ -1,17 +1,17 @@
 <jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.1">
-<!--
-     <deployment>
-        <exclude-subsystems>
-            <subsystem name="resteasy" />
-        </exclude-subsystems>
-        <exclusions>
-            <module name="javaee.api" />
-            <module name="javax.ws.rs.api"/>
-            <module name="org.jboss.resteasy.resteasy-jaxrs" />
-        </exclusions>
-        <local-last value="true" />
-    </deployment>
--->
+    <!--
+         <deployment>
+            <exclude-subsystems>
+                <subsystem name="resteasy" />
+            </exclude-subsystems>
+            <exclusions>
+                <module name="javaee.api" />
+                <module name="javax.ws.rs.api"/>
+                <module name="org.jboss.resteasy.resteasy-jaxrs" />
+            </exclusions>
+            <local-last value="true" />
+        </deployment>
+    -->
     <sub-deployment name="classic.models.maven.enterprise-classic-models-maven-enterprise-webapp-1.0-RELEASE.war"></sub-deployment>
     <sub-deployment name="classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE.jar"></sub-deployment>
 

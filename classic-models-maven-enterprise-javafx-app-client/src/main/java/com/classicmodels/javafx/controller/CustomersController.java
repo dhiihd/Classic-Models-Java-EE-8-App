@@ -436,8 +436,8 @@ public class CustomersController implements Initializable {
         WebTarget target = client.target(BASE_URL + "/single");
 
         // String findCustomersPath = FULL_PATH ;
-      //  ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
-    //    ResteasyWebTarget target = client.target(BASE_URL + "/single");
+        //  ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
+        //    ResteasyWebTarget target = client.target(BASE_URL + "/single");
         Invocation.Builder request = (Invocation.Builder) target.queryParam("id", id).request();
         Response response = null;
 
@@ -456,11 +456,11 @@ public class CustomersController implements Initializable {
 
                 logger.info("statusInfo --> " + statusInfo);
                 dialog.setContentText("Customers row found successfully");
-              //  dialog.showAndWait();
+                //  dialog.showAndWait();
             } else {
                 customersDTO = null;
                 dialog.setContentText("Customers row not found");
-                
+
             }
             //    customersDTO = target.queryParam("id", id).request().get(CustomersDTO.class);
 
@@ -472,13 +472,13 @@ public class CustomersController implements Initializable {
                 client.close();
             }
         }
-        
-         if ((customerNumberTextField.getText() != null) && !(customerNumberTextField.getText().equals("")) && !(statusInfo.equals("OK"))) {
+
+        if ((customerNumberTextField.getText() != null) && !(customerNumberTextField.getText().equals("")) && !(statusInfo.equals("OK"))) {
             if ((validator != null) && (customerNumberCheck != null)) {
                 customerNumberCheck.recheck();
             }
         }
-         
+
         logger.info("fasfasfs --> " + customerNumberTextField.getText());
 
         if ((customersDTO != null) && (customersDTO.getAddressLine1() != null)) {
@@ -528,9 +528,9 @@ public class CustomersController implements Initializable {
         if ((customersDTO != null) && (customersDTO.getCreditLimit() != null)) {
             creditLimitTextField.setText(customersDTO.getCreditLimit().toString());
         }
-        
+
         dialog.showAndWait();
-        
+
         if (customersDTO != null) {
             validatorRechecks();
             //   return;
@@ -688,11 +688,11 @@ public class CustomersController implements Initializable {
         // String findCustomersPath = FULL_PATH ;
         String id = customerNumberTextField.getText();
 
-       // ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
-       // ResteasyWebTarget target = client.target(BASE_URL);
+        // ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
+        // ResteasyWebTarget target = client.target(BASE_URL);
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target(BASE_URL);
-        
+
         Invocation.Builder request = target.request();
         Response response = null;
 
@@ -701,15 +701,16 @@ public class CustomersController implements Initializable {
         try {
             //     response = request.get();
             response = target.request().post(Entity.xml(customersDTO));
-            String message  = response.readEntity(String.class).toString().trim();
+            String message = response.readEntity(String.class).toString().trim();
             logger.info("Inside addCustomers()");
-            
+
             statusInfo = response.getStatusInfo().toString().trim();
             logger.info("message --> " + message);
-            if ((statusInfo != null) && (statusInfo.equals("OK")))
-            dialog.setContentText(message);
-            else
-              dialog.setContentText("Customers row not added successfully");  
+            if ((statusInfo != null) && (statusInfo.equals("OK"))) {
+                dialog.setContentText(message);
+            } else {
+                dialog.setContentText("Customers row not added successfully");
+            }
             dialog.showAndWait();
             /**
              * btnAddCustomers.setOnAction(e -> {

@@ -1,5 +1,3 @@
-
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -86,8 +84,8 @@ public class CustomersFacade extends AbstractFacade implements CustomersRemote {
         logger.info("Inside findCountries");
         List<String> countriesList = em.createNamedQuery("Customers.findCountries")
                 .getResultList();
-         logger.info("countriesList --> " + countriesList);
-         return countriesList;
+        logger.info("countriesList --> " + countriesList);
+        return countriesList;
     }
 
     public List<BigDecimal> findCustomerCreditLimits(String country) {

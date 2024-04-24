@@ -4,7 +4,6 @@
  */
 package com.classicmodels.entity;
 
-
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -101,6 +100,4 @@ public class Offices implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "officeCode")
     private Collection<Employees> employeesCollection;
 
-  
-    
 }

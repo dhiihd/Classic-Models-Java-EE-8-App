@@ -29,7 +29,7 @@ import javax.xml.bind.Marshaller;
 import com.classicmodels.dto.CountriesDTO;
 import com.classicmodels.dto.CreditLimitsDTO;
 import java.math.BigDecimal;
- 
+
 /**
  *
  * @author dhiihd
@@ -59,20 +59,20 @@ public class CustomersFacadeREST {
     @Path("/creditlimits")
     @Produces({MediaType.APPLICATION_XML})
     public Response findCustomerCreditLimits(@QueryParam("country") String country) {
-        
+
         if (country == null) {
             throw new PathParamNotFoundException("You need to select a country!");
         }
-        
-        logger.info("findCustomerCreditLimits --> "+country);
-        List<BigDecimal>  customersCreditLimitsList = customersRemote.findCustomerCreditLimits(country);
-        CreditLimitsDTO  creditLimitsDTO = new CreditLimitsDTO();
+
+        logger.info("findCustomerCreditLimits --> " + country);
+        List<BigDecimal> customersCreditLimitsList = customersRemote.findCustomerCreditLimits(country);
+        CreditLimitsDTO creditLimitsDTO = new CreditLimitsDTO();
         creditLimitsDTO.setCreditLimits(customersCreditLimitsList);
-         logger.info("customersCreditLimitsList --> "+customersCreditLimitsList);
-      //   GenericEntity<List<Integer>> entity = new GenericEntity<List<Integer>>(customersCreditLimitsList) {};
-      Response response = Response.ok().entity(creditLimitsDTO).build();  
-      logger.info("customersCreditLimitsList response --> "+((Response)response).getEntity());
-      if(creditLimitsDTO != null){
+        logger.info("customersCreditLimitsList --> " + customersCreditLimitsList);
+        //   GenericEntity<List<Integer>> entity = new GenericEntity<List<Integer>>(customersCreditLimitsList) {};
+        Response response = Response.ok().entity(creditLimitsDTO).build();
+        logger.info("customersCreditLimitsList response --> " + ((Response) response).getEntity());
+        if (creditLimitsDTO != null) {
             return response;
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -158,14 +158,14 @@ public class CustomersFacadeREST {
     @Produces({MediaType.APPLICATION_XML})
     public Response findCountries() {
         logger.info("Inside find findCountries --> ");
-        
+
         List<String> countriesCollection = customersRemote.findCountries();
-        logger.info("countriesCollections --> "+countriesCollection);
-     //   return countriesCollection;
-     //   StringWriter stringWriter = new StringWriter();
-        CountriesDTO  countriesDTO = new CountriesDTO();
+        logger.info("countriesCollections --> " + countriesCollection);
+        //   return countriesCollection;
+        //   StringWriter stringWriter = new StringWriter();
+        CountriesDTO countriesDTO = new CountriesDTO();
         countriesDTO.setCountries(countriesCollection);
-/*
+        /*
         try {
             JAXBContext jc = JAXBContext.newInstance(CountriesDTO.class);
         CountriesDTO  content = new CountriesDTO();
@@ -177,21 +177,21 @@ public class CustomersFacadeREST {
         } catch (JAXBException e) {
             return Response.serverError().entity(e.getMessage()).build();
         }
-*/    
-        if(countriesDTO != null){
-        return Response.ok().entity(countriesDTO).build();
+         */
+        if (countriesDTO != null) {
+            return Response.ok().entity(countriesDTO).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
-      //  return Response.ok(stringWriter.toString(), MediaType.APPLICATION_XML).build();       
-           /*
+        //  return Response.ok(stringWriter.toString(), MediaType.APPLICATION_XML).build();       
+        /*
         GenericEntity<List<String>> entity = new GenericEntity<List<String>>(countriesCollection) {};
         if (countriesCollection != null) {
             return Response.ok().entity(entity).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         } 
-        */
+         */
     }
 
     @GET

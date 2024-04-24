@@ -3,9 +3,9 @@
 
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>java:/jdbc/MyNewDataSource</jta-data-source>
-      <!--
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-                -->
+        <!--
+<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        -->
         <class>com.classicmodels.Offices</class>
         <class>com.classicmodels.Productlines</class>
         <class>com.classicmodels.Orders</class>
@@ -16,11 +16,11 @@
         <class>com.classicmodels.Customers</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
-         <property name="hibernate.dialect" 
-                  value="org.hibernate.dialect.MySQLDialect"/>
-         <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.dialect" 
+                      value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
        
-      </properties>
+        </properties>
       
     </persistence-unit>
 </persistence>

@@ -4,7 +4,6 @@
  */
 package com.classicmodels.entity;
 
-
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -92,12 +91,9 @@ public class Employees implements Serializable {
     @JoinColumn(name = "officeCode", referencedColumnName = "officeCode")
     @ManyToOne(optional = false)
     private Offices officeCode;
-/**
-    public Employees(Integer employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
-*/
-   
+    /**
+     * public Employees(Integer employeeNumber) { this.employeeNumber =
+     * employeeNumber; }
+     */
 
-    
 }

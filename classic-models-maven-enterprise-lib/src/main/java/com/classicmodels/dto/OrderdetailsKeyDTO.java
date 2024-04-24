@@ -4,8 +4,6 @@
  */
 package com.classicmodels.dto;
 
-
-
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +14,6 @@ import lombok.NonNull;
  *
  * @author dhiihd
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

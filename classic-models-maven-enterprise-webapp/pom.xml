@@ -16,10 +16,10 @@
    
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-       <!-- <resteasy.version>6.2.1.Final</resteasy.version>  -->
-         <resteasy.version>3.9.3.Final</resteasy.version>
+        <!-- <resteasy.version>6.2.1.Final</resteasy.version>  -->
+        <resteasy.version>3.9.3.Final</resteasy.version>
        
-       <!-- <resteasy.version>3.0.14.Final</resteasy.version>   -->
+        <!-- <resteasy.version>3.0.14.Final</resteasy.version>   -->
         <jnlpCodebase>http://localhost:8080/classic-models-maven-enterprise-webapp</jnlpCodebase>
     </properties>
     
@@ -97,12 +97,12 @@
             <type>ejb-client</type>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl 
-<dependency>
-    <groupId>com.sun.xml.bind</groupId>
-    <artifactId>jaxb-impl</artifactId>
-    <version>2.0.1</version>
-</dependency>
--->
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        -->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-servlet-initializer</artifactId>
@@ -118,12 +118,12 @@
             <artifactId>resteasy-jaxb-provider</artifactId>
             <version>6.2.1.Final</version>
         </dependency>
-<!-- https://mvnrepository.com/artifact/org.jboss.spec.javax.ws.rs/jboss-jaxrs-api_2.0_spec -->
-<dependency>
-    <groupId>org.jboss.spec.javax.ws.rs</groupId>
-    <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
-    <version>1.0.0.Final</version>
-</dependency>
+        <!-- https://mvnrepository.com/artifact/org.jboss.spec.javax.ws.rs/jboss-jaxrs-api_2.0_spec -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.ws.rs</groupId>
+            <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
 
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -164,10 +164,10 @@
                             <outputFilename>Classic-Models.jnlp</outputFilename>
                            
                             <!--                        
-                            <j2seVersion>11</j2seVersion>
-                                                     
-                            <outputDirectory>webstart</outputDirectory>
-                         --> 
+                               <j2seVersion>11</j2seVersion>
+                                                        
+                               <outputDirectory>webstart</outputDirectory>
+                            --> 
                             
                             <jarResources>
                                 <jarResource>
@@ -186,7 +186,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                 <version>3.3.0</version>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifestEntries>
@@ -221,7 +221,7 @@
                 </executions>
                 <configuration>
 		
-	            <keystore>src/main/resources/webstart/classicModelsKeyStore</keystore>
+                    <keystore>src/main/resources/webstart/classicModelsKeyStore</keystore>
                     <alias>ulctest</alias>
                     <storepass>ulctest</storepass>
                     <keypass>ulctest</keypass>

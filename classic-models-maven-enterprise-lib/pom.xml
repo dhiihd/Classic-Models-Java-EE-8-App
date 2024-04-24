@@ -6,7 +6,7 @@
         <artifactId>Classic-Models-Java-EE-8-App</artifactId>
         <version>1.0-RELEASE</version>
     </parent>
-     <groupId>classic.models.maven.enterprise</groupId>
+    <groupId>classic.models.maven.enterprise</groupId>
     <artifactId>classic-models-maven-enterprise-lib</artifactId>
     <packaging>jar</packaging>
     <name>Classic Models Java EE 8 Library</name>
@@ -29,7 +29,7 @@
             <version>2.2.5</version>
         </dependency>
                
-         <dependency>
+        <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
             <version>1.3.5</version>

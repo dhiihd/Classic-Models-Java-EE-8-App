@@ -14,13 +14,12 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface PaymentsRemote {
-    
 
-    public void create(PaymentsDTO paymentsDTO) ;
+    public void create(PaymentsDTO paymentsDTO);
 
     public void edit(Integer id, PaymentsDTO paymentsDTO);
 
-    public void edit(PaymentsDTO paymentsDTO) ;
+    public void edit(PaymentsDTO paymentsDTO);
 
     public void remove(Integer id);
 
@@ -29,7 +28,7 @@ public interface PaymentsRemote {
     public Collection<PaymentsDTO> findRange(Integer from, Integer to);
 
     public Collection<PaymentsDTO> findAll();
-    
+
     public String countREST();
 
 }

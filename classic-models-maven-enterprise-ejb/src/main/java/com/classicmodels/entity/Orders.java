@@ -4,7 +4,6 @@
  */
 package com.classicmodels.entity;
 
-
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -32,7 +31,6 @@ import lombok.NoArgsConstructor;
  *
  * @author dhiihd
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -80,11 +78,8 @@ public class Orders implements Serializable {
     @ManyToOne(optional = false)
     private Customers customerNumber;
 
-   
     public Orders(Integer orderNumber) {
         this.orderNumber = orderNumber;
     }
 
-
-    
 }

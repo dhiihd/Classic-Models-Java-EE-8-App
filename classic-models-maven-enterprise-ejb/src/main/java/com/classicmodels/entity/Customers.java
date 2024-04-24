@@ -23,14 +23,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-
 /**
  *
  * @author dhiihd
  */
-
-
 //@Data
 @Getter
 @Setter
@@ -60,13 +56,13 @@ import lombok.Setter;
     @NamedQuery(name = "Customers.findCountries", query = "SELECT DISTINCT(c.country) FROM Customers c")
 })
 
-    public class Customers implements Serializable {
+public class Customers implements Serializable {
 
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "customerNumber")
-  //  @GeneratedValue(strategy=GenerationType.IDENTITY)
+    //  @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer customerNumber;
     @Basic(optional = false)
     @NotNull
@@ -119,10 +115,9 @@ import lombok.Setter;
     @JoinColumn(name = "salesRepEmployeeNumber", referencedColumnName = "employeeNumber")
     @ManyToOne
     private Employees salesRepEmployeeNumber;
-    
-/**
-    public Customers(Integer customerNumber) {
-        this.customerNumber = customerNumber;
-    }
-*/
+
+    /**
+     * public Customers(Integer customerNumber) { this.customerNumber =
+     * customerNumber; }
+     */
 }

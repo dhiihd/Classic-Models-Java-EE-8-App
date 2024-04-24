@@ -15,7 +15,6 @@ import lombok.NonNull;
  *
  * @author dhiihd
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,11 +25,11 @@ public class ProductlinesDTO implements Serializable {
     private String textDescription;
     private String htmlDescription;
     private byte[] image;
-  
+
     private Collection<ProductsDTO> productsCollection;
 
     public ProductlinesDTO(String productLine) {
         this.productLine = productLine;
     }
-    
+
 }

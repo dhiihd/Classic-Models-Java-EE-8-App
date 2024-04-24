@@ -14,24 +14,22 @@ import org.mapstruct.factory.Mappers;
 public abstract class OfficesMapper implements EntityMapper<OfficesDTO, Offices> {
 
     public static final OfficesMapper INSTANCE = Mappers.getMapper(OfficesMapper.class);
-    
-      //  @Mapping(source = "libraryId", target = "library")
-     public abstract Offices toEntity(final OfficesDTO officesDTO,@Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 
- //   @Override
- //   @Override
-     public abstract Collection<Offices> toEntity(final Collection<OfficesDTO> officesDTOs,@Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
+    //  @Mapping(source = "libraryId", target = "library")
+    public abstract Offices toEntity(final OfficesDTO officesDTO, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 
+    //   @Override
+    //   @Override
+    public abstract Collection<Offices> toEntity(final Collection<OfficesDTO> officesDTOs, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 
 // @Mapping(source = "library.id", target = "libraryId")
-   @InheritInverseConfiguration
-     public abstract OfficesDTO toDataObject(final Offices offices,@Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
+    @InheritInverseConfiguration
+    public abstract OfficesDTO toDataObject(final Offices offices, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 
-   @InheritInverseConfiguration
-   // @Override
-     public abstract Collection<OfficesDTO> toDataObject(final Collection<Offices> offices,@Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
+    @InheritInverseConfiguration
+    // @Override
+    public abstract Collection<OfficesDTO> toDataObject(final Collection<Offices> offices, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 
-  
     /*
     default Offices fromOfficeCode(final String officeCode) {
         if (officeCode == null) {

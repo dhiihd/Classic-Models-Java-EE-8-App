@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.*;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-
 @XmlRootElement
 @NoArgsConstructor
 //@XmlAccessorType(XmlAccessType.FIELD)

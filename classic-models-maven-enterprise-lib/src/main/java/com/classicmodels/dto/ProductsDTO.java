@@ -16,33 +16,31 @@ import lombok.NonNull;
  *
  * @author dhiihd
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductsDTO implements Serializable {
 
-   @NonNull
+    @NonNull
     private String productCode;
-   @NonNull
+    @NonNull
     private String productName;
-   @NonNull
+    @NonNull
     private String productScale;
-   @NonNull
+    @NonNull
     private String productVendor;
-   @NonNull
+    @NonNull
     private String productDescription;
-   private short quantityInStock;
-   @NonNull
+    private short quantityInStock;
+    @NonNull
     private BigDecimal buyPrice;
-   @NonNull
+    @NonNull
     private BigDecimal msrp;
     private Collection<OrderdetailsDTO> orderdetailsDTOCollection;
     private ProductlinesDTO productLineDTO;
 
- 
     public ProductsDTO(String productCode) {
         this.productCode = productCode;
     }
 
- }
+}

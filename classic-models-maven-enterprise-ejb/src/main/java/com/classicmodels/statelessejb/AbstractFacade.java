@@ -13,11 +13,10 @@ import javax.persistence.EntityManager;
  */
 public abstract class AbstractFacade {
 
-
     protected abstract EntityManager getEntityManager();
 
     public void createEntity(Object entity) {
-        getEntityManager().persist(entity); 
+        getEntityManager().persist(entity);
     }
 
     public void editEntity(Object entity) {
@@ -28,8 +27,8 @@ public abstract class AbstractFacade {
         getEntityManager().remove(getEntityManager().merge(entity));
     }
 
-    public Object findEntity(Object id,Class entityClass) {
-        return getEntityManager().find(entityClass,id);
+    public Object findEntity(Object id, Class entityClass) {
+        return getEntityManager().find(entityClass, id);
     }
 
     public Collection findAllEntities(Class entityClass) {
@@ -38,7 +37,7 @@ public abstract class AbstractFacade {
         return getEntityManager().createQuery(cq).getResultList();
     }
 
-    public Collection findRangeEntities(int[] range,Class entityClass) {
+    public Collection findRangeEntities(int[] range, Class entityClass) {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         javax.persistence.Query q = getEntityManager().createQuery(cq);
@@ -54,5 +53,5 @@ public abstract class AbstractFacade {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    
+
 }

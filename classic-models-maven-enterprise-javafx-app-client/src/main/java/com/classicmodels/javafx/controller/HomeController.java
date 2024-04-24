@@ -34,7 +34,7 @@ public class HomeController implements Initializable {
     private Button btnUpdate;
     @FXML
     private Button btnClasses;
-    
+
     private static final org.slf4j.Logger logger
             = LoggerFactory.getLogger(HomeController.class);
 
@@ -44,11 +44,11 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void handleButtonClicks(ActionEvent event) {
-        
+
         try {
             logger.info("Inside CustomersFXML --> ");
             App.setRoot("CustomersFXML");
@@ -56,49 +56,47 @@ public class HomeController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handleButtonClicks1(ActionEvent event) {
-        
+
         try {
             logger.info("Inside CustomersChartsFXML --> ");
             App.setRoot("CustomersChartsFXML");
-            
-           // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
-           // customersChartsFXMLController.initUI();
+
+            // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
+            // customersChartsFXMLController.initUI();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handleButtonClicks2(ActionEvent event) {
-        
+
         try {
             logger.info("Inside PaymentsChartsFXML --> ");
             App.setRoot("PaymentsChartsFXML");
-            
-           // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
-           // customersChartsFXMLController.initUI();
+
+            // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
+            // customersChartsFXMLController.initUI();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handleButtonClicks3(ActionEvent event) {
-        
+
         try {
             logger.info("Inside CustomersCreditLimitsChartsFXML --> ");
             App.setRoot("CustomersCreditLimitsChartsFXML");
-            
-           // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
-           // customersChartsFXMLController.initUI();
+
+            // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
+            // customersChartsFXMLController.initUI();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
+
 }

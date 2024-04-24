@@ -15,7 +15,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
 /**
  *
  * @author dhiihd
@@ -23,39 +22,38 @@ import javax.persistence.PersistenceContext;
 @Stateless
 @Remote(ProductsRemote.class)
 public class ProductsFacade extends AbstractFacade implements ProductsRemote {
-    
+
     @PersistenceContext(unitName = "classic-models-maven-enterprise-PU")
     private EntityManager em;
 
-
     public void create(ProductsDTO productsDTO) {
-        super.createEntity(ProductsMapper.INSTANCE.toEntity(productsDTO,new CycleAvoidingMappingContext()));
+        super.createEntity(ProductsMapper.INSTANCE.toEntity(productsDTO, new CycleAvoidingMappingContext()));
     }
 
     public void edit(Integer id, ProductsDTO productsDTO) {
-        super.editEntity(ProductsMapper.INSTANCE.toEntity(productsDTO,new CycleAvoidingMappingContext()));
+        super.editEntity(ProductsMapper.INSTANCE.toEntity(productsDTO, new CycleAvoidingMappingContext()));
     }
 
     public void edit(ProductsDTO productsDTO) {
-        super.editEntity(ProductsMapper.INSTANCE.toEntity(productsDTO,new CycleAvoidingMappingContext()));
+        super.editEntity(ProductsMapper.INSTANCE.toEntity(productsDTO, new CycleAvoidingMappingContext()));
     }
 
     public void remove(Integer id) {
-        super.removeEntity(super.findEntity(id,Products.class));
+        super.removeEntity(super.findEntity(id, Products.class));
     }
 
     public ProductsDTO find(Integer id) {
-        return ProductsMapper.INSTANCE.toDataObject((Products)super.findEntity(id,Products.class),new CycleAvoidingMappingContext());
+        return ProductsMapper.INSTANCE.toDataObject((Products) super.findEntity(id, Products.class), new CycleAvoidingMappingContext());
     }
 
-
     public Collection<ProductsDTO> findRange(Integer from, Integer to) {
-        return ProductsMapper.INSTANCE.toDataObject(super.findRangeEntities(new int[]{from.intValue(), to.intValue()},Products.class),new CycleAvoidingMappingContext());
+        return ProductsMapper.INSTANCE.toDataObject(super.findRangeEntities(new int[]{from.intValue(), to.intValue()}, Products.class), new CycleAvoidingMappingContext());
     }
 
     public Collection<ProductsDTO> findAll() {
-    return ProductsMapper.INSTANCE.toDataObject(super.findAllEntities(Products.class),new CycleAvoidingMappingContext());
+        return ProductsMapper.INSTANCE.toDataObject(super.findAllEntities(Products.class), new CycleAvoidingMappingContext());
     }
+
     public String countREST() {
         return String.valueOf(super.countEntity(Products.class));
     }

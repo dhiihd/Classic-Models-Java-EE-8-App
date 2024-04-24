@@ -15,7 +15,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
 /**
  *
  * @author dhiihd
@@ -23,13 +22,12 @@ import javax.persistence.PersistenceContext;
 @Stateless
 @Remote(EmployeesRemote.class)
 public class EmployeesFacade extends AbstractFacade implements EmployeesRemote {
-    
+
     @PersistenceContext(unitName = "classic-models-maven-enterprise-PU")
     private EntityManager em;
 
-
     public void create(EmployeesDTO employeesDTO) {
-        super.createEntity(EmployeesMapper.INSTANCE.toEntity(employeesDTO,new CycleAvoidingMappingContext()));
+        super.createEntity(EmployeesMapper.INSTANCE.toEntity(employeesDTO, new CycleAvoidingMappingContext()));
     }
 
     public void edit(Integer id, EmployeesDTO employeesDTO) {
@@ -41,21 +39,21 @@ public class EmployeesFacade extends AbstractFacade implements EmployeesRemote {
     }
 
     public void remove(Integer id) {
-        super.removeEntity(super.findEntity(id,Employees.class));
+        super.removeEntity(super.findEntity(id, Employees.class));
     }
 
     public EmployeesDTO find(Integer id) {
-        return EmployeesMapper.INSTANCE.toDataObject((Employees)super.findEntity(id,Employees.class),new CycleAvoidingMappingContext());
+        return EmployeesMapper.INSTANCE.toDataObject((Employees) super.findEntity(id, Employees.class), new CycleAvoidingMappingContext());
     }
 
-
     public Collection<EmployeesDTO> findRange(Integer from, Integer to) {
-        return EmployeesMapper.INSTANCE.toDataObject(super.findRangeEntities(new int[]{from.intValue(), to.intValue()},Employees.class),new CycleAvoidingMappingContext());
+        return EmployeesMapper.INSTANCE.toDataObject(super.findRangeEntities(new int[]{from.intValue(), to.intValue()}, Employees.class), new CycleAvoidingMappingContext());
     }
 
     public Collection<EmployeesDTO> findAll() {
-    return EmployeesMapper.INSTANCE.toDataObject(super.findAllEntities(Employees.class),new CycleAvoidingMappingContext());
+        return EmployeesMapper.INSTANCE.toDataObject(super.findAllEntities(Employees.class), new CycleAvoidingMappingContext());
     }
+
     public String countREST() {
         return String.valueOf(super.countEntity(Employees.class));
     }

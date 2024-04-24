@@ -4,7 +4,6 @@
  */
 package com.classicmodels.dto;
 
-
 import java.io.Serializable;
 import java.util.Collection;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -24,7 +23,6 @@ import lombok.Setter;
  *
  * @author dhiihd
  */
-
 //@Data
 @Getter
 @Setter
@@ -38,7 +36,6 @@ import lombok.Setter;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class OfficesDTO implements Serializable {
 
-    
     @NonNull
     private String officeCode;
     @NonNull
@@ -58,7 +55,7 @@ public class OfficesDTO implements Serializable {
     @XmlElement(name = "employees")
     private Collection<EmployeesDTO> employeesCollection;
 
-  /*
+    /*
     @XmlTransient
     public Collection<EmployeesDTO> getEmployeesCollection() {
         return employeesCollection;
@@ -68,12 +65,8 @@ public class OfficesDTO implements Serializable {
         this.employeesCollection = employeesCollection;
     }
 
-    */
-   
-/**
-    public OfficesDTO(String officeCode) {
-        this.officeCode = officeCode;
-    }
-*/
-    
+     */
+    /**
+     * public OfficesDTO(String officeCode) { this.officeCode = officeCode; }
+     */
 }

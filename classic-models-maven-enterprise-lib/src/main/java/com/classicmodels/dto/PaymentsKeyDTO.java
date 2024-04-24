@@ -4,7 +4,6 @@
  */
 package com.classicmodels.dto;
 
-
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,9 +20,7 @@ import lombok.NonNull;
 public class PaymentsKeyDTO implements Serializable {
 
     private int customerNumber;
-   @NonNull
+    @NonNull
     private String checkNumber;
 
-   
-    
 }

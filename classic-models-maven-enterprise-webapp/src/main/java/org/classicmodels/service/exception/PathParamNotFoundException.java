@@ -13,7 +13,7 @@ public class PathParamNotFoundException extends WebApplicationException {
     }
 
     public PathParamNotFoundException(String message) {
-        super("MyException Message : " +message);
+        super("MyException Message : " + message);
     }
 
 }

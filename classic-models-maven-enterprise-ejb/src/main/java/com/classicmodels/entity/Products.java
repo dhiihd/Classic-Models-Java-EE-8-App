@@ -29,7 +29,6 @@ import lombok.NoArgsConstructor;
  *
  * @author dhiihd
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -92,9 +91,8 @@ public class Products implements Serializable {
     @ManyToOne(optional = false)
     private Productlines productLine;
 
- 
     public Products(String productCode) {
         this.productCode = productCode;
     }
 
- }
+}

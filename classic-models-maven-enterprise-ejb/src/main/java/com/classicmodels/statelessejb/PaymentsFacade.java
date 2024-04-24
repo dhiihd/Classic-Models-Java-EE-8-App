@@ -15,7 +15,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import com.classicmodels.mapstruct.dto.mapper.PaymentsMapper;
 
-
 /**
  *
  * @author dhiihd
@@ -23,10 +22,9 @@ import com.classicmodels.mapstruct.dto.mapper.PaymentsMapper;
 @Stateless
 @Remote(PaymentsRemote.class)
 public class PaymentsFacade extends AbstractFacade implements PaymentsRemote {
-    
+
     @PersistenceContext(unitName = "classic-models-maven-enterprise-PU")
     private EntityManager em;
-
 
     public void create(PaymentsDTO paymentsDTO) {
         super.createEntity(PaymentsMapper.INSTANCE.toEntity(paymentsDTO, new CycleAvoidingMappingContext()));
@@ -41,21 +39,21 @@ public class PaymentsFacade extends AbstractFacade implements PaymentsRemote {
     }
 
     public void remove(Integer id) {
-        super.removeEntity(super.findEntity(id,Payments.class));
+        super.removeEntity(super.findEntity(id, Payments.class));
     }
 
     public PaymentsDTO find(Integer id) {
-        return PaymentsMapper.INSTANCE.toDataObject((Payments)super.findEntity(id,Payments.class),new CycleAvoidingMappingContext());
+        return PaymentsMapper.INSTANCE.toDataObject((Payments) super.findEntity(id, Payments.class), new CycleAvoidingMappingContext());
     }
 
-
     public Collection<PaymentsDTO> findRange(Integer from, Integer to) {
-        return PaymentsMapper.INSTANCE.toDataObject(super.findRangeEntities(new int[]{from.intValue(), to.intValue()},Payments.class),new CycleAvoidingMappingContext());
+        return PaymentsMapper.INSTANCE.toDataObject(super.findRangeEntities(new int[]{from.intValue(), to.intValue()}, Payments.class), new CycleAvoidingMappingContext());
     }
 
     public Collection<PaymentsDTO> findAll() {
-    return PaymentsMapper.INSTANCE.toDataObject(super.findAllEntities(Payments.class),new CycleAvoidingMappingContext());
+        return PaymentsMapper.INSTANCE.toDataObject(super.findAllEntities(Payments.class), new CycleAvoidingMappingContext());
     }
+
     public String countREST() {
         return String.valueOf(super.countEntity(Payments.class));
     }

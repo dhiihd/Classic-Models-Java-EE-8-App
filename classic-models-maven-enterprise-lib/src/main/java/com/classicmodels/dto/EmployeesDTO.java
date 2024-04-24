@@ -4,7 +4,6 @@
  */
 package com.classicmodels.dto;
 
-
 import java.io.Serializable;
 import java.util.Collection;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,7 +51,7 @@ public class EmployeesDTO implements Serializable {
     @NonNull
     private String jobTitle;
     @XmlElement(name = "customers")
-   // @XmlTransient
+    // @XmlTransient
     private Collection<CustomersDTO> customersCollection;
 
     /*
@@ -100,12 +99,9 @@ public class EmployeesDTO implements Serializable {
     //@XmlTransient
     private EmployeesDTO reportsTo;
     private OfficesDTO officeCode;
-    
-    
-/**
-    public EmployeesDTO(Integer employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
-*/
-    
+
+    /**
+     * public EmployeesDTO(Integer employeeNumber) { this.employeeNumber =
+     * employeeNumber; }
+     */
 }
