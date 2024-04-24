@@ -309,7 +309,7 @@
                     <mainClass>com.classicmodels.javafx.controller.App</mainClass>
                     <configuration>
                         <jvmArgs>
-                            <argument>--illegal-access=warn --add-opens java.base/java.lang=ALL-UNNAMED --add-opens javafx.graphics/javafx.css=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED</argument>
+                            <argument>--illegal-access=warn -Dlog4j.configurationFile=logback.xml --add-opens java.base/java.lang=ALL-UNNAMED --add-opens javafx.graphics/javafx.css=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED</argument>
                         </jvmArgs>
                     </configuration>
                 </configuration>

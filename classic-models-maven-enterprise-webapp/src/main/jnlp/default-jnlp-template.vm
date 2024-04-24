@@ -38,10 +38,10 @@
   </security>
 #end
   <resources>
-     <j2se version="19+" 
+     <j2se version="21+" 
           initial-heap-size="512m" 
-          max-heap-size="2048m" 
-          java-vm-args="-Xms512m -Xmx4096m -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=25 --add-modules javafx.base,javafx.controls,javafx.graphics,javafx.fxml"/>
+          max-heap-size="4096m" 
+          java-vm-args="-Xms512m -Xmx4096m -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=25 -Dlog4j.configurationFile=logback.xml --add-modules javafx.base,javafx.controls,javafx.graphics,javafx.fxml"/>
    
 
       <!--    

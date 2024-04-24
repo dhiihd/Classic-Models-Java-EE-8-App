@@ -9,11 +9,11 @@
     <description>Classic Models Java EE 8 Enterprise App</description>
     <url>http://rhuanrocha.net/</url>
     <properties>
-      <java.compiler.source>11</java.compiler.source>
-      <java.compiler.target>11</java.compiler.target>
-      <junit>3.8.1</junit>
-      <log4j-core>2.11.1</log4j-core>
-      <classic-models-maven-enterprise.version>1.0-RELEASE</classic-models-maven-enterprise.version>
+        <java.compiler.source>11</java.compiler.source>
+        <java.compiler.target>11</java.compiler.target>
+        <junit>3.8.1</junit>
+        <log4j-core>2.20.0</log4j-core>
+        <classic-models-maven-enterprise.version>1.0-RELEASE</classic-models-maven-enterprise.version>
     </properties>
     <modules>
         <module>classic-models-maven-enterprise-lib</module>
@@ -21,20 +21,20 @@
         <module>classic-models-maven-enterprise-ejb</module>       
         <module>classic-models-maven-enterprise-webapp</module>
         <module>classic-models-maven-enterprise-ear</module>
-   </modules>
+    </modules>
 
     <dependencyManagement>      
-    <dependencies>
-        <dependency>
-               <groupId>classic.models.maven.enterprise</groupId>
-               <artifactId>classic-models-maven-enterprise-lib</artifactId>
-               <version>${project.version}</version> 
-               <type>jar</type>
+        <dependencies>
+            <dependency>
+                <groupId>classic.models.maven.enterprise</groupId>
+                <artifactId>classic-models-maven-enterprise-lib</artifactId>
+                <version>${project.version}</version> 
+                <type>jar</type>
             </dependency>
-         <dependency>
+            <dependency>
                 <groupId>classic-models-maven-enterprise</groupId>
                 <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
-                 <version>${project.version}</version>
+                <version>${project.version}</version>
                 <type>app-client</type>
             </dependency>
             <dependency>
@@ -45,7 +45,7 @@
             </dependency>
             
               
-                <dependency>
+            <dependency>
                 <groupId>classic.models.maven.enterprise</groupId>
                 <artifactId>classic-models-maven-enterprise-webapp</artifactId>
                 <version>${project.version}</version> 
@@ -71,13 +71,18 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
+             <version>${log4j-core}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
             <version>${log4j-core}</version>
         </dependency>
     </dependencies>
     <build>
-<plugins>
+        <plugins>
     
-       <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
@@ -106,6 +111,6 @@
                     </compilerArgs> -->
                 </configuration>
             </plugin>
-</plugins>
+        </plugins>
     </build>
 </project>

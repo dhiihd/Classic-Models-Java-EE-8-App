@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchorPane" prefHeight="837.0" prefWidth="1087.0" styleClass=".data0.chart-bar" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.classicmodels.javafx.controller.CustomersCreditLimitsChartsFXMLController">
+<AnchorPane id="anchorPane" prefHeight="837.0" prefWidth="1127.0" styleClass=".data0.chart-bar" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.classicmodels.javafx.controller.CustomersCreditLimitsChartsFXMLController">
     
     
     <stylesheets>
@@ -39,7 +39,7 @@
        
     </VBox>
    
-    <LineChart fx:id="customerCreditLimitsChart" layoutX="57.0" layoutY="207.0" prefHeight="586.0" prefWidth="932.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Classic Models Credit Limits">
+    <LineChart fx:id="customerCreditLimitsChart" layoutX="57.0" layoutY="207.0" prefHeight="586.0" prefWidth="1014.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Classic Models Credit Limits">
         <xAxis>
             <NumberAxis autoRanging="false" lowerBound="0" side="BOTTOM" tickUnit="10" upperBound="150" />
         </xAxis>
