@@ -3,3 +3,7 @@
 /classic-models-maven-enterprise-ejb/target/
 /classic-models-maven-enterprise-webapp/target/
 /classic-models-maven-enterprise-ear/target/
+/classic-models-maven-enterprise-javafx-app-client/nb-configuration.xml
+/classic-models-maven-enterprise-ear/nb-configuration.xml
+/classic-models-maven-enterprise-ejb/nb-configuration.xml
+/classic-models-maven-enterprise-webapp/nb-configuration.xml
