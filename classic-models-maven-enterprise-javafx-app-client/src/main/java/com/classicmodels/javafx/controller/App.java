@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -17,7 +18,7 @@ public class App extends Application {
 
     private static Scene scene;
 
-    private static final org.slf4j.Logger logger
+    private static final Logger logger
             = LoggerFactory.getLogger(App.class);
 
     @Override

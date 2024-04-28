@@ -29,6 +29,7 @@ import org.slf4j.LoggerFactory;
 import javafx.scene.control.Button;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
+import org.slf4j.Logger;
 
 /**
  * FXML Controller class
@@ -43,7 +44,7 @@ public class CustomersController implements Initializable {
     private CustomersDTO customersDTO = null;
     private CustomersService customersService = null;
 
-    private static final org.slf4j.Logger logger
+    private static final Logger logger
             = LoggerFactory.getLogger(CustomersController.class);
 
     @FXML

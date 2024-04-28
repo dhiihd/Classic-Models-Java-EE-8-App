@@ -29,6 +29,7 @@ import javax.xml.bind.Marshaller;
 import com.classicmodels.dto.CountriesDTO;
 import com.classicmodels.dto.CreditLimitsDTO;
 import java.math.BigDecimal;
+import org.slf4j.Logger;
 
 /**
  *
@@ -37,7 +38,7 @@ import java.math.BigDecimal;
 @Path("com.classicmodels.customers")
 public class CustomersFacadeREST {
 
-    private static final org.slf4j.Logger logger
+    private static final Logger logger
             = LoggerFactory.getLogger(CustomersFacadeREST.class);
 
     public CustomersRemote getCustomersRemote() {

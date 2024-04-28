@@ -38,32 +38,32 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnCustomer" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="168.0" prefWidth="364.0" stylesheets="@../css/fullpackstyling.css" text="Customers">
+                <Button fx:id="btnCustomer" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="168.0" prefWidth="364.0" text="Customers">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="USERS" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks2" prefHeight="170.0" prefWidth="302.0" stylesheets="@../css/fullpackstyling.css" text="Offices" GridPane.columnIndex="1">
+                <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks2" prefHeight="170.0" prefWidth="302.0" text="Offices" GridPane.columnIndex="1">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="AMBULANCE" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btn_Timetable" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks3" prefHeight="172.0" prefWidth="302.0" stylesheets="@../css/fullpackstyling.css" text="Employees" GridPane.columnIndex="2">
+                <Button fx:id="btn_Timetable" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks3" prefHeight="172.0" prefWidth="302.0" text="Employees" GridPane.columnIndex="2">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="VIDEO_CAMERA" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnSettings" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks2" prefHeight="165.0" prefWidth="302.0" stylesheets="@../css/fullpackstyling.css" text="Products" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button fx:id="btnSettings" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks2" prefHeight="165.0" prefWidth="302.0" text="Products" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="SLIDERS" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnUpdate" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks2" prefHeight="171.0" prefWidth="302.0" stylesheets="@../css/fullpackstyling.css" text="Payments" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="btnUpdate" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks2" prefHeight="171.0" prefWidth="302.0" text="Payments" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="EXCHANGE" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnClasses" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks1" prefHeight="170.0" prefWidth="364.0" stylesheets="@../css/fullpackstyling.css" text="Orders" GridPane.rowIndex="1">
+                <Button fx:id="btnClasses" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks1" prefHeight="170.0" prefWidth="364.0" text="Orders" GridPane.rowIndex="1">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="USER_TIMES" size="50" />
                     </graphic>

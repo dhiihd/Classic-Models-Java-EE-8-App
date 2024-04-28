@@ -19,6 +19,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.classicmodels.service.exception.PathParamNotFoundException;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -31,7 +32,7 @@ public class OrdersFacadeREST {
     @EJB(lookup = "ejb:classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/OrdersFacade!com.classicmodels.statelessejb.remote.OrdersRemote")
     private OrdersRemote ordersRemote;
 
-    private static final org.slf4j.Logger logger
+    private static final Logger logger
             = LoggerFactory.getLogger(OrdersFacadeREST.class);
 
     public OrdersRemote getOrdersRemote() {

@@ -38,6 +38,8 @@ import javax.ws.rs.core.Response;
 import java.lang.Integer;
 import java.math.BigDecimal;
 import java.util.Collections;
+import javafx.scene.layout.Pane;
+import org.slf4j.Logger;
 
 /**
  * FXML Controller class
@@ -49,21 +51,34 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
     /**
      * Initializes the controller class.
      */
-    private static final org.slf4j.Logger logger
+    private static final Logger logger
             = LoggerFactory.getLogger(CustomersCreditLimitsChartsFXMLController.class);
 
     private ObservableList<DataItem> items;
 
     @FXML
-    private VBox root = new VBox();
+    private VBox customerCreditLimitsChartVBox1;
+
+    @FXML
+    private VBox customerCreditLimitsChartVBox2;
+
+    @FXML
+    private Pane customerCreditLimitsChartPane;
+
+    private NumberAxis yAxis = new NumberAxis();
+
+    private NumberAxis xAxis = new NumberAxis();
+
+    private LineChart customerCreditLimitsChart = new LineChart(xAxis, yAxis);
+
     @FXML
     private Button btnInitUI;
     private static int SIZE = 10;
 
+    // @FXML
+    // private GridPane gridPane = new GridPane();
     @FXML
-    private GridPane gridPane = new GridPane();
-    @FXML
-    private final AnchorPane anchorPane = new AnchorPane();
+    private AnchorPane anchorPane;
 
     @FXML
     private ListView countriesListView = new ListView();
@@ -72,17 +87,6 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
 
     private String statusInfo = null;
     // private Dialog<String> dialog = new Dialog<String>();
-
-    // private  Random rnd = new Random();
-    @FXML
-    private final NumberAxis yAxis = new NumberAxis();
-
-    @FXML
-    private final NumberAxis xAxis = new NumberAxis();
-//create bar chart
-
-    @FXML
-    private LineChart customerCreditLimitsChart = new LineChart(xAxis, yAxis);
 
     @FXML
     public void getCountriesList() {
@@ -128,12 +132,13 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
     @FXML
     public void generateCreditLimitsChart() {
 
+        //   xAxis.setLabel("Time");
+        // yAxis.setLabel("Thousand bbl/d");
         String country = (String) countriesListView.getSelectionModel().getSelectedItem();
 
         logger.info("country --> " + country);
-        //   xAxis.setLabel("Time");
 
-        // yAxis.setLabel("Thousand bbl/d");
+        logger.info("message generateCreditLimitsChart --> ");
 
         /*
         
@@ -168,23 +173,6 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
 //set title for x axis
 
 //dataset on 1999
-        for (Node n : customerCreditLimitsChart.lookupAll(".default-color0.chart-bar")) {
-            n.setStyle("-fx-bar-fill: red;");
-        }
-        //second bar color
-        for (Node n : customerCreditLimitsChart.lookupAll(".default-color1.chart-bar")) {
-            n.setStyle("-fx-bar-fill: green;");
-        }
-
-        //third bar color
-        for (Node n : customerCreditLimitsChart.lookupAll(".default-color2.chart-bar")) {
-            n.setStyle("-fx-bar-fill: blue;");
-        }
-
-        for (Node n : customerCreditLimitsChart.lookupAll(".default-color3.chart-bar")) {
-            n.setStyle("-fx-bar-fill: yellow;");
-        }
-
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target(BASE_URL + "/creditlimits");
 
@@ -237,21 +225,100 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
         //Configuring data for XY chart 
         XYChart.Series data = new XYChart.Series();
         data.setName(country);
-        int j = 10;
-        for (int i = 0; i < creditLimits.size(); i++) {
+        int j = 0;
+        int i = 0;
+        for (i = 0; i < creditLimits.size(); i++) {
+            j += 10;
             data.getData().add(new XYChart.Data(j, creditLimits.get(i)));
             logger.info("Inside XYChartData " + i + " --> " + creditLimits.get(i));
-            j += 10;
+        }
+        xAxis.setAutoRanging(true);
+
+        xAxis.setLowerBound(-50);
+        if (i > 10) {
+            xAxis.setUpperBound((i * 10) + 50);
+        } else {
+            xAxis.setUpperBound(150);
+        }
+        xAxis.setTickUnit(10);
+        xAxis.setMinorTickVisible(true);
+//set title for y axis
+        yAxis.setLabel("Credit Limits");
+        yAxis.setAutoRanging(true);
+        yAxis.setLowerBound(-15000);
+        if (i > 10) {
+            yAxis.setUpperBound((i * 5000) + 15000);
+        } else {
+            yAxis.setUpperBound(50000);
+        }
+        yAxis.setTickUnit(15000);
+        yAxis.setMinorTickVisible(true);
+        // layoutX="57.0" layoutY="207.0" prefHeight="586.0" prefWidth="1014.0
+        customerCreditLimitsChart.getData().clear();
+
+        customerCreditLimitsChart.setAnimated(true);
+        customerCreditLimitsChart.setLayoutX(13.0);
+        customerCreditLimitsChart.setLayoutY(10.0);
+        customerCreditLimitsChart.setPrefHeight(513.0);
+        customerCreditLimitsChart.setPrefWidth(1058.0);
+
+        //layoutX="13.0" layoutY="10.0" prefHeight="513.0" prefWidth="1058.0"
+        //layoutX="50.0" layoutY="244.0" prefHeight="672.0" prefWidth="1080.0"  
+        //layoutX="57.0" layoutY="208.0" prefHeight="592.0" prefWidth="929.0"
+        // layoutX="57.0" layoutY="207.0" prefHeight="511.0" prefWidth="737.0"
+        for (Node n : customerCreditLimitsChart.lookupAll(".default-color0.chart-bar")) {
+            n.setStyle("-fx-bar-fill: red;");
+        }
+        //second bar color
+        for (Node n : customerCreditLimitsChart.lookupAll(".default-color1.chart-bar")) {
+            n.setStyle("-fx-bar-fill: green;");
         }
 
+        //third bar color
+        for (Node n : customerCreditLimitsChart.lookupAll(".default-color2.chart-bar")) {
+            n.setStyle("-fx-bar-fill: blue;");
+        }
+
+        for (Node n : customerCreditLimitsChart.lookupAll(".default-color3.chart-bar")) {
+            n.setStyle("-fx-bar-fill: yellow;");
+        }
         /*
         data.getData().add(new XYChart.Data(2,142000));
          data.getData().add(new XYChart.Data(3,178000));
         data.getData().add(new XYChart.Data(4,192000));
-      
          */
         //Adding data to the barchart
+        //     customerCreditLimitsChart.getData().remove(data);
+
         customerCreditLimitsChart.getData().add(data);
+
+        // layoutX="50.0" layoutY="244.0" prefHeight="543.0" prefWidth="1101.0"
+        //   customerCreditLimitsChartPane.getChildren().remove(customerCreditLimitsChart);
+        customerCreditLimitsChartPane = new Pane();
+        customerCreditLimitsChartPane.setLayoutX(50.0);
+        customerCreditLimitsChartPane.setLayoutY(244.0);
+        customerCreditLimitsChartPane.setPrefHeight(543.0);
+        customerCreditLimitsChartPane.setPrefWidth(1101.0);
+        customerCreditLimitsChartPane.getChildren().clear();
+        customerCreditLimitsChartPane.getChildren().add(customerCreditLimitsChart);
+
+        //  layoutX="50.0" layoutY="244.0" prefHeight="524.0" prefWidth="1080.0"
+        // customerCreditLimitsChartVBox2.getChildren().remove(customerCreditLimitsChartPane);
+        customerCreditLimitsChartVBox2 = new VBox();
+        customerCreditLimitsChartVBox2.setLayoutX(50.0);
+        customerCreditLimitsChartVBox2.setLayoutY(244.0);
+        customerCreditLimitsChartVBox2.setPrefHeight(524.0);
+        customerCreditLimitsChartVBox2.setPrefWidth(1080.0);
+        customerCreditLimitsChartVBox2.getChildren().clear();
+        customerCreditLimitsChartVBox2.getChildren().add(customerCreditLimitsChartPane);
+
+        //   anchorPane = new AnchorPane();
+        //anchorPane.getChildren().remove(customerCreditLimitsChartVBox2);
+        anchorPane.setPrefHeight(837.0);
+        anchorPane.setPrefWidth(1275.0);
+        //  anchorPane.getChildren().clear();
+        anchorPane.getChildren().add(customerCreditLimitsChartVBox2);
+        //  fx:id="anchorPane" prefHeight="837.0" prefWidth="1275.0"
 
     }
 
@@ -266,6 +333,9 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        /*
+        
         xAxis.setAutoRanging(false);
         xAxis.setLowerBound(10);
         xAxis.setUpperBound(100);
@@ -279,7 +349,7 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
         yAxis.setTickUnit(15000);
         yAxis.setMinorTickVisible(false);
 
-
+         */
         //  getCountriesList();
         // generateCreditLimitsChart();
         /*     

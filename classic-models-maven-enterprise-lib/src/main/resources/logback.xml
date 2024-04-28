@@ -6,9 +6,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this 
 
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
+        <!--    <withJansi>true</withJansi> -->
+
+        <!-- <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
+        </encoder> -->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!-- NON-COLORED OUTPUT -->
+            <!-- <Pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</Pattern> -->
+
+            <!-- COLORED OUTPUT -->
+            <Pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %gray([%msg]%n)</Pattern>
+        </layout>
     </appender>
 
     <root level="debug">

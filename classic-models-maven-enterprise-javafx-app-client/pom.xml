@@ -7,7 +7,7 @@
         <version>1.0-RELEASE</version>
     </parent>
 
-    <groupId>classic-models-maven-enterprise</groupId>
+    <groupId>classic.models.maven.enterprise</groupId>
     <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
     <version>1.0-RELEASE</version>
     <packaging>app-client</packaging> 
@@ -150,7 +150,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
-            <type>jar</type>
         </dependency>
 
         <!--
@@ -169,7 +168,6 @@
             <groupId>io.github.palexdev</groupId>
             <artifactId>materialfx</artifactId>
             <version>11.14.0</version>
-            <type>jar</type>
         </dependency>
       
         <dependency>
@@ -308,9 +306,14 @@
                 <configuration>
                     <mainClass>com.classicmodels.javafx.controller.App</mainClass>
                     <configuration>
+                        
                         <jvmArgs>
-                            <argument>--illegal-access=warn -Dlog4j.configurationFile=logback.xml --add-opens java.base/java.lang=ALL-UNNAMED --add-opens javafx.graphics/javafx.css=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED</argument>
+                            <!--
+                           <argument>-Xms1024m -Xmx4096m -Xss400m -Xmn1600m &#045;&#045;illegal-access=warn -Dlog4j.configurationFile=logback.xml &#045;&#045;add-opens java.base/java.lang=ALL-UNNAMED &#045;&#045;add-opens javafx.graphics/javafx.css=ALL-UNNAMED &#045;&#045;add-opens java.base/java.lang.reflect=ALL-UNNAMED &#045;&#045;add-opens java.base/java.text=ALL-UNNAMED &#045;&#045;add-opens java.desktop/java.awt.font=ALL-UNNAMED</argument>
+                            -->
+                            <argument>-Dlog4j.configurationFile=logback.xml --add-opens java.base/java.lang=ALL-UNNAMED --add-opens javafx.graphics/javafx.css=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED</argument>                        
                         </jvmArgs>
+                       
                     </configuration>
                 </configuration>
                 <executions>

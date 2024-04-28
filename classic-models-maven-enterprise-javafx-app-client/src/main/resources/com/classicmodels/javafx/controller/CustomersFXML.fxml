@@ -12,7 +12,7 @@
 
 <AnchorPane id="anchorPane" prefHeight="900.0" prefWidth="1440.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.classicmodels.javafx.controller.CustomersController">
     <stylesheets>
-        <URL value="@../styles/customersfxml.css" />
+        <URL value="@/styles/colored-chart.css" />
     </stylesheets>
     <children>
         <Label fx:id="customerNumberLabel" layoutX="67.0" layoutY="63.0" text="Customer Number" />
@@ -53,22 +53,22 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnAddCustomers" contentDisplay="TOP" mnemonicParsing="false" onAction="#addCustomers" prefHeight="145.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css" text="Add Customers">
+                <Button fx:id="btnAddCustomers" contentDisplay="TOP" mnemonicParsing="false" onAction="#addCustomers" prefHeight="145.0" prefWidth="264.0" text="Add Customers">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="USERS" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="135.0" prefWidth="267.0" stylesheets="@../css/fullpackstyling.css" text="Offices" GridPane.columnIndex="1">
+                <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="135.0" prefWidth="267.0" text="Offices" GridPane.columnIndex="1">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="AMBULANCE" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnUpdate" contentDisplay="TOP" mnemonicParsing="false" prefHeight="136.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css" text="Payments" GridPane.rowIndex="1">
+                <Button fx:id="btnUpdate" contentDisplay="TOP" mnemonicParsing="false" prefHeight="136.0" prefWidth="264.0" text="Payments" GridPane.rowIndex="1">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="EXCHANGE" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnFindCustomers" contentDisplay="TOP" mnemonicParsing="false" onAction="#findCustomers" prefHeight="135.0" prefWidth="263.0" stylesheets="@../css/fullpackstyling.css" text="Find Customers" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="btnFindCustomers" contentDisplay="TOP" mnemonicParsing="false" onAction="#findCustomers" prefHeight="135.0" prefWidth="263.0" text="Find Customers" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="USER_TIMES" size="50" />
                     </graphic>

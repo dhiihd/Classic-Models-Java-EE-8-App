@@ -13,6 +13,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //@Mapper(uses = {LibraryMapper.class})
@@ -21,7 +22,7 @@ import org.slf4j.LoggerFactory;
 @Mapper
 public abstract class CustomersMapper implements EntityMapper<CustomersDTO, Customers> {
 
-    private static final org.slf4j.Logger logger
+    private static final Logger logger
             = LoggerFactory.getLogger(CustomersMapper.class);
 
     @AfterMapping

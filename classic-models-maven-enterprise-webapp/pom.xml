@@ -168,10 +168,9 @@
                                                         
                                <outputDirectory>webstart</outputDirectory>
                             --> 
-                            
                             <jarResources>
                                 <jarResource>
-                                    <groupId>classic-models-maven-enterprise</groupId>
+                                    <groupId>classic.models.maven.enterprise</groupId>
                                     <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
                                     <version>1.0-RELEASE</version>
                                     <mainClass>com.classicmodels.javafx.controller.App</mainClass>
@@ -179,9 +178,7 @@
                             </jarResources>
                         </jnlpFile>
                     </jnlpFiles>
-
                 </configuration>
-
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

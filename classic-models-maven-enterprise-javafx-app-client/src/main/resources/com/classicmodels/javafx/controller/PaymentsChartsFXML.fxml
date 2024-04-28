@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchorPane" prefHeight="708.0" prefWidth="1014.0" styleClass=".data0.chart-bar" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.classicmodels.javafx.controller.PaymentsChartsFXMLController">
+<AnchorPane id="anchorPane" prefHeight="849.0" prefWidth="1226.0" styleClass=".data0.chart-bar" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.classicmodels.javafx.controller.PaymentsChartsFXMLController">
     
     
     <stylesheets>
@@ -37,7 +37,7 @@
        
     </VBox>
    
-    <LineChart fx:id="classicModelsPaymentsChart" layoutX="57.0" layoutY="207.0" prefHeight="511.0" prefWidth="737.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Classic Models Payments">
+    <LineChart fx:id="classicModelsPaymentsChart" layoutX="50.0" layoutY="244.0" prefHeight="524.0" prefWidth="1080.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Classic Models Payments">
         <xAxis>
             <NumberAxis label="Year of Payments" side="BOTTOM" />
         </xAxis>

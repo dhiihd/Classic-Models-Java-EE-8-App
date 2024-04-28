@@ -28,6 +28,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import org.slf4j.Logger;
 
 /**
  * FXML Controller class
@@ -39,7 +40,7 @@ public class PaymentsChartsFXMLController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    private static final org.slf4j.Logger logger
+    private static final Logger logger
             = LoggerFactory.getLogger(PaymentsChartsFXMLController.class);
 
     private ObservableList<DataItem> items;

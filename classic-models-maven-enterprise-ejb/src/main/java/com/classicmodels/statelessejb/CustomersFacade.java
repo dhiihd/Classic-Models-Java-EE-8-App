@@ -17,6 +17,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -27,7 +28,7 @@ import org.slf4j.LoggerFactory;
 @Remote(CustomersRemote.class)
 public class CustomersFacade extends AbstractFacade implements CustomersRemote {
 
-    private static final org.slf4j.Logger logger
+    private static final Logger logger
             = LoggerFactory.getLogger(CustomersFacade.class);
 
     @PersistenceContext(unitName = "classic-models-maven-enterprise-PU")
