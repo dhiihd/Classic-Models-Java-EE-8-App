@@ -251,7 +251,7 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
         } else {
             yAxis.setUpperBound(50000);
         }
-        yAxis.setTickUnit(15000);
+        yAxis.setTickUnit(5000);
         yAxis.setMinorTickVisible(true);
         // layoutX="57.0" layoutY="207.0" prefHeight="586.0" prefWidth="1014.0
         customerCreditLimitsChart.getData().clear();
