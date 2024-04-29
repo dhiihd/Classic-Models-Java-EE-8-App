@@ -7,11 +7,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="anchorPane" prefHeight="708.0" prefWidth="1014.0" styleClass=".data0.chart-bar" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.classicmodels.javafx.controller.CustomersChartsFXMLController">
@@ -20,25 +16,23 @@
     <stylesheets>
         <URL value="@/styles/colored-chart.css" />
     </stylesheets>
-    
+   <Pane layoutX="-2.0" layoutY="-3.0" prefHeight="205.0" prefWidth="1567.0" style="-fx-background-color:#0A3161" stylesheets="@/styles/colored-chart.css">
+      <children>
+         <Label layoutX="337.0" layoutY="50.0" prefHeight="77.0" prefWidth="333.0" text="Classic Models" textFill="WHITE">
+            <font>
+               <Font size="48.0" />
+            </font>
+         </Label>
+         <Label layoutX="344.0" layoutY="128.0" prefHeight="17.0" prefWidth="190.0" text="Classic Models Management " textFill="WHITE">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </Label>
+         <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="214.0" layoutY="109.0" size="60" wrappingWidth="64.57142639160156" />
+      </children>
+   </Pane>
    
-    <VBox fx:id="vbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
-        <GridPane id="gridPane" alignment="CENTER" hgap="10.0" layoutX="107.0" layoutY="226.0" prefHeight="133.0" prefWidth="100.0" vgap="10.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="128.0">
-            <columnConstraints>
-                <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-            </rowConstraints>
-      
-    
-        </GridPane>
-       
-    </VBox>
-   
-    <BarChart fx:id="worldPopulationChart" layoutX="57.0" layoutY="207.0" prefHeight="511.0" prefWidth="737.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Emotions of people">
+    <BarChart fx:id="worldPopulationChart" layoutX="212.0" layoutY="207.0" prefHeight="511.0" prefWidth="737.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Emotions of people">
         <xAxis>
             <CategoryAxis label="Percentage" side="BOTTOM" />
         </xAxis>
@@ -47,22 +41,6 @@
         </yAxis>
       
     </BarChart>
-   
-    <Pane layoutX="-12.0" layoutY="-13.0" prefHeight="208.0" prefWidth="1031.0" style="-fx-background-color:#0A3161" stylesheets="@../../../../styles/colored-chart.css" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-13.0">
-      
-        <Label layoutX="127.0" layoutY="59.0" text="Classic Models" textFill="WHITE">
-            <font>
-                <Font size="48.0" />
-            </font>
-        </Label>
-        <Label layoutX="134.0" layoutY="120.0" text="Classic Models Management " textFill="WHITE">
-            <font>
-                <Font size="13.0" />
-            </font>
-        </Label>
-        <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="40.0" layoutY="121.0" size="60" wrappingWidth="64.57142639160156" />
-      
-    </Pane>
     <!--
               <Button fx:id="btnInitUI" contentDisplay="TOP" layoutX="39.0" layoutY="226.0" mnemonicParsing="false" onAction="#initUI" prefHeight="87.0" prefWidth="179.0" stylesheets="@../css/fullpackstyling.css" text="Load Chart">
            <graphic>
