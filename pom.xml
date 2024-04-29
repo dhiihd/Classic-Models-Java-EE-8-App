@@ -26,24 +26,24 @@
     <dependencyManagement>      
         <dependencies>
             <dependency>
-                <groupId>classic.models.maven.enterprise</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>classic-models-maven-enterprise-lib</artifactId>
                 <version>${project.version}</version> 
             </dependency>
             <dependency>
-                <groupId>classic.models.maven.enterprise</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
                 <version>${project.version}</version>
                 <type>app-client</type>
             </dependency>
             <dependency>
-                <groupId>classic.models.maven.enterprise</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>classic-models-maven-enterprise-ejb</artifactId>
                 <version>${project.version}</version> 
                 <type>ejb</type>
             </dependency>          
             <dependency>
-                <groupId>classic.models.maven.enterprise</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>classic-models-maven-enterprise-webapp</artifactId>
                 <version>${project.version}</version> 
                 <type>war</type>

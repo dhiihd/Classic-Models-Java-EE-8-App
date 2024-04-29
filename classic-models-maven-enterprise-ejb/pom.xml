@@ -37,7 +37,7 @@
             <!-- <scope>provided</scope> -->
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>classic.models.maven.enterprise</groupId>
             <artifactId>classic-models-maven-enterprise-lib</artifactId>
             <version>${project.version}</version>
         </dependency>

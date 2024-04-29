@@ -84,16 +84,16 @@
         
         
         -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>classic-models-maven-enterprise-lib</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/webstart-jnlp-servlet -->
         <dependency>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>webstart-jnlp-servlet</artifactId>
             <version>1.0-beta-7</version>
-        </dependency>
-         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>classic-models-maven-enterprise-lib</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
