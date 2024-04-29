@@ -255,12 +255,13 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
         yAxis.setMinorTickVisible(true);
         // layoutX="57.0" layoutY="207.0" prefHeight="586.0" prefWidth="1014.0
         customerCreditLimitsChart.getData().clear();
-
+        
+        //layoutX="207.0" layoutY="246.0" prefHeight="524.0" prefWidth="1080.0"
         customerCreditLimitsChart.setAnimated(true);
-        customerCreditLimitsChart.setLayoutX(13.0);
-        customerCreditLimitsChart.setLayoutY(10.0);
-        customerCreditLimitsChart.setPrefHeight(513.0);
-        customerCreditLimitsChart.setPrefWidth(1058.0);
+        customerCreditLimitsChart.setLayoutX(157.0);
+        customerCreditLimitsChart.setLayoutY(96.0);
+        customerCreditLimitsChart.setPrefHeight(524.0);
+        customerCreditLimitsChart.setPrefWidth(1080.0);
 
         //layoutX="13.0" layoutY="10.0" prefHeight="513.0" prefWidth="1058.0"
         //layoutX="50.0" layoutY="244.0" prefHeight="672.0" prefWidth="1080.0"  
