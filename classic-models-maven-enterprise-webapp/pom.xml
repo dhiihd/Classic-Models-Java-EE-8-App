@@ -90,12 +90,18 @@
             <artifactId>webstart-jnlp-servlet</artifactId>
             <version>1.0-beta-7</version>
         </dependency>
+         <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>classic-models-maven-enterprise-lib</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
-            <groupId>classic.models.maven.enterprise</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>classic-models-maven-enterprise-ejb</artifactId>
-            <version>1.0-RELEASE</version>
+            <version>${project.version}</version>
             <type>ejb-client</type>
         </dependency>
+        
         <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl 
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
@@ -135,12 +141,7 @@
             <artifactId>resteasy-client</artifactId>
             <version>6.2.1.Final</version>
         </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>classic-models-maven-enterprise-lib</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
+       </dependencies>
     <build>
         <plugins>
             <plugin>          
@@ -170,9 +171,9 @@
                             --> 
                             <jarResources>
                                 <jarResource>
-                                    <groupId>classic.models.maven.enterprise</groupId>
+                                    <groupId>${project.groupId}</groupId>
                                     <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
-                                    <version>1.0-RELEASE</version>
+                                    <version>${project.version}</version>
                                     <mainClass>com.classicmodels.javafx.controller.App</mainClass>
                                 </jarResource>
                             </jarResources>
