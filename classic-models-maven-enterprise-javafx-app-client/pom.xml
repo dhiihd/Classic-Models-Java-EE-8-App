@@ -51,7 +51,9 @@
     <properties>
         <endorsed.dir>${project.build.directory}\endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <javafx.version>21.0.2</javafx.version>
+        <javafx.version>22.0.1</javafx.version>
+        <java.compiler.source>20</java.compiler.source>
+        <java.compiler.target>20</java.compiler.target>
         <!-- <resteasy.version>6.2.8.Final</resteasy.version>  -->
         <resteasy.version>3.9.3.Final</resteasy.version>
         
@@ -290,8 +292,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <source>${java.compiler.source}</source>
+                    <target>${java.compiler.target}</target>
                     <!--
                   <compilerArgs>
                       <endorseddirs>${endorsed.dir}</endorseddirs>
@@ -311,7 +313,7 @@
                             <!--
                            <argument>-Xms1024m -Xmx4096m -Xss400m -Xmn1600m &#045;&#045;illegal-access=warn -Dlog4j.configurationFile=logback.xml &#045;&#045;add-opens java.base/java.lang=ALL-UNNAMED &#045;&#045;add-opens javafx.graphics/javafx.css=ALL-UNNAMED &#045;&#045;add-opens java.base/java.lang.reflect=ALL-UNNAMED &#045;&#045;add-opens java.base/java.text=ALL-UNNAMED &#045;&#045;add-opens java.desktop/java.awt.font=ALL-UNNAMED</argument>
                             -->
-                            <argument>-Dlog4j.configurationFile=logback.xml --add-opens java.base/java.lang=ALL-UNNAMED --add-opens javafx.graphics/javafx.css=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED</argument>                        
+                            <argument>-Dlog4j.configurationFile=logback.xml -Dprism.order=sw &#045;&#045;add-modules javafx.base &#045;&#045;add-modules javafx.controls &#045;&#045;add-modules javafx.graphics &#045;&#045;add-modules javafx.fxml &#045;&#045;add-opens java.base/java.lang=ALL-UNNAMED &#045;&#045;add-opens javafx.graphics/javafx.css=ALL-UNNAMED &#045;&#045;add-opens java.base/java.lang.reflect=ALL-UNNAMED &#045;&#045;add-opens java.base/java.text=ALL-UNNAMED &#045;&#045;add-opens java.desktop/java.awt.font=ALL-UNNAMED</argument>                        
                         </jvmArgs>
                        
                     </configuration>
