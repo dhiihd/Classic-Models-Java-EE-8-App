@@ -52,10 +52,10 @@
               java-vm-args="-XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=25 &#045;&#045;add-modules javafx.base &#045;&#045;add-modules javafx.controls &#045;&#045;add-modules javafx.graphics &#045;&#045;add-modules javafx.fxml &#045;&#045;add-opens java.base/java.lang=ALL-UNNAMED &#045;&#045;add-opens javafx.graphics/javafx.css=ALL-UNNAMED &#045;&#045;add-opens java.base/java.lang.reflect=ALL-UNNAMED &#045;&#045;add-opens java.base/java.text=ALL-UNNAMED &#045;&#045;add-opens java.desktop/java.awt.font=ALL-UNNAMED"/> 
            -->
            
-           <j2se version="19+" 
+           <j2se version="20+" 
               initial-heap-size="1024m" 
               max-heap-size="4096m" 
-              java-vm-args="-Dlog4j.configurationFile=logback.xml -Dprism.order=sw &#045;&#045;add-modules javafx.base &#045;&#045;add-modules javafx.controls &#045;&#045;add-modules javafx.graphics &#045;&#045;add-modules javafx.fxml &#045;&#045;add-opens java.base/java.lang=ALL-UNNAMED &#045;&#045;add-opens javafx.graphics/javafx.css=ALL-UNNAMED &#045;&#045;add-opens java.base/java.lang.reflect=ALL-UNNAMED &#045;&#045;add-opens java.base/java.text=ALL-UNNAMED &#045;&#045;add-opens java.desktop/java.awt.font=ALL-UNNAMED"/> 
+              java-vm-args="-XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=25 -Dlog4j.configurationFile=logback.xml -Dprism.order=sw &#045;&#045;add-modules javafx.base &#045;&#045;add-modules javafx.controls &#045;&#045;add-modules javafx.graphics &#045;&#045;add-modules javafx.fxml &#045;&#045;add-opens java.base/java.lang=ALL-UNNAMED &#045;&#045;add-opens javafx.graphics/javafx.css=ALL-UNNAMED &#045;&#045;add-opens java.base/java.lang.reflect=ALL-UNNAMED &#045;&#045;add-opens java.base/java.text=ALL-UNNAMED &#045;&#045;add-opens java.desktop/java.awt.font=ALL-UNNAMED"/> 
        
         <!--
         <j2se version="$j2seVersion"/>
