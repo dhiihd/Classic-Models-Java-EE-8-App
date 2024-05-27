@@ -1,40 +1,67 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>classic.models.maven.enterprise</groupId>
+        <artifactId>Classic-Models-Java-EE-8-App</artifactId>
+        <version>1.0-RELEASE</version>
+    </parent>
     <groupId>classic.models.maven.enterprise</groupId>
     <artifactId>classic-models-maven-enterprise-ear</artifactId>
     <version>1.0-RELEASE</version>
     <packaging>ear</packaging>
     <name>Classic Models Java EE 8 EAR</name>
-    <description>Classic Models Java EE 8 EJB</description>
-    <parent>
-        <groupId>classic.models.maven.enterprise</groupId>
-        <artifactId>Classic-Models-Java-EE-8-App</artifactId>
-        <version>1.0-RELEASE</version>
-       
-    </parent>
-
+    <description>Classic Models Java EE 8 EAR</description>
     <url>http://rhuanrocha.net/</url>
-   
-
+    <repositories>
+        <repository>
+            <id>acme-nexus-releases</id>
+            <name>acme nexus</name>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
     <dependencies>
-
         <dependency>
-            <groupId>classic.models.maven.enterprise</groupId>
-            <artifactId>classic-models-maven-enterprise-webapp</artifactId>
-            <type>war</type>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>classic-models-maven-enterprise-lib</artifactId>
             <version>${project.version}</version>
+            <type>jar</type> 
         </dependency>
+        <!--
         <dependency>
-            <groupId>classic.models.maven.enterprise</groupId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>classic-models-maven-enterprise-ejb</artifactId>
+            <version>${project.version}</version> 
             <type>ejb</type>
-            <version>${project.version}</version>
+        </dependency>          
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>classic-models-maven-enterprise-webapp</artifactId>
+            <version>${project.version}</version> 
+            <type>war</type>
         </dependency>
-        
-     
     </dependencies>
     <build>
+        <finalName>classic-models-maven-enterprise-ear-1.0-RELEASE</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                
+                    <groupId>org.jboss.as.plugins</groupId>
+                    <artifactId>jboss-as-maven-plugin</artifactId>
+                    <version>7.9.Final</version>
+              
+                </plugin>
+            
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -43,78 +70,133 @@
                 <configuration>
                     <version>8</version>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <!--
+                        <modules>
+                            <jarModule>
+                                <groupId>${project.groupId}</groupId>
+                                <artifactId>classic-models-maven-enterprise-lib</artifactId>
+                                <version>${project.version}</version>
+                            </jarModule>
+                            <jarModule>
+                                <groupId>${project.groupId}</groupId>
+                                <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
+                                <version>${project.version}</version>
+                            </jarModule>
+                            <webModule>
+                                <groupId>classic.models.maven.enterprise</groupId>
+                                <artifactId>classic-models-maven-enterprise-webapp</artifactId>
+                                <version>${project.version}</version>
+                            </webModule>
+                            <ejbModule>
+                                <groupId>classic.models.maven.enterprise</groupId>
+                                <artifactId>classic-models-maven-enterprise-ejb</artifactId>
+                                <version>${project.version}</version>
+                            </ejbModule>
+                        </modules>
+                    -->
                 </configuration>
             </plugin>
-          <!--  
+             
             <plugin>
+   
+
                 <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jboss-maven-plugin</artifactId>
-                <version>1.4.1</version>
-                <configuration>
-                  
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.3.0</version>
+
+                <executions>
+                    <execution>
+                        <id>chmod</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>chmod</executable>
+                            <arguments>
+                                <argument>+x</argument>
+                                <argument>/home/dhiihd/NetBeansProjects14May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-ear/target/${project.build.finalName}.ear</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+    <groupId>org.wildfly.plugins</groupId>
+        <artifactId>wildfly-maven-plugin</artifactId>
+        <version>1.0.0.Final</version>
+            <configuration>
                     <hostname>localhost</hostname>
                     <port>9990</port>
                     <username>admin</username>
-                    <password>adminadmin</password>
-                    <jbossHome>"C:\SoftwareInstallRoot\JBoss\jboss-eap-7.4"</jbossHome>
-                    <serverName>all</serverName>
-                    <fileName>"target/classic-models-maven-enterprise-ear-1.0-RELEASE.ear"</fileName>
+                    <password>gur pra21.G#$</password>
                 </configuration>
-            </plugin>
-            -->
-            <plugin>
-                <groupId>org.jboss.as.plugins</groupId>
-                <artifactId>jboss-as-maven-plugin</artifactId>
-                <version>7.4.Final</version>
-                <!--
                 <executions>
+                     <execution>
+                        <id>undeploy</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>undeploy</goal>
+                        </goals>
+                        <configuration>
+                            <ignoreMissingDeployment>true</ignoreMissingDeployment>
+                        </configuration>
+                    </execution>
                     <execution>
                         <phase>install</phase>
                         <goals>
                             <goal>deploy</goal>
                         </goals>
                     </execution>
+             </executions>
+        </plugin>
+
+<!--
+            <plugin>           
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+               <version>7.9.Final</version> 
+                <inherited>true</inherited>
+                <configuration>
+                    <jbossHome>/usr/share/jboss-eap-8.0</jbossHome>
+                    <checkPackaging>false</checkPackaging>
+                    <ignoreMissingDeployment>true</ignoreMissingDeployment>
+                    <force>true</force>
+                    <hostname>localhost</hostname>
+                    <port>9990</port>
+                    <username>admin</username>
+                    <password>gur pra21.G#$</password>
+                    <serverName>standalone</serverName>
+                    <timeout>70000</timeout>
+                    
+<targetDir>/usr/share/jboss-eap-8.0/standalone/deployments</targetDir>
+                    
+                    <filename>${project.build.finalName}.ear</filename>
+                </configuration>
+                <executions>
+                    
+                    <execution>
+                        <id>undeploy</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>undeploy</goal>
+                        </goals>
+                        <configuration>
+                            <ignoreMissingDeployment>true</ignoreMissingDeployment>
+                        </configuration>
+                    </execution>
+                     
+                    <execution>
+                        <id>deploy</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
                 </executions>
-                -->
             </plugin>
-            <!--
-                      <plugin>
-                            <groupId>org.wildfly.plugins</groupId>
-                            <artifactId>wildfly-maven-plugin</artifactId>
-                            <version>1.1.0.Final</version>
-                            <configuration>
-                                <hostname>localhost</hostname>
-                                <port>9990</port>
-                                <username>admin</username>
-                                <password>adminadmin</password>
-                                <jboss-home>"C:\SoftwareInstallRoot\Java\EAP-7.4.0"</jboss-home>
-                                <name>"target/classic-models-maven-enterprise-ear-1.0-RELEASE.ear"</name>
-                              
-                            </configuration>
-                            <executions>
-                              
-                                <execution>
-                                    <id>undeploy</id>
-                                    <phase>clean</phase>
-                                    <goals>
-                                        <goal>undeploy</goal>
-                                    </goals>
-                                    <configuration>
-                                        <ignoreMissingDeployment>true</ignoreMissingDeployment>
-                                    </configuration>
-                                </execution>
-            
-                            
-                                <execution>
-                                    <id>deploy</id>
-                                    <phase>install</phase>
-                                    <goals>
-                                        <goal>deploy</goal>
-                                    </goals>
-                                </execution>
-                            </executions>
-                        </plugin>
             -->
+
         </plugins>
   
     </build>

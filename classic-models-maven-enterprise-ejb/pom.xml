@@ -9,7 +9,6 @@
         <artifactId>Classic-Models-Java-EE-8-App</artifactId>
         <groupId>classic.models.maven.enterprise</groupId>
         <version>1.0-RELEASE</version>
-      
     </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
