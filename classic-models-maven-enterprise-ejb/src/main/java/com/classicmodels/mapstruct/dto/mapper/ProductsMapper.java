@@ -10,13 +10,14 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 //@Mapper(uses = {LibraryMapper.class})
-@Mapper
+@Mapper(uses = {OrderdetailsMapper.class})
 public interface ProductsMapper extends EntityMapper<ProductsDTO, Products> {
 
     ProductsMapper INSTANCE = Mappers.getMapper(ProductsMapper.class);
 
     // @Mapping(source = "library.id", target = "libraryId")
     //  @Mapping(source = "libraryId", target = "library")
+    @Mapping(source = "productLineDTO", target = "productLine")
     @Mapping(source = "orderdetailsDTOCollection", target = "orderdetailsCollection")
     @Override
     Products toEntity(final ProductsDTO productsDTO, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);

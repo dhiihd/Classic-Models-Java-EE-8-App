@@ -2,21 +2,21 @@ package com.classicmodels.mapstruct.dto.mapper;
 
 import com.classicmodels.dto.OrderdetailsDTO;
 import com.classicmodels.entity.Orderdetails;
-import com.classicmodels.entity.OrderdetailsPK;
 import java.util.Collection;
 import org.mapstruct.Context;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 //@Mapper(uses = {LibraryMapper.class})
-@Mapper
+@Mapper(uses = {OrdersMapper.class,ProductsMapper.class})
 public interface OrderdetailsMapper extends EntityMapper<OrderdetailsDTO, Orderdetails> {
 
     OrderdetailsMapper INSTANCE = Mappers.getMapper(OrderdetailsMapper.class);
 
 // @Mapping(source = "library.id", target = "libraryId")
-    //  @Mapping(source = "libraryId", target = "library")
+    @Mapping(source = "orderdetailsKeyDTO", target = "orderdetailsPK")
     @Override
     Orderdetails toEntity(final OrderdetailsDTO orderdetailsDTO, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 

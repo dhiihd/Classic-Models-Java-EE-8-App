@@ -9,8 +9,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-//@Mapper(uses = {LibraryMapper.class})
-@Mapper
+@Mapper(uses = {OrderdetailsMapper.class})
+//@Mapper
 public interface OrdersMapper extends EntityMapper<OrdersDTO, Orders> {
 
     OrdersMapper INSTANCE = Mappers.getMapper(OrdersMapper.class);

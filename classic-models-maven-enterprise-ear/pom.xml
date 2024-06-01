@@ -50,18 +50,20 @@
     </dependencies>
     <build>
         <finalName>classic-models-maven-enterprise-ear-1.0-RELEASE</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                
-                    <groupId>org.jboss.as.plugins</groupId>
-                    <artifactId>jboss-as-maven-plugin</artifactId>
-                    <version>7.9.Final</version>
-              
-                </plugin>
-            
-            </plugins>
-        </pluginManagement>
+            <!--
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                        
+                            <groupId>org.jboss.as.plugins</groupId>
+                            <artifactId>jboss-as-maven-plugin</artifactId>
+                            <version>7.9.Final</version>
+                      
+                        </plugin>
+                    
+                    </plugins>
+                </pluginManagement>
+        -->    
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -115,24 +117,24 @@
                             <executable>chmod</executable>
                             <arguments>
                                 <argument>+x</argument>
-                                <argument>/home/dhiihd/NetBeansProjects14May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-ear/target/${project.build.finalName}.ear</argument>
+                                <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-ear/target/${project.build.finalName}.ear</argument>
                             </arguments>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
-    <groupId>org.wildfly.plugins</groupId>
-        <artifactId>wildfly-maven-plugin</artifactId>
-        <version>1.0.0.Final</version>
-            <configuration>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>5.0.0.Final</version>
+                <configuration>
                     <hostname>localhost</hostname>
                     <port>9990</port>
                     <username>admin</username>
                     <password>gur pra21.G#$</password>
                 </configuration>
                 <executions>
-                     <execution>
+                    <execution>
                         <id>undeploy</id>
                         <phase>clean</phase>
                         <goals>
@@ -148,10 +150,10 @@
                             <goal>deploy</goal>
                         </goals>
                     </execution>
-             </executions>
-        </plugin>
+                </executions>
+            </plugin>
 
-<!--
+            <!--
             <plugin>           
                 <groupId>org.jboss.as.plugins</groupId>
                 <artifactId>jboss-as-maven-plugin</artifactId>

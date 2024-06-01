@@ -6,11 +6,10 @@ import java.util.Collection;
 import org.mapstruct.Context;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-//@Mapper(uses = {LibraryMapper.class})
-@Mapper
+@Mapper(uses = {ProductsMapper.class})
+//@Mapper
 public interface ProductlinesMapper extends EntityMapper<ProductlinesDTO, Productlines> {
 
     ProductlinesMapper INSTANCE = Mappers.getMapper(ProductlinesMapper.class);
@@ -20,7 +19,7 @@ public interface ProductlinesMapper extends EntityMapper<ProductlinesDTO, Produc
     //  @Mapping(source = "libraryId", target = "library")
     //  @Mapping(source = "orderdetailsDTOCollection", target = "orderdetailsCollection")
     @Override
-    //   @Mapping(source = "productlinesDTO", target = "productline")
+   // @Mapping(source = "productsCollection", target = "productsCollection")
     Productlines toEntity(final ProductlinesDTO productlinesDTO, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 
     @Override

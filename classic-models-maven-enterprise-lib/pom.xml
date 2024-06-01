@@ -27,4 +27,36 @@
             <version>2.2.5</version>
         </dependency>
     </dependencies>
+    <build>
+         <finalName>classic-models-maven-enterprise-lib-1.0-RELEASE</finalName>
+        <plugins>
+            
+            <plugin>
+   
+
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.3.0</version>
+
+                <executions>
+                    <execution>
+                        <id>chmod</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>chmod</executable>
+                            <arguments>
+                                <argument>+x</argument>
+                                <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-lib/target/${project.build.finalName}.jar</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+          
+           
+        </plugins>
+    </build>
 </project>

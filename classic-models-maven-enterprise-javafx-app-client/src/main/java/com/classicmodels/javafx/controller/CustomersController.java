@@ -352,9 +352,9 @@ public class CustomersController implements Initializable {
                             // else
                             //     c.error("Please use only number.");
                             try {
-                                Integer customerNumberIntValue = new Integer(customerNumber.trim());
+                                Integer customerNumberIntValue = Integer.valueOf(customerNumber.trim());
                                 if (customersDTO != null) {
-                                    customersDTO.setCustomerNumber(new Integer(customerNumberIntValue).intValue());
+                                    customersDTO.setCustomerNumber(Integer.valueOf(customerNumberIntValue).intValue());
                                 }
                             } catch (NumberFormatException ex) {
                                 ex.printStackTrace();
@@ -680,7 +680,7 @@ public class CustomersController implements Initializable {
         customersDTO.setCountry(countryTextField.getText());
 
         if ((customerNumberTextField.getText() != null) && !(customerNumberTextField.getText().trim().equals(""))) {
-            customersDTO.setCustomerNumber(new Integer(customerNumberTextField.getText()));
+            customersDTO.setCustomerNumber(Integer.valueOf(customerNumberTextField.getText()));
         }
 
         customersDTO.setCustomerName(customerNameTextField.getText());

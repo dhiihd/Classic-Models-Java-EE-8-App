@@ -43,12 +43,12 @@
     </dependencies>
     
     <build>
+         <finalName>classic-models-maven-enterprise-ejb-1.0-RELEASE</finalName>
         <plugins>
             
-         
-          
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+
+            <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ejb-plugin</artifactId>
                 <version>3.2.1</version>
                 <configuration>
@@ -72,6 +72,35 @@
                         sparrow under com/jack -->
                     </clientExcludes>
                 </configuration>
+            </plugin>
+         
+          
+              <plugin>
+   
+
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.3.0</version>
+
+                <executions>
+                    <execution>
+                        <id>chmod</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>chmod</executable>
+                            <arguments>
+                                <argument>+x</argument>
+                                <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-ejb/target/${project.build.finalName}.jar</argument>
+                              
+                                <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-ejb/target/classic-models-maven-enterprise-ejb-1.0-RELEASE-client.jar</argument>
+                              
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

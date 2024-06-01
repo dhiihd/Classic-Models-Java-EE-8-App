@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.mapstruct.Context;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 //@Mapper(componentModel = "spring", uses = {BookMapper.class})
@@ -20,7 +21,7 @@ public interface PaymentsMapper extends EntityMapper<PaymentsDTO, Payments> {
 
     // @Mapping(source = "library.id", target = "libraryId")
     //  @Mapping(source = "libraryId", target = "library")
-    //   @Mapping(source = "paymentsKeyDTO", target = "paymentsPK" )
+    @Mapping(source = "paymentsKeyDTO", target = "paymentsPK" )
     @Override
     Payments toEntity(final PaymentsDTO paymentsDTO, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 
