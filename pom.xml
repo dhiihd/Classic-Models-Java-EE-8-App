@@ -11,6 +11,7 @@
     <properties>
         <java.compiler.source>11</java.compiler.source>
         <java.compiler.target>11</java.compiler.target>
+        <java.compiler.release>11</java.compiler.release>
         <junit>3.8.1</junit>
         <log4j-core>2.20.0</log4j-core>
         <classic-models-maven-enterprise.version>1.0-RELEASE</classic-models-maven-enterprise.version>
@@ -102,6 +103,7 @@
                 <configuration>
                     <source>${java.compiler.source}</source>
                     <target>${java.compiler.target}</target>
+                    <release>${java.compiler.release}</release>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
@@ -124,6 +126,7 @@
                     </compilerArgs> -->
                 </configuration>
             </plugin>
+         
             
         </plugins>
     </build>

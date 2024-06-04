@@ -52,40 +52,42 @@
         <endorsed.dir>${project.build.directory}\endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javafx.version>22.0.1</javafx.version>
-        <java.compiler.source>20</java.compiler.source>
-        <java.compiler.target>20</java.compiler.target>
+        <java.compiler.source>21</java.compiler.source>
+        <java.compiler.target>21</java.compiler.target>
+        <java.compiler.release>21</java.compiler.release>
         <!-- <resteasy.version>6.2.8.Final</resteasy.version>  -->
         <resteasy.version>3.9.3.Final</resteasy.version>
         
         <!-- <resteasy.version>3.0.14.Final</resteasy.version> --> 
     </properties>
     <!--
-<repositories>
-    
-   <repository>
-       <id>acme-nexus-releases</id>
-     
-       <name>acme nexus</name>
-             
-       <url>https://jcenter.bintray.com/</url>
-         
-   </repository>
-
-</repositories>
-    -->
-         
     <repositories>
-          
-        <repository>
-            <id>acme-nexus-releases</id>
-           
-            <name>acme nexus</name>
-                   
-            <url>https://repo1.maven.org/maven2/</url>
-               
-        </repository>
-      
+        
+       <repository>
+           <id>acme-nexus-releases</id>
+         
+           <name>acme nexus</name>
+                 
+           <url>https://jcenter.bintray.com/</url>
+             
+       </repository>
+    
     </repositories>
+        
+             
+        <repositories>
+              
+            <repository>
+                <id>acme-nexus-releases</id>
+               
+                <name>acme nexus</name>
+                       
+                <url>https://repo1.maven.org/maven2/</url>
+                   
+            </repository>
+          
+        </repositories>
+    -->
     <dependencies>
         <!-- <dependency>
             <groupId>javax.ws.rs</groupId>
@@ -286,7 +288,7 @@
     </dependencies>
 
     <build>
-         <finalName>classic-models-maven-enterprise-javafx-app-client-1.0-RELEASE</finalName>
+        <finalName>classic-models-maven-enterprise-javafx-app-client-1.0-RELEASE</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -295,6 +297,7 @@
                 <configuration>
                     <source>${java.compiler.source}</source>
                     <target>${java.compiler.target}</target>
+                    <release>${java.compiler.release}</release>
                     <!--
                   <compilerArgs>
                       <endorseddirs>${endorsed.dir}</endorseddirs>
@@ -309,7 +312,6 @@
                 <configuration>
                     <mainClass>com.classicmodels.javafx.controller.App</mainClass>
                     <configuration>
-                        
                         <jvmArgs>
                             <!--
                            <argument>-Xms1024m -Xmx4096m -Xss400m -Xmn1600m &#045;&#045;illegal-access=warn -Dlog4j.configurationFile=logback.xml &#045;&#045;add-opens java.base/java.lang=ALL-UNNAMED &#045;&#045;add-opens javafx.graphics/javafx.css=ALL-UNNAMED &#045;&#045;add-opens java.base/java.lang.reflect=ALL-UNNAMED &#045;&#045;add-opens java.base/java.text=ALL-UNNAMED &#045;&#045;add-opens java.desktop/java.awt.font=ALL-UNNAMED</argument>
@@ -359,8 +361,6 @@
                     </execution>
                 </executions>
             </plugin>
-     
-         
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-acr-plugin</artifactId>
@@ -401,7 +401,7 @@
             </executions>
         </plugin>
             -->    
-               <plugin>
+            <plugin>
    
 
                 <groupId>org.codehaus.mojo</groupId>
@@ -420,6 +420,7 @@
                             <arguments>
                                 <argument>+x</argument>
                                 <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-javafx-app-client/target/${project.build.finalName}.jar</argument>
+                                <argument>${project.artifactId}/target/**/*.class</argument> 
                             </arguments>
                         </configuration>
                     </execution>

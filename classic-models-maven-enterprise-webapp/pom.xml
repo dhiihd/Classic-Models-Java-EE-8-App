@@ -301,6 +301,7 @@
                             <arguments>
                                 <argument>+x</argument>
                                 <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-webapp/target/${project.build.finalName}.war</argument>
+                                 <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/${project.artifactId}/target/**/*.class</argument>                            
                             </arguments>
                         </configuration>
                     </execution>

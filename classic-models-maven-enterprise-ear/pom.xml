@@ -117,7 +117,7 @@
                             <executable>chmod</executable>
                             <arguments>
                                 <argument>+x</argument>
-                                <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-ear/target/${project.build.finalName}.ear</argument>
+                                <argument>${project.build.directory}/${project.build.finalName}.ear</argument>
                             </arguments>
                         </configuration>
                     </execution>
