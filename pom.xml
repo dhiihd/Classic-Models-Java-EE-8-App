@@ -18,8 +18,8 @@
     </properties>
     <modules>
         <module>classic-models-maven-enterprise-lib</module>
-        <module>classic-models-maven-enterprise-javafx-app-client</module>
         <module>classic-models-maven-enterprise-ejb</module>       
+        <module>classic-models-maven-enterprise-javafx-app-client</module>
         <module>classic-models-maven-enterprise-webapp</module>
         <module>classic-models-maven-enterprise-ear</module>
     </modules>
@@ -40,16 +40,16 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
-                <version>${project.version}</version>
-                <type>jar</type>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
                 <artifactId>classic-models-maven-enterprise-ejb</artifactId>
                 <version>${project.version}</version> 
                 <type>ejb</type>
             </dependency>          
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>classic-models-maven-enterprise-webapp</artifactId>
@@ -126,7 +126,22 @@
                     </compilerArgs> -->
                 </configuration>
             </plugin>
-         
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Implementation-Title>OWS Classic Models</Implementation-Title>
+                            <Implementation-Vendor>Aurum</Implementation-Vendor>
+                            <Permissions>all-permissions</Permissions>
+                            <Codebase>*</Codebase>
+                            <Application-Library-Allowable-Codebase>*</Application-Library-Allowable-Codebase>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
             
         </plugins>
     </build>

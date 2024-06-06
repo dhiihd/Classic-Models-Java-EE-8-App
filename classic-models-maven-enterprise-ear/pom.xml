@@ -49,7 +49,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>classic-models-maven-enterprise-ear-1.0-RELEASE</finalName>
+         <finalName>${project.artifactId}</finalName>
             <!--
                 <pluginManagement>
                     <plugins>
@@ -100,25 +100,30 @@
             </plugin>
              
             <plugin>
-   
-
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.3.0</version>
-
                 <executions>
                     <execution>
-                        <id>chmod</id>
+                        <id>chmod-ear</id>
                         <phase>package</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <configuration>
                             <executable>chmod</executable>
-                            <arguments>
-                                <argument>+x</argument>
-                                <argument>${project.build.directory}/${project.build.finalName}.ear</argument>
-                            </arguments>
+                            <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}.ear</commandlineArgs>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>chmod-libjar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>chmod</executable>
+                            <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}/lib/</commandlineArgs>
                         </configuration>
                     </execution>
                 </executions>

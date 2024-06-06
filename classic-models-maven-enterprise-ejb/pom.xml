@@ -43,7 +43,7 @@
     </dependencies>
     
     <build>
-         <finalName>classic-models-maven-enterprise-ejb-1.0-RELEASE</finalName>
+         <finalName>${project.artifactId}</finalName>
         <plugins>
             
             <plugin>
@@ -89,14 +89,34 @@
                         <goals>
                             <goal>exec</goal>
                         </goals>
+                         <configuration>
+                            
+                            <executable>chmod</executable>
+                            <commandlineArgs>-R +x ${project.build.directory}/classes/</commandlineArgs>
+                            
+                             <!--
+                             <argument>+x</argument>
+                            <argument>${project.build.directory}/classes/com/classicmodels/dto/\*.class</argument>
+                            <arguments>
+                              
+                                <commandlineArgs>${project.build.directory}/classes/com/classicmodels/dto/ProductsDTO.class</commandlineArgs>
+                                <argument>${project.build.directory}/classes/com/classicmodels/dto/*.class</argument>
+                            </arguments>
+                            -->
+                        </configuration>
+                      </execution>
+                      <execution>
+                        <id>chmod-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
                         <configuration>
                             <executable>chmod</executable>
-                            <arguments>
+                            <arguments><!-- ${project.build.directory} -->
                                 <argument>+x</argument>
-                                <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-ejb/target/${project.build.finalName}.jar</argument>
-                              
-                                <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-ejb/target/classic-models-maven-enterprise-ejb-1.0-RELEASE-client.jar</argument>
-                                <argument>${project.artifactId}/target/**/*.class</argument> 
+                                <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
+                                <argument>${project.build.directory}/${project.build.finalName}-client.jar</argument>
                             </arguments>
                         </configuration>
                     </execution>

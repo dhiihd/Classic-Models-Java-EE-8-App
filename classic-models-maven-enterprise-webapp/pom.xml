@@ -143,7 +143,7 @@
         </dependency>
        </dependencies>
     <build>
-         <finalName>classic-models-maven-enterprise-webapp-1.0-RELEASE</finalName>
+          <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>          
                 <groupId>com.jalalkiswani</groupId>
@@ -190,7 +190,7 @@
                     <archive>
                         <manifestEntries>
                             <Implementation-Title>OWS Classic Models</Implementation-Title>
-                            <Implementation-Vendor>Karakun AG</Implementation-Vendor>
+                            <Implementation-Vendor>Aurum</Implementation-Vendor>
                             <Permissions>all-permissions</Permissions>
                             <Codebase>*</Codebase>
                             <Application-Library-Allowable-Codebase>*</Application-Library-Allowable-Codebase>
@@ -226,7 +226,7 @@
                     <keypass>ulctest</keypass>
                     <verbose>true</verbose>
                     <removeExistingSignatures>true</removeExistingSignatures> 
-                    <archiveDirectory>target/classic-models-maven-enterprise-webapp-1.0-RELEASE/webstart/</archiveDirectory>
+                    <archiveDirectory>target/${project.artifactId}/webstart/</archiveDirectory>
                     <includes>
                         <include>**/*.jar</include>
                     </includes>
@@ -282,31 +282,74 @@
                 </executions>
             </plugin>  
             -->
-               <plugin>
-   
-
+                <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.3.0</version>
-
                 <executions>
                     <execution>
                         <id>chmod</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>chmod</executable>
+                            <commandlineArgs>-R +x ${project.build.directory}/classes/</commandlineArgs>
+                        <!--
+                            <argument>+x</argument>
+                            <argument>${project.build.directory}/classes/com/classicmodels/dto/\*.class</argument>
+                            <arguments>
+                              
+                                <commandlineArgs>${project.build.directory}/classes/com/classicmodels/dto/ProductsDTO.class</commandlineArgs>
+                                <argument>${project.build.directory}/classes/com/classicmodels/dto/*.class</argument>
+                            </arguments>
+                            -->
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>chmod-war</id>
                         <phase>package</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <configuration>
                             <executable>chmod</executable>
-                            <arguments>
-                                <argument>+x</argument>
-                                <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/classic-models-maven-enterprise-webapp/target/${project.build.finalName}.war</argument>
-                                 <argument>/home/dhiihd/NetBeansProjects31May2024/Classic-Models-Java-EE-8-App/${project.artifactId}/target/**/*.class</argument>                            
-                            </arguments>
+                            <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}.war</commandlineArgs>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>chmod-libjar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>chmod</executable>
+                            <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}/WEB-INF/lib/</commandlineArgs>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+            
+                  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.6.1</version>
+        <executions>
+          <execution>
+            <id>unpack-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+                <ignorePermissions>true</ignorePermissions>   
+            </configuration>
+          </execution>
+        </executions>
+      </plugin> 
+          
         </plugins>
     </build>
 </project>
