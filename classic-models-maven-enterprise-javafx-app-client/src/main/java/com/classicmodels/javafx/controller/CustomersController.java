@@ -465,7 +465,9 @@ public class CustomersController implements Initializable {
             }
             //    customersDTO = target.queryParam("id", id).request().get(CustomersDTO.class);
 
-        } finally {
+        } catch(Exception ex){ex.printStackTrace();}finally {
+                
+                
             if (response != null) {
                 response.close();
             }
@@ -474,7 +476,7 @@ public class CustomersController implements Initializable {
             }
         }
 
-        if ((customerNumberTextField.getText() != null) && !(customerNumberTextField.getText().equals("")) && !(statusInfo.equals("OK"))) {
+        if ((customerNumberTextField.getText() != null) && !(customerNumberTextField.getText().equals("")) ) {
             if ((validator != null) && (customerNumberCheck != null)) {
                 customerNumberCheck.recheck();
             }

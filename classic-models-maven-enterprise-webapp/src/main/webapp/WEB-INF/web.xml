@@ -10,12 +10,12 @@
         <param-value>org.classicmodels.service.exception.PathParamNotFoundMapper</param-value>        
     </context-param>
     -->
-    <context-param>
-        <param-name>resteasy.use.builtin.providers</param-name>
-        <param-value>true</param-value>
-    </context-param>
-    <!--
-    
+     <context-param>
+         <param-name>resteasy.use.builtin.providers</param-name>
+         <param-value>true</param-value>
+     </context-param>
+
+     <!--
     <servlet>
         <servlet-name>webresources</servlet-name>
         <servlet-class>org.classicmodels.rest.application.config.ApplicationConfig</servlet-class>
@@ -25,14 +25,14 @@
         <url-pattern>/webresources/*</url-pattern>
     </servlet-mapping>
     
-    -->
-    <!-- <servlet-mapping>
+  
+    <servlet-mapping>
               <servlet-name>javax.ws.rs.core.Application</servlet-name>
               <url-pattern>/webresources/*</url-pattern>
       </servlet-mapping>
     -->
    
-    <context-param>
+     <context-param>
         <param-name>resteasy.servlet.mapping.prefix</param-name>
         <param-value>/webresources</param-value>
     </context-param>
@@ -54,22 +54,23 @@
         <servlet-name>resteasy-servlet</servlet-name>
         <url-pattern>/webresources/*</url-pattern>
     </servlet-mapping>
-    
+  
+  <!--  
     <servlet>
-        <servlet-name>JnlpDownloadServlet</servlet-name>
-        <servlet-class>jnlp.sample.servlet.JnlpDownloadServlet</servlet-class>
-    </servlet>
+    <servlet-name>JnlpDownloadServlet</servlet-name>
+    <servlet-class>jnlp.sample.servlet.JnlpDownloadServlet</servlet-class>
+  </servlet>
 
-    <servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>JnlpDownloadServlet</servlet-name>
+    <url-pattern>/webstart/*</url-pattern>
+  </servlet-mapping> 
+
+   <servlet-mapping>
         <servlet-name>JnlpDownloadServlet</servlet-name>
-        <url-pattern>/webstart/*</url-pattern>
-    </servlet-mapping> 
-    <!--
-       <servlet-mapping>
-            <servlet-name>JnlpDownloadServlet</servlet-name>
-            <url-pattern>*.jnlp</url-pattern>
-        </servlet-mapping>
-    -->
+        <url-pattern>*.jnlp</url-pattern>
+    </servlet-mapping>
+-->
     <session-config>
         <session-timeout>
             30

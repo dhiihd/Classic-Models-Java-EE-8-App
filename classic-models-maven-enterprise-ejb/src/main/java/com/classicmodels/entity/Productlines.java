@@ -30,7 +30,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "productlines")
+@Table(name = "Productlines")
 @NamedQueries({
     @NamedQuery(name = "Productlines.findAll", query = "SELECT p FROM Productlines p"),
     @NamedQuery(name = "Productlines.findByProductLine", query = "SELECT p FROM Productlines p WHERE p.productLine = :productLine"),

@@ -38,7 +38,7 @@ import lombok.Setter;
 //@EqualsAndHashCode
 //@ToString
 @Entity
-@Table(name = "employees")
+@Table(name = "Employees")
 @NamedQueries({
     @NamedQuery(name = "Employees.findAll", query = "SELECT e FROM Employees e"),
     @NamedQuery(name = "Employees.findByEmployeeNumber", query = "SELECT e FROM Employees e WHERE e.employeeNumber = :employeeNumber"),

@@ -13,22 +13,18 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.GenericEntity;
 import org.classicmodels.service.exception.PathParamNotFoundException;
 import org.slf4j.LoggerFactory;
-import java.io.StringWriter;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import com.classicmodels.dto.CountriesDTO;
 import com.classicmodels.dto.CreditLimitsDTO;
 import java.math.BigDecimal;
+import javax.ws.rs.PathParam;
 import org.slf4j.Logger;
 
 /**
@@ -49,7 +45,7 @@ public class CustomersFacadeREST {
         this.customersRemote = customersRemote;
     }
 
-    @EJB(lookup = "ejb:classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/CustomersFacade!com.classicmodels.statelessejb.remote.CustomersRemote")
+    @EJB(lookup = "ejb:classic.models.maven.enterprise-classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/CustomersFacade!com.classicmodels.statelessejb.remote.CustomersRemote")
     private CustomersRemote customersRemote;
 
     public CustomersFacadeREST() {

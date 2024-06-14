@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "orderdetails")
+@Table(name = "Orderdetails")
 //@IdClass(OrderdetailsPK.class)
 @NamedQueries({
     @NamedQuery(name = "Orderdetails.findAll", query = "SELECT o FROM Orderdetails o"),

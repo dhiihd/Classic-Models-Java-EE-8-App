@@ -15,12 +15,13 @@
     <url>http://rhuanrocha.net/</url>
     <repositories>
         <repository>
-            <id>acme-nexus-releases</id>
-            <name>acme nexus</name>
+            <id>Maven_Central_Repo_1</id>
+            <name>Maven Central Repo 1</name>
             <url>https://repo1.maven.org/maven2/</url>
         </repository>
     </repositories>
     <dependencies>
+        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>classic-models-maven-enterprise-lib</artifactId>
@@ -40,17 +41,17 @@
             <artifactId>classic-models-maven-enterprise-ejb</artifactId>
             <version>${project.version}</version> 
             <type>ejb</type>
-        </dependency>          
+        </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>classic-models-maven-enterprise-webapp</artifactId>
-            <version>${project.version}</version> 
+            <version>${project.version}</version>
             <type>war</type>
         </dependency>
     </dependencies>
     <build>
-         <finalName>${project.artifactId}</finalName>
-            <!--
+        <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
+        <!--
                 <pluginManagement>
                     <plugins>
                         <plugin>
@@ -70,32 +71,37 @@
                 <artifactId>maven-ear-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
-                    <version>8</version>
+                    <version>8</version> 
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
                     <!--
-                        <modules>
+                    <generateApplicationXml>false</generateApplicationXml>
+                    
+                    <modules>
                             <jarModule>
                                 <groupId>${project.groupId}</groupId>
                                 <artifactId>classic-models-maven-enterprise-lib</artifactId>
-                                <version>${project.version}</version>
+                               <version>${project.version}</version>
                             </jarModule>
                             <jarModule>
                                 <groupId>${project.groupId}</groupId>
                                 <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
-                                <version>${project.version}</version>
+                                 <version>${project.version}</version>
                             </jarModule>
                             <webModule>
                                 <groupId>classic.models.maven.enterprise</groupId>
                                 <artifactId>classic-models-maven-enterprise-webapp</artifactId>
-                                <version>${project.version}</version>
+                                 <version>${project.version}</version>
+                               
                             </webModule>
                             <ejbModule>
                                 <groupId>classic.models.maven.enterprise</groupId>
                                 <artifactId>classic-models-maven-enterprise-ejb</artifactId>
-                                <version>${project.version}</version>
+                                 <version>${project.version}</version>
                             </ejbModule>
                         </modules>
+                    
                     -->
+                        
                 </configuration>
             </plugin>
              
@@ -137,8 +143,12 @@
                     <port>9990</port>
                     <username>admin</username>
                     <password>gur pra21.G#$</password>
-                </configuration>
+                </configuration>  
+               
+                  <!--
+
                 <executions>
+                   
                     <execution>
                         <id>undeploy</id>
                         <phase>clean</phase>
@@ -149,13 +159,20 @@
                             <ignoreMissingDeployment>true</ignoreMissingDeployment>
                         </configuration>
                     </execution>
+                              
+      
                     <execution>
                         <phase>install</phase>
                         <goals>
                             <goal>deploy</goal>
                         </goals>
                     </execution>
+                               
                 </executions>
+                    
+                        -->
+                    
+                      
             </plugin>
 
             <!--

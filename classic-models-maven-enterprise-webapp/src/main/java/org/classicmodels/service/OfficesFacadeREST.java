@@ -14,6 +14,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -29,7 +30,7 @@ import org.slf4j.LoggerFactory;
 @Path("com.classicmodels.employees")
 public class OfficesFacadeREST {
 
-    @EJB(lookup = "ejb:classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/OfficesFacade!com.classicmodels.statelessejb.remote.OfficesRemote")
+    @EJB(lookup = "ejb:classic.models.maven.enterprise-classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/OfficesFacade!com.classicmodels.statelessejb.remote.OfficesRemote")
     private OfficesRemote employeesRemote;
 
     private static final Logger logger

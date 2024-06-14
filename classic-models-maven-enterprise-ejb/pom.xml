@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <mapstruct.vesion>1.5.3.Final</mapstruct.vesion>
-        <version.javaee-api>8.0.2</version.javaee-api>
+        <version.javaee-api>8.0.1</version.javaee-api>
     </properties>
 
     <name>Classic Models Java EE 8 EJB</name>
@@ -43,7 +43,7 @@
     </dependencies>
     
     <build>
-         <finalName>${project.artifactId}</finalName>
+        <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
         <plugins>
             
             <plugin>
@@ -122,6 +122,16 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <useJvmChmod>true</useJvmChmod>
+                </configuration>  
+            </plugin>
+            -->
         </plugins>
     </build>
 </project>

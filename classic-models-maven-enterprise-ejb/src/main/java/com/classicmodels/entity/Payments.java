@@ -31,7 +31,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "payments")
+@Table(name = "Payments")
 @NamedQueries({
     @NamedQuery(name = "Payments.findAll", query = "SELECT p FROM Payments p"),
     @NamedQuery(name = "Payments.findByCustomerNumber", query = "SELECT p FROM Payments p WHERE p.paymentsPK.customerNumber = :customerNumber"),

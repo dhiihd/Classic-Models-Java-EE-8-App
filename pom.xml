@@ -25,9 +25,10 @@
     </modules>
     <repositories>
         <repository>
-            <id>acme-nexus-releases</id>
-            <name>acme nexus</name>
-            <url>https://repo1.maven.org/maven2/</url>
+            <id>maven-central-repo1</id>
+            <name>maven central repo1</name>	
+           <url>https://repo1.maven.org/maven2/</url> 
+       <!--       <url>https://repository.jboss.org/nexus/content/repositories/ea/</url> -->
         </repository>
     </repositories>
     <dependencyManagement>      
@@ -121,10 +122,13 @@
                             <version>0.2.0</version>
                         </path>
                     </annotationProcessorPaths>
-                    <!--      <compilerArgs>
-                        <compilerArg>-Amapstruct.defaultComponentModel=spring</compilerArg>
-                    </compilerArgs> -->
-                </configuration>
+                    <!--      
+                    <compilerArgs>
+                        <compilerArg>-Xlint:unchecked</compilerArg>
+                    </compilerArgs> 
+                    --> 
+
+                    </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -135,14 +139,46 @@
                         <manifestEntries>
                             <Implementation-Title>OWS Classic Models</Implementation-Title>
                             <Implementation-Vendor>Aurum</Implementation-Vendor>
-                            <Permissions>all-permissions</Permissions>
+                            <Permissions>rwxr-xr-x</Permissions>
                             <Codebase>*</Codebase>
                             <Application-Library-Allowable-Codebase>*</Application-Library-Allowable-Codebase>
                         </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
-            
+            <!--
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.3.0</version>
+            <executions>
+            <execution>
+              <id>unpack-dependencies</id>
+              <phase>package</phase>
+              <goals>
+                <goal>unpack-dependencies</goal>
+              </goals>
+              <configuration>
+                  <ignorePermissions>false</ignorePermissions>   
+                  <useJvmChmod>true</useJvmChmod>
+                
+              </configuration>
+            </execution>
+             <execution>
+              <id>copy-dependencies</id>
+              <phase>package</phase>
+              <goals>
+                <goal>copy-dependencies</goal>
+              </goals>
+              <configuration>
+                  <ignorePermissions>false</ignorePermissions>   
+                  <useJvmChmod>true</useJvmChmod>
+                
+              </configuration>
+            </execution>
+          </executions>
+            </plugin>
+            -->
         </plugins>
     </build>
 </project>
