@@ -45,7 +45,7 @@ public class CustomersFacadeREST {
         this.customersRemote = customersRemote;
     }
 
-    @EJB(lookup = "ejb:classic.models.maven.enterprise-classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/CustomersFacade!com.classicmodels.statelessejb.remote.CustomersRemote")
+    @EJB(lookup = "ejb:classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/CustomersFacade!com.classicmodels.statelessejb.remote.CustomersRemote")
     private CustomersRemote customersRemote;
 
     public CustomersFacadeREST() {

@@ -15,13 +15,12 @@
     <url>http://rhuanrocha.net/</url>
     <repositories>
         <repository>
-            <id>Maven_Central_Repo_1</id>
+            <id>Maven-Central-Repo-1</id>
             <name>Maven Central Repo 1</name>
             <url>https://repo1.maven.org/maven2/</url>
         </repository>
     </repositories>
     <dependencies>
-        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>classic-models-maven-enterprise-lib</artifactId>
@@ -33,7 +32,7 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
             <version>${project.version}</version>
-            <type>jar</type>
+            <type>app-client</type>
         </dependency>
         -->
         <dependency>
@@ -50,7 +49,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <!--
                 <pluginManagement>
                     <plugins>
@@ -73,34 +72,37 @@
                 <configuration>
                     <version>8</version> 
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
-                    <!--
+                   
                     <generateApplicationXml>false</generateApplicationXml>
-                    
+                   
                     <modules>
                             <jarModule>
                                 <groupId>${project.groupId}</groupId>
                                 <artifactId>classic-models-maven-enterprise-lib</artifactId>
-                               <version>${project.version}</version>
+                              
                             </jarModule>
-                            <jarModule>
-                                <groupId>${project.groupId}</groupId>
-                                <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
-                                 <version>${project.version}</version>
-                            </jarModule>
-                            <webModule>
-                                <groupId>classic.models.maven.enterprise</groupId>
-                                <artifactId>classic-models-maven-enterprise-webapp</artifactId>
-                                 <version>${project.version}</version>
-                               
-                            </webModule>
                             <ejbModule>
                                 <groupId>classic.models.maven.enterprise</groupId>
                                 <artifactId>classic-models-maven-enterprise-ejb</artifactId>
-                                 <version>${project.version}</version>
+                                
                             </ejbModule>
+                            <!--
+                            <jarModule>
+                                <groupId>${project.groupId}</groupId>
+                                <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
+                              
+                            </jarModule>
+                             --> 
+                            <webModule>
+                                <groupId>classic.models.maven.enterprise</groupId>
+                                <artifactId>classic-models-maven-enterprise-webapp</artifactId>
+                                
+                               
+                            </webModule>
+                            
                         </modules>
                     
-                    -->
+                  
                         
                 </configuration>
             </plugin>
@@ -145,8 +147,7 @@
                     <password>gur pra21.G#$</password>
                 </configuration>  
                
-                  <!--
-
+                  
                 <executions>
                    
                     <execution>
@@ -170,7 +171,7 @@
                                
                 </executions>
                     
-                        -->
+                      
                     
                       
             </plugin>

@@ -9,12 +9,15 @@
     <description>Classic Models Java EE 8 Enterprise App</description>
     <url>http://rhuanrocha.net/</url>
     <properties>
+        <!--        
         <java.compiler.source>11</java.compiler.source>
         <java.compiler.target>11</java.compiler.target>
+        -->
         <java.compiler.release>11</java.compiler.release>
         <junit>3.8.1</junit>
         <log4j-core>2.20.0</log4j-core>
         <classic-models-maven-enterprise.version>1.0-RELEASE</classic-models-maven-enterprise.version>
+        <javaee-api.version>8.0.1</javaee-api.version>
     </properties>
     <modules>
         <module>classic-models-maven-enterprise-lib</module>
@@ -27,10 +30,11 @@
         <repository>
             <id>maven-central-repo1</id>
             <name>maven central repo1</name>	
-           <url>https://repo1.maven.org/maven2/</url> 
-       <!--       <url>https://repository.jboss.org/nexus/content/repositories/ea/</url> -->
+                       <url>https://repo1.maven.org/maven2/</url> 
+            <!--       <url>https://repository.jboss.org/nexus/content/repositories/ea/</url> -->
         </repository>
     </repositories>
+    
     <dependencyManagement>      
         <dependencies>
             <dependency>
@@ -44,13 +48,15 @@
                 <artifactId>classic-models-maven-enterprise-ejb</artifactId>
                 <version>${project.version}</version> 
                 <type>ejb</type>
-            </dependency>          
+            </dependency>   
+                   
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
                 <version>${project.version}</version>
-                <type>jar</type>
+                 <type>app-client</type>
             </dependency>
+            
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>classic-models-maven-enterprise-webapp</artifactId>
@@ -59,6 +65,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    
     <dependencies>
       
         <dependency>
@@ -71,7 +78,7 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>8.0.1</version>
+            <version>${javaee-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -97,14 +104,20 @@
     </dependencies>
     <build>
         <plugins>
+               
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.13.0</version>
                 <configuration>
+                    
+                    <!--
                     <source>${java.compiler.source}</source>
                     <target>${java.compiler.target}</target>
+                    -->
+
                     <release>${java.compiler.release}</release>
+                    
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
@@ -122,14 +135,15 @@
                             <version>0.2.0</version>
                         </path>
                     </annotationProcessorPaths>
-                    <!--      
+                     
                     <compilerArgs>
                         <compilerArg>-Xlint:unchecked</compilerArg>
                     </compilerArgs> 
-                    --> 
+                    
 
-                    </configuration>
+                </configuration>
             </plugin>
+           
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -139,13 +153,14 @@
                         <manifestEntries>
                             <Implementation-Title>OWS Classic Models</Implementation-Title>
                             <Implementation-Vendor>Aurum</Implementation-Vendor>
-                            <Permissions>rwxr-xr-x</Permissions>
+                            <Permissions>all-permissions</Permissions>
                             <Codebase>*</Codebase>
                             <Application-Library-Allowable-Codebase>*</Application-Library-Allowable-Codebase>
                         </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
+           
             <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

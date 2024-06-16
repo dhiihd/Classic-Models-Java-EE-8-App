@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
 @Path("com.classicmodels.orders")
 public class OrdersFacadeREST {
 
-    @EJB(lookup = "ejb:classic.models.maven.enterprise-classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/OrdersFacade!com.classicmodels.statelessejb.remote.OrdersRemote")
+    @EJB(lookup = "ejb:classic-models-maven-enterprise-ear-1.0-RELEASE/classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE/OrdersFacade!com.classicmodels.statelessejb.remote.OrdersRemote")
     private OrdersRemote ordersRemote;
 
     private static final Logger logger

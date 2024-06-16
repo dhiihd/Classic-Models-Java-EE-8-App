@@ -13,6 +13,7 @@
     <description>Classic Models Java EE 8 Library</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.compiler.release>11</java.compiler.release>
         <!--   <exec.mainClass>mtitekmavenearsamples.classic.models.maven.enterprise.lib1.MtitekMavenEarSamplesLib1</exec.mainClass> -->
     </properties>
     <dependencies>
@@ -28,8 +29,46 @@
         </dependency>
     </dependencies>
     <build>
-         <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    
+                    <!--
+                    <source>${java.compiler.source}</source>
+                    <target>${java.compiler.target}</target>
+                    -->
+
+                    <release>${java.compiler.release}</release>
+                    
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.5.3.Final</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>0.2.0</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <!--  
+                    <compilerArgs>
+                        <compilerArg>-Xlint:unchecked</compilerArg>
+                    </compilerArgs> 
+                    -->
+
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -46,7 +85,7 @@
                             <executable>chmod</executable>
                             <commandlineArgs>-R +x ${project.build.directory}/classes/</commandlineArgs>
                             
-                             <!--
+                            <!--
                              <argument>+x</argument>
                             <argument>${project.build.directory}/classes/com/classicmodels/dto/\*.class</argument>
                             <arguments>
