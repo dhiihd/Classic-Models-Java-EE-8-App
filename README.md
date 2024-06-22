@@ -19,5 +19,5 @@ set/export MAVEN_OPTS="-Xms1024m -Xmx4096m -Xss400m -Xmn1600m"
 
 Run the "Database Scripts\classic-models.sql" database script against your RDBMS
 
-In this architecture, your business logic,business assets and IT infrastructure
+In this architecture, your business logic,business assets and IT infrastructure of any domain 
 completely shielded to web

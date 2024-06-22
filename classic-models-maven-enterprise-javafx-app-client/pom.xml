@@ -49,6 +49,62 @@
                 <javafx.classifier>linux</javafx.classifier>
             </properties>
         </profile>
+        <profile>
+            <id/>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                        
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <executions>
+                            <execution>
+                                <id>chmod</id>
+                                <phase>process-classes</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                            
+                                    <executable>chmod</executable>
+                                    <commandlineArgs>-R +x ${project.build.directory}/classes/</commandlineArgs>
+                            
+                                    <!--
+                                     <argument>+x</argument>
+                                    <argument>${project.build.directory}/classes/com/classicmodels/dto/\*.class</argument>
+                                    <arguments>
+                                      
+                                        <commandlineArgs>${project.build.directory}/classes/com/classicmodels/dto/ProductsDTO.class</commandlineArgs>
+                                        <argument>${project.build.directory}/classes/com/classicmodels/dto/*.class</argument>
+                                    </arguments>
+                                    -->
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>chmod-jar</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>chmod</executable>
+                                    <arguments><!-- ${project.build.directory} -->
+                                        <argument>+x</argument>
+                                        <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>     
+                </plugins>
+            </build>
+        </profile>
     </profiles>
     <properties>
         <endorsed.dir>${project.build.directory}\endorsed</endorsed.dir>
@@ -293,7 +349,7 @@
     </dependencies>
 
     <build>
-         <finalName>${project.artifactId}-${project.version}</finalName>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -301,11 +357,11 @@
                 <version>3.13.0</version>
                 <configuration>
                     <!--
-                    <source>${java.compiler.source}</source>
-                    <target>${java.compiler.target}</target>
-                      -->
+                  <source>${java.compiler.source}</source>
+                  <target>${java.compiler.target}</target>
+                    -->
                     <release>${java.compiler.release}</release>
-                   <!--
+                    <!--
                   <compilerArgs>
                       <endorseddirs>${endorsed.dir}</endorseddirs>
                   </compilerArgs>
@@ -407,50 +463,8 @@
                 </execution>
             </executions>
         </plugin>
-            -->    
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <id>chmod</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            
-                            <executable>chmod</executable>
-                            <commandlineArgs>-R +x ${project.build.directory}/classes/</commandlineArgs>
-                            
-                             <!--
-                             <argument>+x</argument>
-                            <argument>${project.build.directory}/classes/com/classicmodels/dto/\*.class</argument>
-                            <arguments>
-                              
-                                <commandlineArgs>${project.build.directory}/classes/com/classicmodels/dto/ProductsDTO.class</commandlineArgs>
-                                <argument>${project.build.directory}/classes/com/classicmodels/dto/*.class</argument>
-                            </arguments>
-                            -->
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>chmod-jar</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>chmod</executable>
-                            <arguments><!-- ${project.build.directory} -->
-                                <argument>+x</argument>
-                                <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>     
+            -->   
+         
         </plugins>
     </build>
 

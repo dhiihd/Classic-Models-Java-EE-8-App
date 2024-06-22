@@ -21,7 +21,7 @@ public class CustomersTask extends Task<CustomersDTO> {
 
     }
 
-    private static final String FULL_PATH = "http://127.0.0.1:8080/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
+    private static final String FULL_PATH = "https://127.0.0.1:8443/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
 
     private CustomersDTO customersDTO = null;
 

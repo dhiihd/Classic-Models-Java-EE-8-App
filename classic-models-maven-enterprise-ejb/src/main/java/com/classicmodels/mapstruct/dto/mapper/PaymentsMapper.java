@@ -21,7 +21,7 @@ public interface PaymentsMapper extends EntityMapper<PaymentsDTO, Payments> {
 
     // @Mapping(source = "library.id", target = "libraryId")
     //  @Mapping(source = "libraryId", target = "library")
-    @Mapping(source = "paymentsKeyDTO", target = "paymentsPK" )
+    @Mapping(source = "paymentsKeyDTO", target = "paymentsPK")
     @Override
     Payments toEntity(final PaymentsDTO paymentsDTO, @Context CycleAvoidingMappingContext cycleAvoidingMappingContext);
 

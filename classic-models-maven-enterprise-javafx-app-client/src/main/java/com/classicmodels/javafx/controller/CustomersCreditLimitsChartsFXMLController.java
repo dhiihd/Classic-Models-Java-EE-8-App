@@ -83,7 +83,7 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
     @FXML
     private ListView countriesListView = new ListView();
 
-    private static final String BASE_URL = "http://127.0.0.1:8080/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
+    private static final String BASE_URL = "https://127.0.0.1:8443/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
 
     private String statusInfo = null;
     // private Dialog<String> dialog = new Dialog<String>();
@@ -255,7 +255,7 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
         yAxis.setMinorTickVisible(true);
         // layoutX="57.0" layoutY="207.0" prefHeight="586.0" prefWidth="1014.0
         customerCreditLimitsChart.getData().clear();
-        
+
         //layoutX="207.0" layoutY="246.0" prefHeight="524.0" prefWidth="1080.0"
         customerCreditLimitsChart.setAnimated(true);
         customerCreditLimitsChart.setLayoutX(157.0);

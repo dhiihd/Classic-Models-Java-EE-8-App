@@ -12,7 +12,7 @@
     <packaging>ear</packaging>
     <name>Classic Models Java EE 8 EAR</name>
     <description>Classic Models Java EE 8 EAR</description>
-    <url>http://rhuanrocha.net/</url>
+    <url>https://localhost:8443/classic-models-maven-enterprise-webapp/</url>
     <repositories>
         <repository>
             <id>Maven-Central-Repo-1</id>
@@ -20,6 +20,50 @@
             <url>https://repo1.maven.org/maven2/</url>
         </repository>
     </repositories>
+    <profiles>
+        <profile>
+            <id/>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                         
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <executions>
+                            <execution>
+                                <id>chmod-ear</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>chmod</executable>
+                                    <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}.ear</commandlineArgs>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>chmod-libjar</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>chmod</executable>
+                                    <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}/lib/</commandlineArgs>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -48,6 +92,7 @@
             <type>war</type>
         </dependency>
     </dependencies>
+    
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
         <!--
@@ -76,71 +121,43 @@
                     <generateApplicationXml>false</generateApplicationXml>
                    
                     <modules>
-                            <jarModule>
-                                <groupId>${project.groupId}</groupId>
-                                <artifactId>classic-models-maven-enterprise-lib</artifactId>
+                        <jarModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>classic-models-maven-enterprise-lib</artifactId>
                               
-                            </jarModule>
-                            <ejbModule>
-                                <groupId>classic.models.maven.enterprise</groupId>
-                                <artifactId>classic-models-maven-enterprise-ejb</artifactId>
+                        </jarModule>
+                        <ejbModule>
+                            <groupId>classic.models.maven.enterprise</groupId>
+                            <artifactId>classic-models-maven-enterprise-ejb</artifactId>
                                 
-                            </ejbModule>
-                            <!--
-                            <jarModule>
-                                <groupId>${project.groupId}</groupId>
-                                <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
-                              
-                            </jarModule>
-                             --> 
-                            <webModule>
-                                <groupId>classic.models.maven.enterprise</groupId>
-                                <artifactId>classic-models-maven-enterprise-webapp</artifactId>
+                        </ejbModule>
+                        <!--
+                       <jarModule>
+                           <groupId>${project.groupId}</groupId>
+                           <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
+                         
+                       </jarModule>
+                        --> 
+                        <webModule>
+                            <groupId>classic.models.maven.enterprise</groupId>
+                            <artifactId>classic-models-maven-enterprise-webapp</artifactId>
                                 
                                
-                            </webModule>
+                        </webModule>
                             
-                        </modules>
+                    </modules>
                     
                   
                         
                 </configuration>
             </plugin>
-             
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <id>chmod-ear</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>chmod</executable>
-                            <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}.ear</commandlineArgs>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>chmod-libjar</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>chmod</executable>
-                            <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}/lib/</commandlineArgs>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+        <!--
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>5.0.0.Final</version>
                 <configuration>
+                    <protocol>remote-https</protocol>
                     <hostname>localhost</hostname>
                     <port>9990</port>
                     <username>admin</username>
@@ -160,7 +177,8 @@
                             <ignoreMissingDeployment>true</ignoreMissingDeployment>
                         </configuration>
                     </execution>
-                              
+                    
+                    
       
                     <execution>
                         <phase>install</phase>
@@ -175,7 +193,7 @@
                     
                       
             </plugin>
-
+-->
             <!--
             <plugin>           
                 <groupId>org.jboss.as.plugins</groupId>
@@ -225,5 +243,5 @@
         </plugins>
   
     </build>
-   
+    
 </project>

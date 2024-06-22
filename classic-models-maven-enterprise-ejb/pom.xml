@@ -16,10 +16,72 @@
         <mapstruct.vesion>1.5.3.Final</mapstruct.vesion>
         <java.compiler.release>11</java.compiler.release>
     </properties>
+    
+    <profiles>
+        <profile>
+            <id/>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    
+                    <plugin>
+   
 
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.3.0</version>
+
+                        <executions>
+                            <execution>
+                                <id>chmod</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                            
+                                    <executable>chmod</executable>
+                                    <commandlineArgs>-R +x ${project.build.directory}/classes/</commandlineArgs>
+                            
+                                    <!--
+                                     <argument>+x</argument>
+                                    <argument>${project.build.directory}/classes/com/classicmodels/dto/\*.class</argument>
+                                    <arguments>
+                                      
+                                        <commandlineArgs>${project.build.directory}/classes/com/classicmodels/dto/ProductsDTO.class</commandlineArgs>
+                                        <argument>${project.build.directory}/classes/com/classicmodels/dto/*.class</argument>
+                                    </arguments>
+                                    -->
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>chmod-jar</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>chmod</executable>
+                                    <arguments><!-- ${project.build.directory} -->
+                                        <argument>+x</argument>
+                                        <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
+                                        <argument>${project.build.directory}/${project.build.finalName}-client.jar</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <name>Classic Models Java EE 8 EJB</name>
     <description>Classic Models Java EE 8 EJB</description>
-    <url>http://rhuanrocha.net/</url>
+    <url>https://localhost:8443/classic-models-maven-enterprise-webapp/</url>
     <dependencies>
        
    
@@ -45,7 +107,7 @@
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
-                        <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
@@ -75,7 +137,7 @@
                             <version>0.2.0</version>
                         </path>
                     </annotationProcessorPaths>
-                   <!--  
+                    <!--  
                     <compilerArgs>
                         <compilerArg>-Xlint:unchecked</compilerArg>
                     </compilerArgs> 
@@ -85,7 +147,7 @@
             </plugin>
             <plugin>
 
-            <groupId>org.apache.maven.plugins</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ejb-plugin</artifactId>
                 <version>3.2.1</version>
                 <configuration>
@@ -112,53 +174,6 @@
             </plugin>
          
           
-              <plugin>
-   
-
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.3.0</version>
-
-                <executions>
-                    <execution>
-                        <id>chmod</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                         <configuration>
-                            
-                            <executable>chmod</executable>
-                            <commandlineArgs>-R +x ${project.build.directory}/classes/</commandlineArgs>
-                            
-                             <!--
-                             <argument>+x</argument>
-                            <argument>${project.build.directory}/classes/com/classicmodels/dto/\*.class</argument>
-                            <arguments>
-                              
-                                <commandlineArgs>${project.build.directory}/classes/com/classicmodels/dto/ProductsDTO.class</commandlineArgs>
-                                <argument>${project.build.directory}/classes/com/classicmodels/dto/*.class</argument>
-                            </arguments>
-                            -->
-                        </configuration>
-                      </execution>
-                      <execution>
-                        <id>chmod-jar</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>chmod</executable>
-                            <arguments><!-- ${project.build.directory} -->
-                                <argument>+x</argument>
-                                <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
-                                <argument>${project.build.directory}/${project.build.finalName}-client.jar</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -171,4 +186,5 @@
             -->
         </plugins>
     </build>
+
 </project>

@@ -12,19 +12,81 @@
     <packaging>war</packaging>
     <name>Classic Models Java EE 8 Web App</name>
     <description>Classic Models Java EE 8 Web App</description>
-    <url>http://localhost:8080/classic-models-maven-enterprise-webapp</url>
+    <url>http://localhost:8443/classic-models-maven-enterprise-webapp</url>
    
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-       <!--  <resteasy.version>6.2.1.Final</resteasy.version>  -->
-       <!--  <resteasy.version>3.9.3.Final</resteasy.version> -->
-       <!-- <resteasy.version>3.0.14.Final</resteasy.version> -->
+        <!--  <resteasy.version>6.2.1.Final</resteasy.version>  -->
+        <!--  <resteasy.version>3.9.3.Final</resteasy.version> -->
+        <!-- <resteasy.version>3.0.14.Final</resteasy.version> -->
         <resteasy.version>3.15.6.Final</resteasy.version>   
-        <jnlpCodebase>http://localhost:8080/classic-models-maven-enterprise-webapp</jnlpCodebase>
+        <jnlpCodebase>http://localhost:8443/classic-models-maven-enterprise-webapp</jnlpCodebase>
         <java.compiler.release>11</java.compiler.release>
     </properties>
     
- 
+    <profiles>
+        <profile>
+            <id/>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <executions>
+                            <execution>
+                                <id>chmod</id>
+                                <phase>process-classes</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>chmod</executable>
+                                    <commandlineArgs>-R +x ${project.build.directory}/classes/</commandlineArgs>
+                                    <!--
+                                    <argument>+x</argument>
+                                    <argument>${project.build.directory}/classes/com/classicmodels/dto/\*.class</argument>
+                                    <arguments>
+                                      
+                                        <commandlineArgs>${project.build.directory}/classes/com/classicmodels/dto/ProductsDTO.class</commandlineArgs>
+                                        <argument>${project.build.directory}/classes/com/classicmodels/dto/*.class</argument>
+                                    </arguments>
+                                    -->
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>chmod-war</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>chmod</executable>
+                                    <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}.war</commandlineArgs>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>chmod-libjar</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>chmod</executable>
+                                    <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}/WEB-INF/lib/</commandlineArgs>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <!--
      <repositories>
@@ -198,7 +260,7 @@
                             <version>0.2.0</version>
                         </path>
                     </annotationProcessorPaths>
-                   <!--  
+                    <!--  
                     <compilerArgs>
                         <compilerArg>-Xlint:unchecked</compilerArg>
                     </compilerArgs> 
@@ -244,6 +306,7 @@
                     </jnlpFiles>
                 </configuration>
             </plugin>
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -281,7 +344,7 @@
                     </execution>
                 </executions>
                 <configuration>
-	            <keystore>src/main/resources/webstart/classicModelsKeyStore</keystore>
+                    <keystore>src/main/resources/webstart/classicModelsKeyStore.keystore</keystore>
                     <alias>ulctest</alias>
                     <storepass>ulctest</storepass>
                     <keypass>ulctest</keypass>
@@ -303,55 +366,7 @@
                     <failOnMissingWebXml>${failOnMissingWebXml}</failOnMissingWebXml>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <id>chmod</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>chmod</executable>
-                            <commandlineArgs>-R +x ${project.build.directory}/classes/</commandlineArgs>
-                            <!--
-                            <argument>+x</argument>
-                            <argument>${project.build.directory}/classes/com/classicmodels/dto/\*.class</argument>
-                            <arguments>
-                              
-                                <commandlineArgs>${project.build.directory}/classes/com/classicmodels/dto/ProductsDTO.class</commandlineArgs>
-                                <argument>${project.build.directory}/classes/com/classicmodels/dto/*.class</argument>
-                            </arguments>
-                            -->
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>chmod-war</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>chmod</executable>
-                            <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}.war</commandlineArgs>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>chmod-libjar</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>chmod</executable>
-                            <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}/WEB-INF/lib/</commandlineArgs>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+           
             <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -383,4 +398,5 @@
             -->
         </plugins>
     </build>
+    
 </project>

@@ -21,81 +21,81 @@
         <VBox layoutX="1.0" layoutY="-2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="206.0" prefWidth="1920.0" VBox.vgrow="ALWAYS">
             <Pane layoutX="-12.0" layoutY="-13.0" prefHeight="214.0" prefWidth="1726.0" style="-fx-background-color:#0A3161" stylesheets="@/styles/colored-chart.css" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-13.0">
       
-               <Label layoutX="337.0" layoutY="50.0" prefHeight="77.0" prefWidth="333.0" text="Classic Models" textFill="WHITE">
-                <font>
-                    <Font size="48.0" />
-                </font>
-            </Label>
-            <Label layoutX="344.0" layoutY="128.0" prefHeight="17.0" prefWidth="190.0" text="Classic Models Management " textFill="WHITE">
-                <font>
-                    <Font size="13.0" />
-                </font>
-            </Label>
-            <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="214.0" layoutY="109.0" size="60" wrappingWidth="64.57142639160156" />
+                <Label layoutX="337.0" layoutY="50.0" prefHeight="77.0" prefWidth="333.0" text="Classic Models" textFill="WHITE">
+                    <font>
+                        <Font size="48.0" />
+                    </font>
+                </Label>
+                <Label layoutX="344.0" layoutY="128.0" prefHeight="17.0" prefWidth="190.0" text="Classic Models Management " textFill="WHITE">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="214.0" layoutY="109.0" size="60" wrappingWidth="64.57142639160156" />
             
       
-        </Pane>
+            </Pane>
         </VBox>
-      <Pane layoutX="8.0" layoutY="204.0" prefHeight="649.0" prefWidth="1911.0">
-         <children>
-            <Label fx:id="customerNumberLabel" layoutX="149.0" layoutY="39.0" prefHeight="17.0" prefWidth="123.0" text="Customer Number" />
-            <MFXTextField fx:id="customerNumberTextField" layoutX="308.0" layoutY="23.0" prefHeight="25.0" prefWidth="469.0" promptText="Customer Number" />
-            <Label fx:id="customerNameLabel" layoutX="149.0" layoutY="97.0" prefHeight="25.0" prefWidth="115.0" text="Customer Name" textAlignment="CENTER" />
-            <MFXTextField fx:id="customerNameTextField" layoutX="308.0" layoutY="85.0" prefHeight="25.0" prefWidth="469.0" promptText="Customer Name" />
-            <Label fx:id="contactFirstNameLabel" layoutX="152.0" layoutY="157.0" text="Contact First Name" />
-            <MFXTextField fx:id="contactFirstNameTextField" layoutX="308.0" layoutY="141.0" prefHeight="25.0" prefWidth="469.0" promptText="Contact First Name" />
-            <Label fx:id="contactLastNameLabel" layoutX="152.0" layoutY="342.0" text="Contact Last Name" />
-            <MFXTextField fx:id="contactLastNameTextField" layoutX="308.0" layoutY="204.0" prefHeight="25.0" prefWidth="469.0" promptText="Contact Last Name" />
-            <Label fx:id="phoneLabel" layoutX="151.0" layoutY="279.0" text="Phone" />
-            <MFXTextField fx:id="phoneTextField" layoutX="308.0" layoutY="263.0" prefHeight="25.0" prefWidth="469.0" promptText="Phone" />
-            <Label fx:id="addressLine1Label" layoutX="154.0" layoutY="409.0" text="Address Line 1" />
-            <MFXTextField fx:id="addressLine1TextField" layoutX="308.0" layoutY="326.0" prefHeight="25.0" prefWidth="469.0" promptText="Address Line 1" />
-            <Label fx:id="addressLine2Label" layoutX="154.0" layoutY="465.0" text="Address Line 2" />
-            <MFXTextField fx:id="addressLine2TextField" layoutX="308.0" layoutY="393.0" prefHeight="25.0" prefWidth="469.0" promptText="Address Line 2" />
-            <Label fx:id="cityLabel" layoutX="151.0" layoutY="220.0" prefHeight="17.0" prefWidth="34.0" text="City" />
-            <MFXTextField fx:id="cityTextField" layoutX="308.0" layoutY="449.0" prefHeight="25.0" prefWidth="469.0" promptText="City" />
-            <Label fx:id="stateLabel" layoutX="154.0" layoutY="519.0" prefHeight="17.0" prefWidth="51.0" text="State" />
-            <MFXTextField fx:id="stateTextField" layoutX="308.0" layoutY="503.0" prefHeight="25.0" prefWidth="469.0" promptText="State" />
-            <Label fx:id="postalCodeLabel" layoutX="825.0" layoutY="35.0" prefHeight="25.0" prefWidth="78.0" text="Postal Code" />
-            <MFXTextField fx:id="postalCodeTextField" layoutX="940.0" layoutY="23.0" prefHeight="25.0" prefWidth="469.0" promptText="Postal Code" />
-            <Label fx:id="countryLabel" layoutX="825.0" layoutY="97.0" prefHeight="25.0" prefWidth="78.0" text="Country" />
-            <MFXTextField fx:id="countryTextField" layoutX="940.0" layoutY="85.0" prefHeight="25.0" prefWidth="469.0" promptText="Country" />
-            <Label fx:id="countryLabel1" layoutX="825.0" layoutY="153.0" prefHeight="25.0" prefWidth="78.0" text="Credit Limit" />
-            <MFXTextField fx:id="creditLimitTextField" layoutX="940.0" layoutY="150.0" prefHeight="25.0" prefWidth="469.0" promptText="Credit Limit" />
-            <GridPane alignment="CENTER" hgap="10.0" layoutX="915.0" layoutY="249.0" prefHeight="301.0" prefWidth="549.0" vgap="10.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="264.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="371.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="150.0" prefWidth="227.0" text="Offices" GridPane.columnIndex="1">
-                     <graphic>
-                        <FontAwesomeIconView fill="#0A3161" glyphName="AMBULANCE" size="50" />
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btnUpdate" contentDisplay="TOP" mnemonicParsing="false" prefHeight="150.0" prefWidth="244.0" text="Payments" GridPane.rowIndex="1">
-                     <graphic>
-                        <FontAwesomeIconView fill="#0A3161" glyphName="EXCHANGE" size="50" />
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btnFindCustomers" contentDisplay="TOP" mnemonicParsing="false" onAction="#findCustomers" prefHeight="147.0" prefWidth="228.0" text="Find Customers" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <graphic>
-                        <FontAwesomeIconView fill="#0A3161" glyphName="USER_TIMES" size="50" />
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btnAddCustomers" contentDisplay="TOP" mnemonicParsing="false" onAction="#addCustomers" prefHeight="161.0" prefWidth="233.0" text="Add Customers">
-                     <graphic>
-                        <FontAwesomeIconView fill="#0A3161" glyphName="USERS" size="50" />
-                     </graphic>
-                  </Button>
-               </children>
-            </GridPane>
-         </children>
-      </Pane>
+        <Pane layoutX="8.0" layoutY="204.0" prefHeight="649.0" prefWidth="1911.0">
+            <children>
+                <Label fx:id="customerNumberLabel" layoutX="149.0" layoutY="39.0" prefHeight="17.0" prefWidth="123.0" text="Customer Number" />
+                <MFXTextField fx:id="customerNumberTextField" layoutX="308.0" layoutY="23.0" prefHeight="25.0" prefWidth="469.0" promptText="Customer Number" />
+                <Label fx:id="customerNameLabel" layoutX="149.0" layoutY="97.0" prefHeight="25.0" prefWidth="115.0" text="Customer Name" textAlignment="CENTER" />
+                <MFXTextField fx:id="customerNameTextField" layoutX="308.0" layoutY="85.0" prefHeight="25.0" prefWidth="469.0" promptText="Customer Name" />
+                <Label fx:id="contactFirstNameLabel" layoutX="152.0" layoutY="157.0" text="Contact First Name" />
+                <MFXTextField fx:id="contactFirstNameTextField" layoutX="308.0" layoutY="141.0" prefHeight="25.0" prefWidth="469.0" promptText="Contact First Name" />
+                <Label fx:id="contactLastNameLabel" layoutX="152.0" layoutY="342.0" text="Contact Last Name" />
+                <MFXTextField fx:id="contactLastNameTextField" layoutX="308.0" layoutY="204.0" prefHeight="25.0" prefWidth="469.0" promptText="Contact Last Name" />
+                <Label fx:id="phoneLabel" layoutX="151.0" layoutY="279.0" text="Phone" />
+                <MFXTextField fx:id="phoneTextField" layoutX="308.0" layoutY="263.0" prefHeight="25.0" prefWidth="469.0" promptText="Phone" />
+                <Label fx:id="addressLine1Label" layoutX="154.0" layoutY="409.0" text="Address Line 1" />
+                <MFXTextField fx:id="addressLine1TextField" layoutX="308.0" layoutY="326.0" prefHeight="25.0" prefWidth="469.0" promptText="Address Line 1" />
+                <Label fx:id="addressLine2Label" layoutX="154.0" layoutY="465.0" text="Address Line 2" />
+                <MFXTextField fx:id="addressLine2TextField" layoutX="308.0" layoutY="393.0" prefHeight="25.0" prefWidth="469.0" promptText="Address Line 2" />
+                <Label fx:id="cityLabel" layoutX="151.0" layoutY="220.0" prefHeight="17.0" prefWidth="34.0" text="City" />
+                <MFXTextField fx:id="cityTextField" layoutX="308.0" layoutY="449.0" prefHeight="25.0" prefWidth="469.0" promptText="City" />
+                <Label fx:id="stateLabel" layoutX="154.0" layoutY="519.0" prefHeight="17.0" prefWidth="51.0" text="State" />
+                <MFXTextField fx:id="stateTextField" layoutX="308.0" layoutY="503.0" prefHeight="25.0" prefWidth="469.0" promptText="State" />
+                <Label fx:id="postalCodeLabel" layoutX="825.0" layoutY="35.0" prefHeight="25.0" prefWidth="78.0" text="Postal Code" />
+                <MFXTextField fx:id="postalCodeTextField" layoutX="940.0" layoutY="23.0" prefHeight="25.0" prefWidth="469.0" promptText="Postal Code" />
+                <Label fx:id="countryLabel" layoutX="825.0" layoutY="97.0" prefHeight="25.0" prefWidth="78.0" text="Country" />
+                <MFXTextField fx:id="countryTextField" layoutX="940.0" layoutY="85.0" prefHeight="25.0" prefWidth="469.0" promptText="Country" />
+                <Label fx:id="countryLabel1" layoutX="825.0" layoutY="153.0" prefHeight="25.0" prefWidth="78.0" text="Credit Limit" />
+                <MFXTextField fx:id="creditLimitTextField" layoutX="940.0" layoutY="150.0" prefHeight="25.0" prefWidth="469.0" promptText="Credit Limit" />
+                <GridPane alignment="CENTER" hgap="10.0" layoutX="959.0" layoutY="249.0" prefHeight="311.0" prefWidth="458.0" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="230.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="277.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="150.0" prefWidth="194.0" text="Offices" GridPane.columnIndex="1">
+                            <graphic>
+                                <FontAwesomeIconView fill="#0A3161" glyphName="AMBULANCE" size="50" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnUpdate" contentDisplay="TOP" mnemonicParsing="false" prefHeight="155.0" prefWidth="200.0" text="Payments" GridPane.rowIndex="1">
+                            <graphic>
+                                <FontAwesomeIconView fill="#0A3161" glyphName="EXCHANGE" size="50" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnFindCustomers" contentDisplay="TOP" mnemonicParsing="false" onAction="#findCustomers" prefHeight="150.0" prefWidth="194.0" text="Find Customers" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <graphic>
+                                <FontAwesomeIconView fill="#0A3161" glyphName="USER_TIMES" size="50" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnAddCustomers" contentDisplay="TOP" mnemonicParsing="false" onAction="#addCustomers" prefHeight="164.0" prefWidth="234.0" text="Add Customers">
+                            <graphic>
+                                <FontAwesomeIconView fill="#0A3161" glyphName="USERS" size="50" />
+                            </graphic>
+                        </Button>
+                    </children>
+                </GridPane>
+            </children>
+        </Pane>
       
     </children>
 </AnchorPane>

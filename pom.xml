@@ -7,7 +7,7 @@
     <packaging>pom</packaging>
     <name>Classic Models Java EE 8 Enterprise App</name>
     <description>Classic Models Java EE 8 Enterprise App</description>
-    <url>http://rhuanrocha.net/</url>
+    <url>https://localhost:8443/classic-models-maven-enterprise-webapp/</url>
     <properties>
         <!--        
         <java.compiler.source>11</java.compiler.source>
@@ -30,7 +30,7 @@
         <repository>
             <id>maven-central-repo1</id>
             <name>maven central repo1</name>	
-                       <url>https://repo1.maven.org/maven2/</url> 
+            <url>https://repo1.maven.org/maven2/</url> 
             <!--       <url>https://repository.jboss.org/nexus/content/repositories/ea/</url> -->
         </repository>
     </repositories>
@@ -54,7 +54,7 @@
                 <groupId>${project.groupId}</groupId>
                 <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
                 <version>${project.version}</version>
-                 <type>app-client</type>
+                <type>app-client</type>
             </dependency>
             
             <dependency>
@@ -135,11 +135,11 @@
                             <version>0.2.0</version>
                         </path>
                     </annotationProcessorPaths>
-                     
+                    <!--
                     <compilerArgs>
                         <compilerArg>-Xlint:unchecked</compilerArg>
                     </compilerArgs> 
-                    
+                    -->
 
                 </configuration>
             </plugin>

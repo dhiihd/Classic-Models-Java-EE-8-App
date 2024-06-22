@@ -15,21 +15,21 @@
     <stylesheets>
         <URL value="@/styles/colored-chart.css" />
     </stylesheets>
-   <Pane layoutX="-2.0" layoutY="-3.0" prefHeight="205.0" prefWidth="1920.0" style="-fx-background-color:#0A3161" stylesheets="@/styles/colored-chart.css">
-      <children>
-         <Label layoutX="337.0" layoutY="50.0" prefHeight="77.0" prefWidth="333.0" text="Classic Models" textFill="WHITE">
-            <font>
-               <Font size="48.0" />
-            </font>
-         </Label>
-         <Label layoutX="344.0" layoutY="128.0" prefHeight="17.0" prefWidth="190.0" text="Classic Models Management " textFill="WHITE">
-            <font>
-               <Font size="13.0" />
-            </font>
-         </Label>
-         <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="214.0" layoutY="109.0" size="60" wrappingWidth="64.57142639160156" />
-      </children>
-   </Pane>
+    <Pane layoutX="-2.0" layoutY="-3.0" prefHeight="205.0" prefWidth="1920.0" style="-fx-background-color:#0A3161" stylesheets="@/styles/colored-chart.css">
+        <children>
+            <Label layoutX="337.0" layoutY="50.0" prefHeight="77.0" prefWidth="333.0" text="Classic Models" textFill="WHITE">
+                <font>
+                    <Font size="48.0" />
+                </font>
+            </Label>
+            <Label layoutX="344.0" layoutY="128.0" prefHeight="17.0" prefWidth="190.0" text="Classic Models Management " textFill="WHITE">
+                <font>
+                    <Font size="13.0" />
+                </font>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="214.0" layoutY="109.0" size="60" wrappingWidth="64.57142639160156" />
+        </children>
+    </Pane>
    
     <LineChart fx:id="classicModelsPaymentsChart" layoutX="207.0" layoutY="246.0" prefHeight="524.0" prefWidth="1373.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Classic Models Payments">
         <xAxis>

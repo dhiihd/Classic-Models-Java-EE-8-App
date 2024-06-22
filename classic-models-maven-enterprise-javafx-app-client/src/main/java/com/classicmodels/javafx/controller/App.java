@@ -26,7 +26,7 @@ public class App extends Application {
 
         //  String fxml = "CustomersFXML";
         String fxml = "Home";
-       // scene = new Scene(loadFXML(fxml), 1440, 900);
+        // scene = new Scene(loadFXML(fxml), 1440, 900);
         scene = new Scene(loadFXML(fxml), 1920, 1080);
         scene.getStylesheets().add("styles/colored-chart.css");
         //    scene = new Scene(loadFXML(fxml), 1280, 800 );

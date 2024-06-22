@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_8.xsd" version="8">
-  <description>Classic Models Java EE 8 EAR</description>
-  <display-name>classic-models-maven-enterprise-ear</display-name>
-  <module>
-    <ejb>classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE.jar</ejb>
-  </module>
-  <module>
-    <web>
-      <web-uri>classic.models.maven.enterprise-classic-models-maven-enterprise-webapp-1.0-RELEASE.war</web-uri>
-      <context-root>/classic-models-maven-enterprise-webapp</context-root>
-    </web>
-  </module>
-  <library-directory>lib</library-directory>
+    <description>Classic Models Java EE 8 EAR</description>
+    <display-name>classic-models-maven-enterprise-ear</display-name>
+    <module>
+        <ejb>classic.models.maven.enterprise-classic-models-maven-enterprise-ejb-1.0-RELEASE.jar</ejb>
+    </module>
+    <module>
+        <web>
+            <web-uri>classic.models.maven.enterprise-classic-models-maven-enterprise-webapp-1.0-RELEASE.war</web-uri>
+            <context-root>/classic-models-maven-enterprise-webapp</context-root>
+        </web>
+    </module>
+    <library-directory>lib</library-directory>
 </application>

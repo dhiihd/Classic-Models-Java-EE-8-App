@@ -29,6 +29,7 @@ import org.slf4j.LoggerFactory;
 import javafx.scene.control.Button;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 
 /**
@@ -129,7 +130,7 @@ public class CustomersController implements Initializable {
 
     private Dialog<String> dialog = new Dialog<String>();
 
-    private static final String BASE_URL = "http://127.0.0.1:8080/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
+    private static final String BASE_URL = "https://127.0.0.1:8443/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
 
     @Override
     @FXML
@@ -432,19 +433,29 @@ public class CustomersController implements Initializable {
         //customersDTO = null;
         String id = customerNumberTextField.getText();
         logger.info("fasfasfs --> " + customerNumberTextField.getText());
-
-        Client client = ClientBuilder.newClient();
+        
+        Response response = null;
+        
+        Client client =  null;
+        
+        try 
+        {
+        
+        ClientBuilder clientBuilder = ClientBuilder.newBuilder();
+        client = clientBuilder.sslContext(ClassicModelsSSL.getInstance().getSSLContext()).build();
+                
+     
         WebTarget target = client.target(BASE_URL + "/single");
 
         // String findCustomersPath = FULL_PATH ;
-        //  ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
+        // ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
         //    ResteasyWebTarget target = client.target(BASE_URL + "/single");
-        Invocation.Builder request = (Invocation.Builder) target.queryParam("id", id).request();
-        Response response = null;
+        Invocation.Builder request = (Invocation.Builder) target.queryParam("id", id).request(MediaType.APPLICATION_XML);
+       
 
         statusInfo = null;
 
-        try {
+        
             //     response = request.get();
             response = request.get();
             statusInfo = response.getStatusInfo().toString().trim();
@@ -465,9 +476,10 @@ public class CustomersController implements Initializable {
             }
             //    customersDTO = target.queryParam("id", id).request().get(CustomersDTO.class);
 
-        } catch(Exception ex){ex.printStackTrace();}finally {
-                
-                
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+
             if (response != null) {
                 response.close();
             }
@@ -476,7 +488,7 @@ public class CustomersController implements Initializable {
             }
         }
 
-        if ((customerNumberTextField.getText() != null) && !(customerNumberTextField.getText().equals("")) ) {
+        if ((customerNumberTextField.getText() != null) && !(customerNumberTextField.getText().equals(""))) {
             if ((validator != null) && (customerNumberCheck != null)) {
                 customerNumberCheck.recheck();
             }
