@@ -6,7 +6,7 @@ https://github.com/dhiihd/Classic-Models-Java-EE-8-App
 
 For packaging the Java EE 8 enterprise archive EAR
 
-$ mvn clean compile install -Pwindows/-Plinux/-Pmac
+$ mvn clean compile package install -Pwindows/-Plinux/-Pmac
 
 Classic Models Java EE 8 App packed with features like Java 11 and Java EE 8,javafx and Java 21,rest api,xml,lombok,mapstruct,
 log4j,java network launch protocol - jnlp,openwebstart,materialsfx,validatorfx

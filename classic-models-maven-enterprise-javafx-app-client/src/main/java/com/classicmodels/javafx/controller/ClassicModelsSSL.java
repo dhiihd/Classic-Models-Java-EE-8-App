@@ -17,36 +17,34 @@ import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 
-
 /**
  *
  * @author dhiihd
  */
 public class ClassicModelsSSL {
-    
+
     private ClassicModelsSSL() {
     }
-    
+
     public static ClassicModelsSSL getInstance() {
         return ClassicModelSSLHolder.INSTANCE;
     }
-    
+
     private static class ClassicModelSSLHolder {
 
         private static final ClassicModelsSSL INSTANCE = new ClassicModelsSSL();
     }
-    
-    public SSLContext getSSLContext() throws IOException,FileNotFoundException, KeyStoreException, NoSuchAlgorithmException, CertificateException, KeyManagementException, UnrecoverableKeyException {
-        
+
+    public SSLContext getSSLContext() throws IOException, FileNotFoundException, KeyStoreException, NoSuchAlgorithmException, CertificateException, KeyManagementException, UnrecoverableKeyException {
+
         KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
         KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
-       // KeyStore trustStore = KeyStore.getInstance("JKS");
+        // KeyStore trustStore = KeyStore.getInstance("JKS");
         String trustStorePasswd = "ulctest";
         String truststoreFile = "META-INF/classicModelsKeyStore.client.truststore";
-        
-        
-    //  trustStore.load(new FileInputStream(truststoreFile), trustStorePasswd.toCharArray());
-        trustStore.load(ClassicModelsSSL.class.getResourceAsStream(truststoreFile),trustStorePasswd.toCharArray());
+
+        //  trustStore.load(new FileInputStream(truststoreFile), trustStorePasswd.toCharArray());
+        trustStore.load(ClassicModelsSSL.class.getResourceAsStream(truststoreFile), trustStorePasswd.toCharArray());
         kmf.init(trustStore, trustStorePasswd.toCharArray());
         // Default trust manager is PKIX (No SunX509)
         TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -54,6 +52,6 @@ public class ClassicModelsSSL {
         SSLContext sslContext = SSLContext.getInstance("TLS");
         sslContext.init(kmf.getKeyManagers(), null, null);
         return sslContext;
-        
+
     }
 }

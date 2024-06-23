@@ -256,8 +256,8 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
         }
         xAxis.setTickUnit(10);
         xAxis.setMinorTickVisible(true);
-//set title for y axis
-        yAxis.setLabel("Credit Limits");
+        //set title for y axis
+        yAxis.setLabel("Credit Limits in $");
         yAxis.setAutoRanging(true);
         yAxis.setLowerBound(-15000);
         if (i > 10) {
