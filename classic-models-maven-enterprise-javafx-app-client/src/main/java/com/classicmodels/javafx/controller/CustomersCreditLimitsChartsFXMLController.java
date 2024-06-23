@@ -91,16 +91,21 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
     @FXML
     public void getCountriesList() {
 
-        Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(BASE_URL + "/countries");
-
-        Invocation.Builder request = target.request();
-
         Response response = null;
 
-        statusInfo = null;
+        Client client = null;
 
         try {
+
+            ClientBuilder clientBuilder = ClientBuilder.newBuilder();
+            client = clientBuilder.sslContext(ClassicModelsSSL.getInstance().getSSLContext()).build();
+            WebTarget target = client.target(BASE_URL + "/countries");
+
+            Invocation.Builder request = target.request();
+
+            // Response response = null;
+            statusInfo = null;
+
             // request.
             response = request.accept(MediaType.APPLICATION_XML).get();
             //  response.
@@ -119,6 +124,8 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
              */
             //Creating a dialog
             //    customersDTO = target.queryParam("id", id).request().get(CustomersDTO.class);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         } finally {
             if (response != null) {
                 response.close();
@@ -173,21 +180,26 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
 //set title for x axis
 
 //dataset on 1999
-        Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(BASE_URL + "/creditlimits");
-
-        Invocation.Builder request = (Invocation.Builder) target.queryParam("country", country).request();
-
         Response response = null;
 
-        statusInfo = null;
-
-        CreditLimitsDTO message = null;
+        Client client = null;
 
         List<BigDecimal> creditLimits = null;
 
-        // GenericType<List<Integer>> message1  = null;
         try {
+
+            ClientBuilder clientBuilder = ClientBuilder.newBuilder();
+            client = clientBuilder.sslContext(ClassicModelsSSL.getInstance().getSSLContext()).build();
+            WebTarget target = client.target(BASE_URL + "/creditlimits");
+
+            Invocation.Builder request = (Invocation.Builder) target.queryParam("country", country).request();
+
+            //   Response response = null;
+            statusInfo = null;
+
+            CreditLimitsDTO message = null;
+
+            // GenericType<List<Integer>> message1  = null;
             // request.
             response = request.accept(MediaType.APPLICATION_XML).get();
             //  response.
@@ -199,6 +211,8 @@ public class CustomersCreditLimitsChartsFXMLController implements Initializable 
             logger.info("message --> " + creditLimits);
             Collections.sort(creditLimits);
             logger.info("message sorted --> " + creditLimits);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         } finally {
             if (response != null) {
                 response.close();

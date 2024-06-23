@@ -433,29 +433,25 @@ public class CustomersController implements Initializable {
         //customersDTO = null;
         String id = customerNumberTextField.getText();
         logger.info("fasfasfs --> " + customerNumberTextField.getText());
-        
+
         Response response = null;
-        
-        Client client =  null;
-        
-        try 
-        {
-        
-        ClientBuilder clientBuilder = ClientBuilder.newBuilder();
-        client = clientBuilder.sslContext(ClassicModelsSSL.getInstance().getSSLContext()).build();
-                
-     
-        WebTarget target = client.target(BASE_URL + "/single");
 
-        // String findCustomersPath = FULL_PATH ;
-        // ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
-        //    ResteasyWebTarget target = client.target(BASE_URL + "/single");
-        Invocation.Builder request = (Invocation.Builder) target.queryParam("id", id).request(MediaType.APPLICATION_XML);
-       
+        Client client = null;
 
-        statusInfo = null;
+        try {
 
-        
+            ClientBuilder clientBuilder = ClientBuilder.newBuilder();
+            client = clientBuilder.sslContext(ClassicModelsSSL.getInstance().getSSLContext()).build();
+
+            WebTarget target = client.target(BASE_URL + "/single");
+
+            // String findCustomersPath = FULL_PATH ;
+            // ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
+            //    ResteasyWebTarget target = client.target(BASE_URL + "/single");
+            Invocation.Builder request = (Invocation.Builder) target.queryParam("id", id).request(MediaType.APPLICATION_XML);
+
+            statusInfo = null;
+
             //     response = request.get();
             response = request.get();
             statusInfo = response.getStatusInfo().toString().trim();
@@ -705,15 +701,20 @@ public class CustomersController implements Initializable {
 
         // ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
         // ResteasyWebTarget target = client.target(BASE_URL);
-        Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(BASE_URL);
-
-        Invocation.Builder request = target.request();
         Response response = null;
 
-        statusInfo = null;
+        Client client = null;
 
         try {
+
+            ClientBuilder clientBuilder = ClientBuilder.newBuilder();
+            client = clientBuilder.sslContext(ClassicModelsSSL.getInstance().getSSLContext()).build();
+            WebTarget target = client.target(BASE_URL);
+
+            Invocation.Builder request = target.request();
+
+            statusInfo = null;
+
             //     response = request.get();
             response = target.request().post(Entity.xml(customersDTO));
             String message = response.readEntity(String.class).toString().trim();
@@ -734,6 +735,8 @@ public class CustomersController implements Initializable {
             //Creating a dialog
 
             //    customersDTO = target.queryParam("id", id).request().get(CustomersDTO.class);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         } finally {
             if (response != null) {
                 response.close();

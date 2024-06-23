@@ -151,49 +151,52 @@
                         
                 </configuration>
             </plugin>
-        <!--
-            <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <version>5.0.0.Final</version>
-                <configuration>
-                    <protocol>remote-https</protocol>
-                    <hostname>localhost</hostname>
-                    <port>9990</port>
-                    <username>admin</username>
-                    <password>gur pra21.G#$</password>
-                </configuration>  
-               
-                  
-                <executions>
-                   
-                    <execution>
-                        <id>undeploy</id>
-                        <phase>clean</phase>
-                        <goals>
-                            <goal>undeploy</goal>
-                        </goals>
-                        <configuration>
-                            <ignoreMissingDeployment>true</ignoreMissingDeployment>
-                        </configuration>
-                    </execution>
-                    
-                    
-      
-                    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
+           
+                        <plugin>
+                            <groupId>org.wildfly.plugins</groupId>
+                            <artifactId>wildfly-maven-plugin</artifactId>
+                            <version>5.0.0.Final</version>
+                            <configuration>
+                               <!--   <jbossHome>/usr/share/EAP-7.4.0</jbossHome>
+                              <protocol>https-remoting</protocol> -->
+                                <hostname>localhost</hostname>
+                                <port>9990</port> 
+                                <username>admin</username>
+                                <password>gur pra21.G#$</password> 
+                                <timeout>300</timeout>
+                                <startupTimeout>300</startupTimeout> 
+                            </configuration>  
+                           
+                              
+                            <executions>
                                
-                </executions>
-                    
-                      
-                    
-                      
-            </plugin>
--->
+                                <execution>
+                                    <id>undeploy</id>
+                                    <phase>clean</phase>
+                                    <goals>
+                                        <goal>undeploy</goal>
+                                    </goals>
+                                    <configuration>
+                                        <ignoreMissingDeployment>true</ignoreMissingDeployment>
+                                    </configuration>
+                                </execution>
+                                
+                                
+                  
+                                <execution>
+                                    <phase>install</phase>
+                                    <goals>
+                                        <goal>deploy</goal>
+                                    </goals>
+                                </execution>
+                                           
+                            </executions>
+                                
+                                  
+                                
+                                  
+                        </plugin>
+           
             <!--
             <plugin>           
                 <groupId>org.jboss.as.plugins</groupId>
