@@ -8,3 +8,10 @@ classic-models-maven-enterprise-ear/nb-configuration.xml
 classic-models-maven-enterprise-ejb/nb-configuration.xml
 classic-models-maven-enterprise-webapp/nb-configuration.xml
 /target/
+classic-models-maven-enterprise-ear/dependency-reduced-pom.xml
+classic-models-maven-enterprise-ejb/dependency-reduced-pom.xml
+classic-models-maven-enterprise-javafx-app-client/dependency-reduced-pom.xml
+classic-models-maven-enterprise-lib/dependency-reduced-pom.xml
+classic-models-maven-enterprise-webapp/dependency-reduced-pom.xml
+dependency-reduced-pom.xml
+

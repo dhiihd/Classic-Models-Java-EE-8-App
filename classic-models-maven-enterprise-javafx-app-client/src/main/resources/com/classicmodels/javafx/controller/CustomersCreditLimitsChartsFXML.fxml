@@ -37,7 +37,7 @@
                         </Label>
                         <ListView fx:id="countriesListView" layoutX="249.0" layoutY="74.0" prefHeight="47.0" prefWidth="176.0" />
                         <Button layoutX="461.0" layoutY="74.0" mnemonicParsing="false" onAction="#getCountriesList" prefHeight="47.0" prefWidth="128.0" text="Countries List" />
-                        <Button layoutX="249.0" layoutY="134.0" mnemonicParsing="false" onAction="#generateCreditLimitsChart" prefHeight="47.0" prefWidth="136.0" text="Credit Limits Charts" />
+                        <Button layoutX="249.0" layoutY="134.0" mnemonicParsing="false" onAction="#generateCreditLimitsChart" prefHeight="47.0" prefWidth="176.0" text="Credit Limits Charts" />
                     </children>
                 </Pane>
             </children>

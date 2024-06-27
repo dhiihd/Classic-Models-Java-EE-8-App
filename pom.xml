@@ -103,12 +103,37 @@
         </dependency>
     </dependencies>
     <build>
+
+     
+      
         <plugins>
+            
+            <!--        
+                  <plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-resources-plugin</artifactId>
+                      <version>3.3.1</version>
+                      <configuration>
+                    
+                          <resources>
+                              <resource>
+                                  <directory>.</directory>
+                                  <excludes>
+                                      
+                                      <exclude>src/main/java/**/*.java</exclude>
+                                      <exclude>META-INF/maven/classic.models.maven.enterprise/${project.artifactId}/pom.xml</exclude>
+                                      <exclude>META-INF/maven/classic.models.maven.enterprise/${project.artifactId}/pom.propperties</exclude>
+                                  </excludes>
+                              </resource>
+                          </resources>
+                      </configuration>
+                  </plugin>
+            -->
                
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.3.0</version>
                 <configuration>
                     
                     <!--
@@ -144,23 +169,30 @@
                 </configuration>
             </plugin>
            
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <archive>
-                        <manifestEntries>
-                            <Implementation-Title>OWS Classic Models</Implementation-Title>
-                            <Implementation-Vendor>Aurum</Implementation-Vendor>
-                            <Permissions>all-permissions</Permissions>
-                            <Codebase>*</Codebase>
-                            <Application-Library-Allowable-Codebase>*</Application-Library-Allowable-Codebase>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
-            </plugin>
-           
+            <!--
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-shade-plugin</artifactId>
+                 <version>3.3.0</version>
+                 <executions>
+                     <execution>                   
+                     <phase>package</phase>
+                     <goals>
+                         <goal>shade</goal>
+                     </goals>
+                     <configuration>
+                         <filters>
+                             <filter>
+                                 <excludes>
+                                     <exclude>META-INF/**/pom.*</exclude>
+                                 </excludes>
+                             </filter>
+                         </filters>
+                     </configuration>
+                     </execution>
+                 </executions>
+             </plugin>
+            -->
             <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

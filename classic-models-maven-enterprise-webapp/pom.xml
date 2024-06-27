@@ -18,8 +18,9 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <!--  <resteasy.version>6.2.1.Final</resteasy.version>  -->
         <!--  <resteasy.version>3.9.3.Final</resteasy.version> -->
-        <!-- <resteasy.version>3.0.14.Final</resteasy.version> -->
-        <resteasy.version>3.15.6.Final</resteasy.version>   
+        <!--  <resteasy.version>3.0.14.Final</resteasy.version> -->
+        <resteasy.version>3.15.6.Final</resteasy.version>  
+        <!-- <resteasy.version>4.5.1.Final</resteasy.version> -->  
         <jnlpCodebase>https://localhost:8443/classic-models-maven-enterprise-webapp</jnlpCodebase>
         <java.compiler.release>11</java.compiler.release>
     </properties>
@@ -34,6 +35,39 @@
             </activation>
             <build>
                 <plugins>
+                    <!--        
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-resources-plugin</artifactId>
+                            <version>3.3.1</version>
+                            <configuration>
+                  
+                                Maven Archiver
+                                    <resource>
+                                        <directory>src/main/java</directory>
+                                    </resource>
+                                    <resource>
+                                        <directory>src/main/resources</directory>
+                                    </resource>
+                                
+                                        <resource>
+                                            <directory>src/main/webapp</directory>
+                                        </resource>
+                                        <resource>
+                                            <directory>src/main/jnlp</directory>
+                                        </resource>
+    
+                                        <excludes>
+                                            <exclude>**/pom.*</exclude>
+                                        </excludes>
+        
+                                    </resources>
+                                    
+                            </configuration>
+                        </plugin>
+        
+                    -->
+
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
@@ -304,6 +338,9 @@
                             </jarResources>
                         </jnlpFile>
                     </jnlpFiles>
+                    <!--
+            <finalName>uber-${project.artifactId}-${project.version}</finalName>
+                    -->
                 </configuration>
             </plugin>
             
@@ -364,6 +401,14 @@
                     
                     <useJvmChmod>true</useJvmChmod>
                     <failOnMissingWebXml>${failOnMissingWebXml}</failOnMissingWebXml>
+                    <!-- <packagingExcludes>**/pom.*</packagingExcludes> -->
+                    
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                    <packagingExcludes>**/*.java</packagingExcludes>
+                   
+                    
                 </configuration>
             </plugin>
            

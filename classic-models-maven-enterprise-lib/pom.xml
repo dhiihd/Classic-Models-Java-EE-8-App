@@ -91,6 +91,32 @@
             
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifestEntries>
+                            <Implementation-Title>OWS Classic Models</Implementation-Title>
+                            <Implementation-Vendor>Aurum</Implementation-Vendor>
+                            <Permissions>all-permissions</Permissions>
+                            <Codebase>*</Codebase>
+                            <Application-Library-Allowable-Codebase>*</Application-Library-Allowable-Codebase>
+                        </manifestEntries>
+                       
+                        
+                    </archive>
+                    <!--
+                    <excludes>
+                            <exclude>**/pom.xml</exclude>
+                        </excludes>
+                    
+                    -->  
+                    
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>

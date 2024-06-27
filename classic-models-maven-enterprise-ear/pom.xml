@@ -37,17 +37,6 @@
                         <version>3.3.0</version>
                         <executions>
                             <execution>
-                                <id>chmod-ear</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <configuration>
-                                    <executable>chmod</executable>
-                                    <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}.ear</commandlineArgs>
-                                </configuration>
-                            </execution>
-                            <execution>
                                 <id>chmod-libjar</id>
                                 <phase>package</phase>
                                 <goals>
@@ -56,6 +45,17 @@
                                 <configuration>
                                     <executable>chmod</executable>
                                     <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}/lib/</commandlineArgs>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>chmod-ear</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>chmod</executable>
+                                    <commandlineArgs>-R +x ${project.build.directory}/${project.build.finalName}.ear</commandlineArgs>
                                 </configuration>
                             </execution>
                         </executions>
@@ -110,6 +110,7 @@
                 </pluginManagement>
         -->    
         <plugins>
+           
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ear-plugin</artifactId>
@@ -146,7 +147,9 @@
                         </webModule>
                             
                     </modules>
-                    
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
                   
                         
                 </configuration>
