@@ -25,7 +25,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
         //  String fxml = "CustomersFXML";
-        String fxml = "Home";
+        String fxml = "HomeFXML.fxml";
         // scene = new Scene(loadFXML(fxml), 1440, 900);
         scene = new Scene(loadFXML(fxml), 1920, 1080);
         scene.getStylesheets().add("styles/colored-chart.css");
@@ -47,8 +47,8 @@ public class App extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         //  Parent root = FXMLLoader.load(getClass().getResource("gui/SplashScreen.fxml"));
-        logger.info("efasf -> " + fxml + App.class.getResource(fxml + ".fxml"));
-        fxmlLoader.setLocation(App.class.getResource(fxml + ".fxml"));
+        logger.info("efasf -> " + fxml + App.class.getResource(fxml));
+        fxmlLoader.setLocation(App.class.getResource(fxml));
         //  FXMLLoader fxmlLoader = new FXMLLoader();
         //  fxmlLoader.setLocation(getClass().getClassLoader().getResource(getResource(fxml + ".fxml"));
 
