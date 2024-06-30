@@ -37,7 +37,7 @@ import org.slf4j.Logger;
  *
  * @author dhiihd
  */
-public class CustomersController implements Initializable {
+public class CustomersFXMLController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -46,7 +46,7 @@ public class CustomersController implements Initializable {
     private CustomersService customersService = null;
 
     private static final Logger logger
-            = LoggerFactory.getLogger(CustomersController.class);
+            = LoggerFactory.getLogger(CustomersFXMLController.class);
 
     @FXML
     private Label customerNumberLabel;

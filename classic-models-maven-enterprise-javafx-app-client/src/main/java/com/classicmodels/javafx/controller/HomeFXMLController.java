@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author dhiihd
  */
-public class HomeController implements Initializable {
+public class HomeFXMLController implements Initializable {
 
     @FXML
     private Button btnCustomer;
@@ -36,7 +36,7 @@ public class HomeController implements Initializable {
     private Button btnClasses;
 
     private static final org.slf4j.Logger logger
-            = LoggerFactory.getLogger(HomeController.class);
+            = LoggerFactory.getLogger(HomeFXMLController.class);
 
     /**
      * Initializes the controller class.
@@ -53,7 +53,7 @@ public class HomeController implements Initializable {
             logger.info("Inside CustomersFXML --> ");
             App.setRoot("CustomersFXML.fxml");
         } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HomeFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -67,7 +67,7 @@ public class HomeController implements Initializable {
             // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
             // customersChartsFXMLController.initUI();
         } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HomeFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -81,7 +81,7 @@ public class HomeController implements Initializable {
             // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
             // customersChartsFXMLController.initUI();
         } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HomeFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -95,7 +95,7 @@ public class HomeController implements Initializable {
             // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
             // customersChartsFXMLController.initUI();
         } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HomeFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
