@@ -51,7 +51,7 @@ public class HomeController implements Initializable {
 
         try {
             logger.info("Inside CustomersFXML --> ");
-            App.setRoot("CustomersFXML");
+            App.setRoot("CustomersFXML.fxml");
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -62,7 +62,7 @@ public class HomeController implements Initializable {
 
         try {
             logger.info("Inside CustomersChartsFXML --> ");
-            App.setRoot("CustomersChartsFXML");
+            App.setRoot("CustomersChartsFXML.fxml");
 
             // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
             // customersChartsFXMLController.initUI();
@@ -76,7 +76,7 @@ public class HomeController implements Initializable {
 
         try {
             logger.info("Inside PaymentsChartsFXML --> ");
-            App.setRoot("PaymentsChartsFXML");
+            App.setRoot("PaymentsChartsFXML.fxml");
 
             // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
             // customersChartsFXMLController.initUI();
@@ -90,7 +90,7 @@ public class HomeController implements Initializable {
 
         try {
             logger.info("Inside CustomersCreditLimitsChartsFXML --> ");
-            App.setRoot("CustomersCreditLimitsChartsFXML");
+            App.setRoot("CustomersCreditLimitsChartsFXML.fxml");
 
             // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
             // customersChartsFXMLController.initUI();

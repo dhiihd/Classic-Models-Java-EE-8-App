@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane id="anchorPane" prefHeight="1132.0" prefWidth="1949.0" styleClass=".data0.chart-bar" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.classicmodels.javafx.controller.PaymentsChartsFXMLController">
     
@@ -15,14 +11,14 @@
     <stylesheets>
         <URL value="@/styles/colored-chart.css" />
     </stylesheets>
-    <fx:include source="ClassicModelsHeaderFXML.fxml"/>
+    <fx:include source="ClassicModelsHeaderFXML.fxml" />
    
-    <LineChart fx:id="classicModelsPaymentsChart" layoutX="207.0" layoutY="246.0" prefHeight="524.0" prefWidth="1373.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Classic Models Payments">
+    <LineChart fx:id="classicModelsPaymentsChart" layoutX="303.0" layoutY="254.0" prefHeight="723.0" prefWidth="1286.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Classic Models Payments">
         <xAxis>
-            <NumberAxis label="Year of Payments" side="BOTTOM" />
+            <NumberAxis label="Year of Payments" side="BOTTOM" lowerBound="2010" upperBound="2024" autoRanging="false" tickUnit="1"/>
         </xAxis>
         <yAxis>
-            <NumberAxis label="Amount" side="LEFT" />
+            <NumberAxis label="Amount" prefHeight="619.0" prefWidth="57.0" side="LEFT" />
         </yAxis>
     </LineChart>
     <!--

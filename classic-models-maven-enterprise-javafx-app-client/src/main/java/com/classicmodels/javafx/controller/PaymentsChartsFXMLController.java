@@ -105,7 +105,7 @@ public class PaymentsChartsFXMLController implements Initializable {
         xAxis.setLabel("Year of Payments");
         //  xAxis.setTickLabelRotation(90);
 //set title for y axis
-        yAxis.setLabel("Amount");
+        yAxis.setLabel("Amount in $");
         /*yAxis.setAutoRanging(false);
         yAxis.setLowerBound(20000);
         yAxis.setUpperBound(200000);
