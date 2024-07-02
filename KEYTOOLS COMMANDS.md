@@ -1,4 +1,4 @@
-$ keytool -genkeypair -alias ulctest -keyalg RSA -keysize 2048 -validity 365 -keystore classicModelsKeyStore.server.keystore   -storepass ulctest -ext "SAN:c=DNS:localhost,IP:127.0.0.1" -deststoretype pkcs12
+$ keytool -genkeypair -alias ulctest -keyalg RSA -keysize 2048 -validity 3650 -keystore classicModelsKeyStore.server.keystore   -storepass ulctest -ext "SAN:c=DNS:localhost,IP:127.0.0.1" -deststoretype pkcs12
 
 $ keytool -importkeystore -srckeystore classicModelsKeyStore.server.keystore -destkeystore classicModelsKeyStore.server.keystore -deststoretype pkcs12
 

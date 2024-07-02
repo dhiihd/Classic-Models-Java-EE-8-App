@@ -24,8 +24,6 @@
         <servlet-name>webresources</servlet-name>
         <url-pattern>/webresources/*</url-pattern>
     </servlet-mapping>
-    
-  
     <servlet-mapping>
               <servlet-name>javax.ws.rs.core.Application</servlet-name>
               <url-pattern>/webresources/*</url-pattern>

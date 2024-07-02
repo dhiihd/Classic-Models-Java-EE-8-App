@@ -462,10 +462,20 @@
                     <archive>
                      
                         <addMavenDescriptor>false</addMavenDescriptor>
-                     
-                        <manifest>                            
+                          
+                        <manifestEntries>
+                            <Implementation-Title>OWS Classic Models</Implementation-Title>
+                            <Implementation-Vendor>Aurum</Implementation-Vendor>
+                            <Permissions>all-permissions</Permissions>
+                            <Codebase>*</Codebase>
+                            <Application-Library-Allowable-Codebase>*</Application-Library-Allowable-Codebase>
                             <mainClass>com.classicmodels.javafx.controller.App</mainClass>
-                        </manifest>
+                        </manifestEntries>
+                        <!--
+                         <manifest>                            
+                             <mainClass>com.classicmodels.javafx.controller.App</mainClass>
+                         </manifest>
+                        -->
                     </archive>
                 </configuration>
             </plugin>
