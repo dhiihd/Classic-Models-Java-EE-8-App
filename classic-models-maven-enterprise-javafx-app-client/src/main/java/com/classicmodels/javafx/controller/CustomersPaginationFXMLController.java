@@ -37,53 +37,50 @@ public class CustomersPaginationFXMLController implements Initializable {
     /**
      * Initializes the controller class.
      */
-        private static final Logger logger
+    private static final Logger logger
             = LoggerFactory.getLogger(CustomersPaginationFXMLController.class);
 
     @FXML
     private MFXPaginatedTableView customersTableView;
-    
+
     @FXML
     MFXTableColumn customerNumberColumn;
-    
+
     @FXML
     MFXTableColumn customerNameColumn;
-    
+
     @FXML
     MFXTableColumn phoneColumn;
-          
-     @FXML
+
+    @FXML
     MFXTableColumn contactLastNameColumn;
-    
+
     @FXML
     MFXTableColumn contactFirstNameColumn;
-    
+
     @FXML
     MFXTableColumn addressLine1Column;
     @FXML
     MFXTableColumn addressLine2Column;
-    
+
     @FXML
     MFXTableColumn cityColumn;
-    
+
     @FXML
     MFXTableColumn stateColumn;
-    
+
     @FXML
     MFXTableColumn postalCodeColumn;
-    
+
     @FXML
     MFXTableColumn countryColumn;
-    
+
     @FXML
     MFXTableColumn creditLimitColumn;
-    
-    
-  
+
     private String statusInfo = null;
 
     // private Dialog<String> dialog = new Dialog<String>();
-    
     private static final String BASE_URL = "https://127.0.0.1:8443/classic-models-maven-enterprise-webapp/webresources/com.classicmodels.customers";
 
     @Override
@@ -92,10 +89,8 @@ public class CustomersPaginationFXMLController implements Initializable {
         // TODO
         //  customersService = new CustomersService();
         // customersService.startTheService();
-        
-    }
 
-    
+    }
 
     @FXML
     public void findCustomersList() {
@@ -105,13 +100,10 @@ public class CustomersPaginationFXMLController implements Initializable {
 
         //customersDTO = null;
         // customersPages.getCurrentPage()..addAll(customerNumber, customerName, phone);
-       
-       
         //customerNumberColumn = new MFXTableColumn<>("Customer Number", Comparator.comparing(CustomersDTO::getCustomerNumber));
         //customerNumberColumn1.setCellValueFactory(new PropertyValueFactory<>("Customer Number"));
-      //  customerNumberColumn.setRowCellFactory(customerNumber -> new MFXTableRowCell<>(CustomersDTO::getCustomerNumber));
-      //  customerNumberColumn1.setRowCellFactory(rowCellFactory);CellValueFactory(new PropertyValueFactory<>("customerNumber"));
-        
+        //  customerNumberColumn.setRowCellFactory(customerNumber -> new MFXTableRowCell<>(CustomersDTO::getCustomerNumber));
+        //  customerNumberColumn1.setRowCellFactory(rowCellFactory);CellValueFactory(new PropertyValueFactory<>("customerNumber"));
         customerNumberColumn.setRowCellFactory(transaction -> new MFXTableRowCell<>(CustomersDTO::getCustomerNumber));
         customerNameColumn.setRowCellFactory(transaction -> new MFXTableRowCell<>(CustomersDTO::getCustomerName));
         contactLastNameColumn.setRowCellFactory(transaction -> new MFXTableRowCell<>(CustomersDTO::getContactLastName));
@@ -124,26 +116,24 @@ public class CustomersPaginationFXMLController implements Initializable {
         postalCodeColumn.setRowCellFactory(transaction -> new MFXTableRowCell<>(CustomersDTO::getPostalCode));
         countryColumn.setRowCellFactory(transaction -> new MFXTableRowCell<>(CustomersDTO::getCountry));
         creditLimitColumn.setRowCellFactory(transaction -> new MFXTableRowCell<>(CustomersDTO::getCreditLimit));
- 
-       
+
         customersTableView.getFilters().addAll(
-                    new IntegerFilter<>("Customer Number", CustomersDTO::getCustomerNumber),
-                    new StringFilter<>("Customer Name", CustomersDTO::getCustomerName),
-                    new StringFilter<>("Phone", CustomersDTO::getPhone),
-                    new StringFilter<>("Contact FirstName", CustomersDTO::getContactFirstName),
-                    new StringFilter<>("Contact LastName", CustomersDTO::getContactLastName),
-                    new StringFilter<>("City", CustomersDTO::getCity),
-                    new StringFilter<>("Contact AddressLine1", CustomersDTO::getAddressLine1),
-                    new StringFilter<>("Contact AddressLine2", CustomersDTO::getAddressLine2),
-                    new StringFilter<>("State", CustomersDTO::getState),
-                    new StringFilter<>("PostalCode", CustomersDTO::getPostalCode),
-                    new StringFilter<>("Country", CustomersDTO::getCountry),
-                    new BigDecimalFilter<>("CreditLimit", CustomersDTO::getCreditLimit)
-            );
-      
+                new IntegerFilter<>("Customer Number", CustomersDTO::getCustomerNumber),
+                new StringFilter<>("Customer Name", CustomersDTO::getCustomerName),
+                new StringFilter<>("Phone", CustomersDTO::getPhone),
+                new StringFilter<>("Contact FirstName", CustomersDTO::getContactFirstName),
+                new StringFilter<>("Contact LastName", CustomersDTO::getContactLastName),
+                new StringFilter<>("City", CustomersDTO::getCity),
+                new StringFilter<>("Contact AddressLine1", CustomersDTO::getAddressLine1),
+                new StringFilter<>("Contact AddressLine2", CustomersDTO::getAddressLine2),
+                new StringFilter<>("State", CustomersDTO::getState),
+                new StringFilter<>("PostalCode", CustomersDTO::getPostalCode),
+                new StringFilter<>("Country", CustomersDTO::getCountry),
+                new BigDecimalFilter<>("CreditLimit", CustomersDTO::getCreditLimit)
+        );
+
         //customersTableView.getItems().setAll(customerDTOList);
         //customersTableView.setItems(customerDTOList);
-        
         Response response = null;
         Client client = null;
 
@@ -167,22 +157,19 @@ public class CustomersPaginationFXMLController implements Initializable {
             logger.info("Inside findCustomersList()" + response);
             logger.info("statusInfo --> " + statusInfo);
             if (statusInfo.equals("OK")) {
-                 CustomersListDTO message = response.readEntity(CustomersListDTO.class);
-            logger.info("Inside getCustomersList()");
-            ObservableList<CustomersDTO> observableArrayList
-                    = (ObservableList<CustomersDTO>) FXCollections.observableArrayList(message.getCustomersList());
-            customersTableView.setItems(observableArrayList);
-            statusInfo = response.getStatusInfo().toString().trim();
-            logger.info("message --> " + message.getCustomersList());
+                CustomersListDTO message = response.readEntity(CustomersListDTO.class);
+                logger.info("Inside getCustomersList()");
+                ObservableList<CustomersDTO> observableArrayList
+                        = (ObservableList<CustomersDTO>) FXCollections.observableArrayList(message.getCustomersList());
+                customersTableView.setItems(observableArrayList);
+                statusInfo = response.getStatusInfo().toString().trim();
+                logger.info("message --> " + message.getCustomersList());
                 // dialog.setContentText("Customers row found successfully");
-               
-            } 
-            
-        //    dialog.showAndWait();
-              
-              
-            //    customersDTO = target.queryParam("id", id).request().get(CustomersTableDTO.class);
 
+            }
+
+            //    dialog.showAndWait();
+            //    customersDTO = target.queryParam("id", id).request().get(CustomersTableDTO.class);
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -195,9 +182,7 @@ public class CustomersPaginationFXMLController implements Initializable {
             }
         }
 
-      
         //  customersDTO = null;
     }
-
 
 }

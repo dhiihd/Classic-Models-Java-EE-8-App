@@ -45,30 +45,30 @@
                             <tableColumns>
                                     
                                                              
-                               <MFXTableColumn fx:id="customerNumberColumn" prefHeight="84.0" prefWidth="191.0" text="Customer Number" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="customerNumberColumn" prefHeight="84.0" prefWidth="191.0" text="Customer Number" textAlignment="CENTER" />
                                 <MFXTableColumn fx:id="customerNameColumn" prefHeight="84.0" prefWidth="291.0" text="Customer Name" textAlignment="CENTER" />
                                    
                                 
-                               <MFXTableColumn fx:id="phoneColumn" prefHeight="20.0" prefWidth="272.0" text="Phone" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="phoneColumn" prefHeight="20.0" prefWidth="272.0" text="Phone" textAlignment="CENTER" />
                           
                               
-                               <MFXTableColumn fx:id="contactFirstNameColumn" prefHeight="62.0" prefWidth="331.0" text="Contact FirstName" textAlignment="CENTER" />
-                               <MFXTableColumn fx:id="contactLastNameColumn" prefHeight="84.0" prefWidth="306.0" text="Contact LastName" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="contactFirstNameColumn" prefHeight="62.0" prefWidth="331.0" text="Contact FirstName" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="contactLastNameColumn" prefHeight="84.0" prefWidth="306.0" text="Contact LastName" textAlignment="CENTER" />
                                     
-                               <MFXTableColumn fx:id="addressLine2Column" prefHeight="84.0" prefWidth="161.0" text="Address Line1" textAlignment="CENTER" />
-                               <MFXTableColumn fx:id="addressLine1Column" prefWidth="150.0" text="Address Line2" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="addressLine2Column" prefHeight="84.0" prefWidth="161.0" text="Address Line1" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="addressLine1Column" prefWidth="150.0" text="Address Line2" textAlignment="CENTER" />
                                                             
-                               <MFXTableColumn fx:id="cityColumn" prefWidth="203.0" text="City" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="cityColumn" prefWidth="203.0" text="City" textAlignment="CENTER" />
                                    
                                 
-                               <MFXTableColumn fx:id="stateColumn" prefHeight="40.0" prefWidth="155.0" text="State" textAlignment="CENTER" />
-                               <MFXTableColumn fx:id="postalCodeColumn" prefWidth="150.0" text="Postal Code" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="stateColumn" prefHeight="40.0" prefWidth="155.0" text="State" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="postalCodeColumn" prefWidth="150.0" text="Postal Code" textAlignment="CENTER" />
                                     
                                                              
-                               <MFXTableColumn fx:id="countryColumn" prefWidth="203.0" text="Country" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="countryColumn" prefWidth="203.0" text="Country" textAlignment="CENTER" />
                                    
                                 
-                               <MFXTableColumn fx:id="creditLimitColumn" prefHeight="84.0" prefWidth="372.0" text="Credit Limit" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="creditLimitColumn" prefHeight="84.0" prefWidth="372.0" text="Credit Limit" textAlignment="CENTER" />
                            
                               
                                

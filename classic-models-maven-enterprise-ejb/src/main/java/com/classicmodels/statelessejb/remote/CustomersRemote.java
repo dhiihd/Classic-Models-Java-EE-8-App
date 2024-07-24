@@ -40,10 +40,6 @@ public interface CustomersRemote {
     public List<BigDecimal> findCustomerCreditLimits(String country);
 
     //public Collection<String> findCountries();
-
     public Collection<CustomersDTO> findCustomersList();
 
-  
-
-    
 }

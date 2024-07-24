@@ -88,7 +88,7 @@ public class CustomersFacade extends AbstractFacade implements CustomersRemote {
         logger.info("countriesList --> " + countriesList);
         return countriesList;
     }
-    
+
     public Collection<CustomersDTO> findCustomersList() {
         logger.info("Inside findCustomersList");
         Collection<Customers> customersList = em.createNamedQuery("Customers.findCustomersList")

@@ -98,7 +98,7 @@ public class HomeFXMLController implements Initializable {
             Logger.getLogger(HomeFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handleButtonClicks4(ActionEvent event) {
 

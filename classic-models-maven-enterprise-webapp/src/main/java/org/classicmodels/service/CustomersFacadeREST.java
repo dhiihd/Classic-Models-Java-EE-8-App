@@ -150,8 +150,7 @@ public class CustomersFacadeREST {
         }
 
     }
-    
-    
+
     @GET
     @Path("/countries")
     @Produces({MediaType.APPLICATION_XML})
@@ -192,7 +191,6 @@ public class CustomersFacadeREST {
         } 
          */
     }
-    
 
     @GET
     @Path("/findCustomersList")

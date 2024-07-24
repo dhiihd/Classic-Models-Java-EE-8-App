@@ -54,7 +54,7 @@ import lombok.Setter;
     @NamedQuery(name = "Customers.findCustomerCreditLimits", query = "SELECT DISTINCT(c.creditLimit) FROM Customers c WHERE c.country = :country"),
     @NamedQuery(name = "Customers.findCountries", query = "SELECT DISTINCT(c.country) FROM Customers c"),
     @NamedQuery(name = "Customers.findCustomersList", query = "SELECT c FROM Customers c")
-   })
+})
 
 public class Customers implements Serializable {
 
