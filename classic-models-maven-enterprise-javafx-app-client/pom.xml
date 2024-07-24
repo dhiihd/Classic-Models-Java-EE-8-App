@@ -10,11 +10,10 @@
     <groupId>classic.models.maven.enterprise</groupId>
     <artifactId>classic-models-maven-enterprise-javafx-app-client</artifactId>
     <version>1.0-RELEASE</version>
-  
     <packaging>app-client</packaging> 
-
     <name>Classic Models JavaFX App Client</name>
     <description>Classic Models JavaFX App Client</description>
+    
     <profiles>
         <profile>
             <id>windows</id>
@@ -373,8 +372,7 @@
                     <!--
                     <excludes>
                             <exclude>**/pom.xml</exclude>
-                        </excludes>
-                    
+                    </excludes>
                     -->  
                     
                 </configuration>

@@ -36,7 +36,7 @@
                         <FontAwesomeIconView fill="#0A3161" glyphName="VIDEO_CAMERA" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnSettings" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks2" prefHeight="199.0" prefWidth="321.0" text="Products" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button fx:id="btnSettings" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks4" prefHeight="199.0" prefWidth="321.0" text="Products" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <graphic>
                         <FontAwesomeIconView fill="#0A3161" glyphName="SLIDERS" size="50" />
                     </graphic>

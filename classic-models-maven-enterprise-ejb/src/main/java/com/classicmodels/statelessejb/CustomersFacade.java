@@ -88,6 +88,14 @@ public class CustomersFacade extends AbstractFacade implements CustomersRemote {
         logger.info("countriesList --> " + countriesList);
         return countriesList;
     }
+    
+    public Collection<CustomersDTO> findCustomersList() {
+        logger.info("Inside findCustomersList");
+        Collection<Customers> customersList = em.createNamedQuery("Customers.findCustomersList")
+                .getResultList();
+        logger.info("customersList --> " + customersList);
+        return CustomersMapper.INSTANCE.toDataObject(customersList, new CycleAvoidingMappingContext());
+    }
 
     public List<BigDecimal> findCustomerCreditLimits(String country) {
         logger.info("Inside findCustomerCreditLimits");

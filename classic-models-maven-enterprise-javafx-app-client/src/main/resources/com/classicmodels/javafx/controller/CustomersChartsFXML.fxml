@@ -18,7 +18,7 @@
     </stylesheets>
     <fx:include source="ClassicModelsHeaderFXML.fxml"/>
    
-    <BarChart fx:id="worldPopulationChart" layoutX="379.0" layoutY="232.0" prefHeight="702.0" prefWidth="1215.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Emotions of people">
+    <BarChart fx:id="worldPopulationChart" layoutX="379.0" layoutY="232.0" prefHeight="702.0" prefWidth="1215.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@/styles/colored-chart.css" title="Emotions of people">
         <xAxis>
             <CategoryAxis label="Percentage" side="BOTTOM" />
         </xAxis>

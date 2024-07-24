@@ -98,5 +98,19 @@ public class HomeFXMLController implements Initializable {
             Logger.getLogger(HomeFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @FXML
+    private void handleButtonClicks4(ActionEvent event) {
+
+        try {
+            logger.info("Inside CustomersPaginationFXMLController --> ");
+            App.setRoot("CustomersPaginationFXML.fxml");
+
+            // CustomersChartsFXMLController customersChartsFXMLController = new CustomersChartsFXMLController();
+            // customersChartsFXMLController.initUI();
+        } catch (IOException ex) {
+            Logger.getLogger(HomeFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

@@ -13,7 +13,7 @@
     </stylesheets>
     <fx:include source="ClassicModelsHeaderFXML.fxml" />
    
-    <LineChart fx:id="classicModelsPaymentsChart" layoutX="303.0" layoutY="254.0" prefHeight="723.0" prefWidth="1286.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@../../../../styles/colored-chart.css" title="Classic Models Payments">
+    <LineChart fx:id="classicModelsPaymentsChart" layoutX="303.0" layoutY="254.0" prefHeight="723.0" prefWidth="1286.0" style="-fx-bar-fill:#0A3161" styleClass="s2" stylesheets="@/styles/colored-chart.css" title="Classic Models Payments">
         <xAxis>
             <NumberAxis label="Year of Payments" side="BOTTOM" lowerBound="2010" upperBound="2024" autoRanging="false" tickUnit="1"/>
         </xAxis>

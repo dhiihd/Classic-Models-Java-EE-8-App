@@ -23,6 +23,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import com.classicmodels.dto.CountriesDTO;
 import com.classicmodels.dto.CreditLimitsDTO;
+import com.classicmodels.dto.CustomersListDTO;
 import java.math.BigDecimal;
 import javax.ws.rs.PathParam;
 import org.slf4j.Logger;
@@ -149,7 +150,8 @@ public class CustomersFacadeREST {
         }
 
     }
-
+    
+    
     @GET
     @Path("/countries")
     @Produces({MediaType.APPLICATION_XML})
@@ -177,6 +179,48 @@ public class CustomersFacadeREST {
          */
         if (countriesDTO != null) {
             return Response.ok().entity(countriesDTO).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        //  return Response.ok(stringWriter.toString(), MediaType.APPLICATION_XML).build();       
+        /*
+        GenericEntity<List<String>> entity = new GenericEntity<List<String>>(countriesCollection) {};
+        if (countriesCollection != null) {
+            return Response.ok().entity(entity).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        } 
+         */
+    }
+    
+
+    @GET
+    @Path("/findCustomersList")
+    @Produces({MediaType.APPLICATION_XML})
+    public Response findCustomersList() {
+        logger.info("Inside find findCountries --> ");
+
+        Collection<CustomersDTO> customersCollection = customersRemote.findCustomersList();
+        logger.info("customersCollection --> " + customersCollection);
+        //   return countriesCollection;
+        //   StringWriter stringWriter = new StringWriter();
+        CustomersListDTO customersListDTO = new CustomersListDTO();
+        customersListDTO.setCustomersList(customersCollection);
+        /*
+        try {
+            JAXBContext jc = JAXBContext.newInstance(CountriesDTO.class);
+        CountriesDTO  content = new CountriesDTO();
+        content.setCountries(countriesCollection);
+
+        Marshaller marshaller = jc.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        marshaller.marshal(content, System.out);
+        } catch (JAXBException e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        }
+         */
+        if (customersListDTO != null) {
+            return Response.ok().entity(customersListDTO).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
