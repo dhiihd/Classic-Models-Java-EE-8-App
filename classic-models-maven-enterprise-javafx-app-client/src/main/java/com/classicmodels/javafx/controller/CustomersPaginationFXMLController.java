@@ -18,6 +18,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableView;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.Response;
@@ -116,7 +117,7 @@ public class CustomersPaginationFXMLController implements Initializable {
         postalCodeColumn.setRowCellFactory(transaction -> new MFXTableRowCell<>(CustomersDTO::getPostalCode));
         countryColumn.setRowCellFactory(transaction -> new MFXTableRowCell<>(CustomersDTO::getCountry));
         creditLimitColumn.setRowCellFactory(transaction -> new MFXTableRowCell<>(CustomersDTO::getCreditLimit));
-
+  //      customersTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         customersTableView.getFilters().addAll(
                 new IntegerFilter<>("Customer Number", CustomersDTO::getCustomerNumber),
                 new StringFilter<>("Customer Name", CustomersDTO::getCustomerName),
@@ -131,6 +132,10 @@ public class CustomersPaginationFXMLController implements Initializable {
                 new StringFilter<>("Country", CustomersDTO::getCountry),
                 new BigDecimalFilter<>("CreditLimit", CustomersDTO::getCreditLimit)
         );
+        
+        customersTableView.
+            setStyle("-fx-selection-bar: red; -fx-selection-bar-non-focused: salmon;");
+        
 
         //customersTableView.getItems().setAll(customerDTOList);
         //customersTableView.setItems(customerDTOList);

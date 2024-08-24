@@ -13,10 +13,10 @@
 
 <AnchorPane id="anchorPane" prefHeight="1058.0" prefWidth="1895.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.classicmodels.javafx.controller.CustomersPaginationFXMLController">
     <stylesheets>
-        <URL value="@/styles/colored-chart.css" />
+        <URL value="@../styles/colored-chart-1.css" />
     </stylesheets>
     <children>
-        <Pane prefHeight="214.0" prefWidth="1976.0" style="-fx-background-color:#0A3161" stylesheets="@/styles/colored-chart.css">
+        <Pane prefHeight="214.0" prefWidth="1976.0" style="-fx-background-color:#0A3161" stylesheets="@../styles/colored-chart-1.css">
             <children>
                 <Label layoutX="337.0" layoutY="50.0" prefHeight="77.0" prefWidth="333.0" text="Classic Models" textFill="WHITE">
                     <font>
@@ -40,40 +40,26 @@
             <children>
                 <VBox prefHeight="664.0" prefWidth="1629.0" spacing="3.0">
                     <children>
-                        <MFXPaginatedTableView fx:id="customersTableView" pagesToShow="12" prefHeight="666.0" prefWidth="1629.0" rowsPerPage="3">
-                            
-                            <tableColumns>
-                                    
+                        <MFXPaginatedTableView fx:id="customersTableView" footerVisible="false" pagesToShow="12" prefHeight="796.0" prefWidth="1663.0" rowsPerPage="15" style="-mfx-base-color: #0A3161; -mfx-color: #0A3161; -mfx-main: #0A3161;">
+                            <tableColumns>    
                                                              
-                                <MFXTableColumn fx:id="customerNumberColumn" prefHeight="84.0" prefWidth="191.0" text="Customer Number" textAlignment="CENTER" />
-                                <MFXTableColumn fx:id="customerNameColumn" prefHeight="84.0" prefWidth="291.0" text="Customer Name" textAlignment="CENTER" />
-                                   
+                                <MFXTableColumn fx:id="customerNumberColumn" prefHeight="84.0" prefWidth="144.0" style="-fx-background-color:#0A3161" text="Customer No" textAlignment="CENTER" textFill="WHITE" />
+                                <MFXTableColumn fx:id="customerNameColumn" prefHeight="84.0" prefWidth="291.0" style="-fx-background-color:#0A3161" text="Customer Name" textAlignment="CENTER" textFill="WHITE" />
                                 
-                                <MFXTableColumn fx:id="phoneColumn" prefHeight="20.0" prefWidth="272.0" text="Phone" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="phoneColumn" prefHeight="20.0" prefWidth="272.0" style="-fx-background-color:#0A3161" text="Phone" textAlignment="CENTER" textFill="WHITE" />
                           
                               
-                                <MFXTableColumn fx:id="contactFirstNameColumn" prefHeight="62.0" prefWidth="331.0" text="Contact FirstName" textAlignment="CENTER" />
-                                <MFXTableColumn fx:id="contactLastNameColumn" prefHeight="84.0" prefWidth="306.0" text="Contact LastName" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="contactFirstNameColumn" prefHeight="62.0" prefWidth="331.0" style="-fx-background-color:#0A3161" text="Contact FirstName" textAlignment="CENTER" textFill="WHITE" />
+                                <MFXTableColumn fx:id="contactLastNameColumn" prefHeight="84.0" prefWidth="306.0" style="-fx-background-color:#0A3161" text="Contact LastName" textAlignment="CENTER" textFill="WHITE" />
                                     
-                                <MFXTableColumn fx:id="addressLine2Column" prefHeight="84.0" prefWidth="161.0" text="Address Line1" textAlignment="CENTER" />
-                                <MFXTableColumn fx:id="addressLine1Column" prefWidth="150.0" text="Address Line2" textAlignment="CENTER" />
+                                <MFXTableColumn fx:id="addressLine2Column" prefHeight="84.0" prefWidth="161.0" style="-fx-background-color:#0A3161" text="Address Line1" textAlignment="CENTER" textFill="WHITE" />
+                                <MFXTableColumn fx:id="addressLine1Column" prefWidth="150.0" style="-fx-background-color:#0A3161" text="Address Line2" textAlignment="CENTER" textFill="WHITE" />
                                                             
-                                <MFXTableColumn fx:id="cityColumn" prefWidth="203.0" text="City" textAlignment="CENTER" />
-                                   
-                                
-                                <MFXTableColumn fx:id="stateColumn" prefHeight="40.0" prefWidth="155.0" text="State" textAlignment="CENTER" />
-                                <MFXTableColumn fx:id="postalCodeColumn" prefWidth="150.0" text="Postal Code" textAlignment="CENTER" />
-                                    
-                                                             
-                                <MFXTableColumn fx:id="countryColumn" prefWidth="203.0" text="Country" textAlignment="CENTER" />
-                                   
-                                
-                                <MFXTableColumn fx:id="creditLimitColumn" prefHeight="84.0" prefWidth="372.0" text="Credit Limit" textAlignment="CENTER" />
-                           
-                              
-                               
-                              
-                                
+                                <MFXTableColumn fx:id="cityColumn" prefWidth="203.0" style="-fx-background-color:#0A3161" text="City" textAlignment="CENTER" textFill="WHITE" />
+                                <MFXTableColumn fx:id="stateColumn" prefHeight="40.0" prefWidth="155.0" style="-fx-background-color:#0A3161" text="State" textAlignment="CENTER" textFill="WHITE" />
+                                <MFXTableColumn fx:id="postalCodeColumn" prefWidth="150.0" style="-fx-accent:#0A3161;-fx-background-color:#0A3161" text="Postal Code" textAlignment="CENTER" textFill="WHITE" />
+                                <MFXTableColumn fx:id="countryColumn" prefWidth="203.0" style="-fx-background-color:#0A3161" text="Country" textAlignment="CENTER" textFill="WHITE" />
+                                <MFXTableColumn fx:id="creditLimitColumn" prefHeight="84.0" prefWidth="372.0" style="-fx-background-color:#0A3161" text="Credit Limit" textAlignment="RIGHT" textFill="WHITE" />
                             </tableColumns>
                         </MFXPaginatedTableView>
                     </children>

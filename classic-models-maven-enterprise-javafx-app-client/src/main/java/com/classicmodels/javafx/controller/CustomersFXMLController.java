@@ -6,6 +6,7 @@ package com.classicmodels.javafx.controller;
 
 import com.classicmodels.dto.CustomersDTO;
 import com.classicmodels.javafx.concurrent.CustomersService;
+import io.github.palexdev.materialfx.controls.MFXTextField;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +14,7 @@ import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
@@ -27,6 +29,7 @@ import net.synedra.validatorfx.Validator;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
@@ -47,55 +50,57 @@ public class CustomersFXMLController implements Initializable {
 
     private static final Logger logger
             = LoggerFactory.getLogger(CustomersFXMLController.class);
-
+    
+    @FXML
+    private Pane customersPane;
     @FXML
     private Label customerNumberLabel;
     @FXML
-    private TextField customerNumberTextField;
+    private MFXTextField customerNumberTextField;
     @FXML
     private Label customerNameLabel;
     @FXML
-    private TextField customerNameTextField;
+    private MFXTextField customerNameTextField;
     @FXML
     private Label contactLastNameLabel;
     @FXML
-    private TextField contactLastNameTextField;
+    private MFXTextField contactLastNameTextField;
     @FXML
     private Label contactFirstNameLabel;
     @FXML
-    private TextField contactFirstNameTextField;
+    private MFXTextField contactFirstNameTextField;
     @FXML
     private Label phoneLabel;
     @FXML
-    private TextField phoneTextField;
+    private MFXTextField phoneTextField;
     @FXML
     private Label addressLine1Label;
     @FXML
-    private TextField addressLine1TextField;
+    private MFXTextField addressLine1TextField;
     @FXML
     private Label addressLine2Label;
     @FXML
-    private TextField addressLine2TextField;
+    private MFXTextField addressLine2TextField;
     @FXML
     private Label cityLabel;
     @FXML
-    private TextField cityTextField;
+    private MFXTextField cityTextField;
     @FXML
     private Label stateLabel;
     @FXML
-    private TextField stateTextField;
+    private MFXTextField stateTextField;
     @FXML
     private Label postalCodeLabel;
     @FXML
-    private TextField postalCodeTextField;
+    private MFXTextField postalCodeTextField;
     @FXML
     private Label countryLabel;
     @FXML
-    private TextField countryTextField;
+    private MFXTextField countryTextField;
     @FXML
     private Label creditLimitLabel;
     @FXML
-    private TextField creditLimitTextField;
+    private MFXTextField creditLimitTextField;
 
     @FXML
     private Button btnAddCustomers;
@@ -138,7 +143,11 @@ public class CustomersFXMLController implements Initializable {
         // TODO
         //  customersService = new CustomersService();
         // customersService.startTheService();
-
+      
+        for (Node n : customerNameTextField.lookupAll(".mfx-text-field")) {
+            n.setStyle("-fx-focus-color: salmon;");
+        }
+        
         validator = new Validator();
 
         customerNumberCheck = validator.createCheck().decorates(customerNumberTextField);
@@ -164,6 +173,8 @@ public class CustomersFXMLController implements Initializable {
         creditLimitCheck = validator.createCheck().decorates(creditLimitTextField);
 
         postalCodeCheck = validator.createCheck().decorates(postalCodeTextField);
+        
+        
 
         customerNameCheck.dependsOn("customerName", customerNameTextField.textProperty())
                 .withMethod(c -> {

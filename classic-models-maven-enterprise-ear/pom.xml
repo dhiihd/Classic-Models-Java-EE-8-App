@@ -165,7 +165,7 @@
                     <hostname>localhost</hostname>
                     <port>9990</port> 
                     <username>admin</username>
-                    <password>gur pra21.G#$</password> 
+                    <password>adminadmin</password> 
                     <timeout>300</timeout>
                     <startupTimeout>300</startupTimeout> 
                 </configuration>  

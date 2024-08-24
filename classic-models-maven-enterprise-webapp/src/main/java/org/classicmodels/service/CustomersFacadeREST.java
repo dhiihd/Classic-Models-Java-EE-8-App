@@ -25,7 +25,6 @@ import com.classicmodels.dto.CountriesDTO;
 import com.classicmodels.dto.CreditLimitsDTO;
 import com.classicmodels.dto.CustomersListDTO;
 import java.math.BigDecimal;
-import javax.ws.rs.PathParam;
 import org.slf4j.Logger;
 
 /**
